@@ -528,162 +528,162 @@ const CONFIG = {
 // ══════════════════════════════════════════════
 
 // ── DATOS DEL EXCEL (Canbu.xlsx) ──
-// Para actualizar: vuelve a subir el Excel a Claude y regenera el HTML
-const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha
-1,Fase de grupos,México,Sudáfrica,2,0,11 Jun
-2,Fase de grupos,Corea del Sur,República Checa,2,1,12 Jun
-3,Fase de grupos,Canadá,Bosnia y Herzegovina,1,1,12 Jun
-4,Fase de grupos,Catar,Suiza,1,1,13 Jun
-5,Fase de grupos,Brasil,Marruecos,1,1,14 Jun
-6,Fase de grupos,Haití,Escocia,0,1,14 Jun
-7,Fase de grupos,Estados Unidos,Paraguay,4,1,13 Jun
-8,Fase de grupos,Australia,Turquía,2,0,14 Jun
-9,Fase de grupos,Alemania,Curazao,,,14 Jun
-10,Fase de grupos,Costa de Marfil,Ecuador,,,15 Jun
-11,Dieciseisavos,Países Bajos,Japón,,,15 Jun
-12,Dieciseisavos,Suecia,Túnez,,,15 Jun
-13,Dieciseisavos,Bélgica,Egipto,,,15 Jun
-14,Dieciseisavos,Irán,Nueva Zelanda,,,16 Jun
-15,Octavos,España,Cabo Verde,,,15 Jun
-16,Octavos,Arabia Saudita,Uruguay,,,16 Jun
-17,Octavos,Francia,Senegal,,,16 Jun
-18,Octavos,Irak,Noruega,,,17 Jun
-19,Cuartos,Argentina,Argelia,,,17 Jun
-20,Cuartos,Austria,Jordania,,,17 Jun
-21,Cuartos,Portugal,RD Congo,,,17 Jun
-22,Cuartos,Uzbekistán,Colombia,,,18 Jun
-23,Semifinal,Inglaterra,Croacia,,,18 Jun
-24,Semifinal,Ghana,Panamá,,,18 Jun
-25,Semifinal,República Checa,Sudáfrica,,,18 Jun
-26,Semifinal,México,Corea del Sur,,,19 Jun
-27,Semifinal,Suiza,Bosnia y Herzegovina,,,18 Jun
-28,3er puesto,Canadá,Catar,,,19 Jun
-29,3er puesto,Escocia,Marruecos,,,20 Jun
-30,3er puesto,Brasil,Haití,,,20 Jun
-31,Final,Estados Unidos,Australia,,,19 Jun
-32,Final,Turquía,Paraguay,,,20 Jun
-33,Final,Alemania,Costa de Marfil,,,21 Jun
-34,Final,Ecuador,Curazao,,,21 Jun
-35,Final,Países Bajos,Suecia,,,20 Jun
-36,Final,Túnez,Japón,,,21 Jun
-37,Final,Bélgica,Irán,,,21 Jun
-38,Final,Nueva Zelanda,Egipto,,,22 Jun
-39,Final,España,Arabia Saudita,,,21 Jun
-40,Final,Uruguay,Cabo Verde,,,22 Jun
-41,Final,Francia,Irak,,,23 Jun
-42,Final,Noruega,Senegal,,,23 Jun
-43,Final,Argentina,Austria,,,22 Jun
-44,Final,Jordania,Argelia,,,23 Jun
-45,Final,Portugal,Uzbekistán,,,23 Jun
-46,Final,Colombia,RD Congo,,,24 Jun
-47,Final,Inglaterra,Ghana,,,24 Jun
-48,Final,Panamá,Croacia,,,24 Jun
-49,Final,República Checa,México,,,25 Jun
-50,Final,Sudáfrica,Corea del Sur,,,25 Jun
-51,Final,Suiza,Canadá,,,24 Jun
-52,Final,Bosnia y Herzegovina,Catar,,,24 Jun
-53,Final,Escocia,Brasil,,,25 Jun
-54,Final,Marruecos,Haití,,,25 Jun
-55,Final,Turquía,Estados Unidos,,,26 Jun
-56,Final,Paraguay,Australia,,,26 Jun
-57,Final,Curazao,Costa de Marfil,,,26 Jun
-58,Final,Ecuador,Alemania,,,26 Jun
-59,Final,Japón,Suecia,,,26 Jun
-60,Final,Túnez,Países Bajos,,,26 Jun
-61,Final,Egipto,Irán,,,27 Jun
-62,Final,Nueva Zelanda,Bélgica,,,27 Jun
-63,Final,Cabo Verde,Arabia Saudita,,,27 Jun
-64,Final,Uruguay,España,,,27 Jun
-65,Final,Noruega,Francia,,,26 Jun
-66,Final,Senegal,Irak,,,26 Jun
-67,Final,Argelia,Austria,,,28 Jun
-68,Final,Jordania,Argentina,,,28 Jun
-69,Final,Colombia,Portugal,,,28 Jun
-70,Final,RD Congo,Uzbekistán,,,28 Jun
-71,Final,Panamá,Inglaterra,,,28 Jun
-72,Final,Croacia,Ghana,,,28 Jun
-73,Final,Dieciseisavofinalista,1,,,CLASIFICADOS PARA DIECISEISAVOS
-74,Final,Dieciseisavofinalista,2,,,CLASIFICADOS PARA DIECISEISAVOS
-75,Final,Dieciseisavofinalista,3,,,CLASIFICADOS PARA DIECISEISAVOS
-76,Final,Dieciseisavofinalista,4,,,CLASIFICADOS PARA DIECISEISAVOS
-77,Final,Dieciseisavofinalista,5,,,CLASIFICADOS PARA DIECISEISAVOS
-78,Final,Dieciseisavofinalista,6,,,CLASIFICADOS PARA DIECISEISAVOS
-79,Final,Dieciseisavofinalista,7,,,CLASIFICADOS PARA DIECISEISAVOS
-80,Final,Dieciseisavofinalista,8,,,CLASIFICADOS PARA DIECISEISAVOS
-81,Final,Dieciseisavofinalista,9,,,CLASIFICADOS PARA DIECISEISAVOS
-82,Final,Dieciseisavofinalista,10,,,CLASIFICADOS PARA DIECISEISAVOS
-83,Final,Dieciseisavofinalista,11,,,CLASIFICADOS PARA DIECISEISAVOS
-84,Final,Dieciseisavofinalista,12,,,CLASIFICADOS PARA DIECISEISAVOS
-85,Final,Dieciseisavofinalista,13,,,CLASIFICADOS PARA DIECISEISAVOS
-86,Final,Dieciseisavofinalista,14,,,CLASIFICADOS PARA DIECISEISAVOS
-87,Final,Dieciseisavofinalista,15,,,CLASIFICADOS PARA DIECISEISAVOS
-88,Final,Dieciseisavofinalista,16,,,CLASIFICADOS PARA DIECISEISAVOS
-89,Final,Dieciseisavofinalista,17,,,CLASIFICADOS PARA DIECISEISAVOS
-90,Final,Dieciseisavofinalista,18,,,CLASIFICADOS PARA DIECISEISAVOS
-91,Final,Dieciseisavofinalista,19,,,CLASIFICADOS PARA DIECISEISAVOS
-92,Final,Dieciseisavofinalista,20,,,CLASIFICADOS PARA DIECISEISAVOS
-93,Final,Dieciseisavofinalista,21,,,CLASIFICADOS PARA DIECISEISAVOS
-94,Final,Dieciseisavofinalista,22,,,CLASIFICADOS PARA DIECISEISAVOS
-95,Final,Dieciseisavofinalista,23,,,CLASIFICADOS PARA DIECISEISAVOS
-96,Final,Dieciseisavofinalista,24,,,CLASIFICADOS PARA DIECISEISAVOS
-97,Final,Dieciseisavofinalista,25,,,CLASIFICADOS PARA DIECISEISAVOS
-98,Final,Dieciseisavofinalista,26,,,CLASIFICADOS PARA DIECISEISAVOS
-99,Final,Dieciseisavofinalista,27,,,CLASIFICADOS PARA DIECISEISAVOS
-100,Final,Dieciseisavofinalista,28,,,CLASIFICADOS PARA DIECISEISAVOS
-101,Final,Dieciseisavofinalista,29,,,CLASIFICADOS PARA DIECISEISAVOS
-102,Final,Dieciseisavofinalista,30,,,CLASIFICADOS PARA DIECISEISAVOS
-103,Final,Dieciseisavofinalista,31,,,CLASIFICADOS PARA DIECISEISAVOS
-104,Final,Dieciseisavofinalista,32,,,CLASIFICADOS PARA DIECISEISAVOS
-105,Final,2A,2B,,,Dieciseisavos de final
-106,Final,1C,2F,,,Dieciseisavos de final
-107,Final,1E,3ABCDF,,,Dieciseisavos de final
-108,Final,1F,2C,,,Dieciseisavos de final
-109,Final,2E,2I,,,Dieciseisavos de final
-110,Final,1I,3CDFGH,,,Dieciseisavos de final
-111,Final,1A,3CEFHI,,,Dieciseisavos de final
-112,Final,1L,3EHIJK,,,Dieciseisavos de final
-113,Final,1G,3AEHIJ,,,Dieciseisavos de final
-114,Final,1D,3BEFIJ,,,Dieciseisavos de final
-115,Final,1H,2J,,,Dieciseisavos de final
-116,Final,2K,2L,,,Dieciseisavos de final
-117,Final,1B,3EFGIJ,,,Dieciseisavos de final
-118,Final,2D,2G,,,Dieciseisavos de final
-119,Final,1J,2H,,,Dieciseisavos de final
-120,Final,1K,3DEIJL,,,Dieciseisavos de final
-121,Final,Octavofinalista,1,,,Dieciseisavos de final
-122,Final,Octavofinalista,2,,,Dieciseisavos de final
-123,Final,Octavofinalista,3,,,Dieciseisavos de final
-124,Final,Octavofinalista,4,,,Dieciseisavos de final
-125,Final,Octavofinalista,5,,,Dieciseisavos de final
-126,Final,Octavofinalista,6,,,Dieciseisavos de final
-127,Final,Octavofinalista,7,,,Dieciseisavos de final
-128,Final,Octavofinalista,8,,,Dieciseisavos de final
-129,Final,Octavofinalista,9,,,Dieciseisavos de final
-130,Final,Octavofinalista,10,,,Dieciseisavos de final
-131,Final,Octavofinalista,11,,,Dieciseisavos de final
-132,Final,Octavofinalista,12,,,Dieciseisavos de final
-133,Final,Octavofinalista,13,,,Dieciseisavos de final
-134,Final,Octavofinalista,14,,,Dieciseisavos de final
-135,Final,Octavofinalista,15,,,Dieciseisavos de final
-136,Final,Octavofinalista,16,,,Dieciseisavos de final
-137,Final,Cuartofinalista,1,,,Octavos de final
-138,Final,Cuartofinalista,2,,,Octavos de final
-139,Final,Cuartofinalista,3,,,Octavos de final
-140,Final,Cuartofinalista,4,,,Octavos de final
-141,Final,Cuartofinalista,5,,,Octavos de final
-142,Final,Cuartofinalista,6,,,Octavos de final
-143,Final,Cuartofinalista,7,,,Octavos de final
-144,Final,Cuartofinalista,8,,,Octavos de final
-145,Final,Semifinalista,1,,,Cuartos de final
-146,Final,Semifinalista,2,,,Cuartos de final
-147,Final,Semifinalista,3,,,Cuartos de final
-148,Final,Semifinalista,4,,,Cuartos de final
-149,Final,3º y 4º puesto,1,,,Semifinales
-150,Final,Finalista,2,,,Semifinales
-151,Final,Equipos 3,4,,,
-152,Final,Finalista,1,,,Semifinales
-153,Final,3º,4º PUESTO,,,
-154,Final,Partido 3,4,,,
+// Para actualizar resultados: edita resultados.json en GitHub directamente
+const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha,bonus
+1,Fase de grupos,México,Sudáfrica,2,0,11 Jun,1
+2,Fase de grupos,Corea del Sur,República Checa,2,1,12 Jun,1
+3,Fase de grupos,Canadá,Bosnia y Herzegovina,1,1,12 Jun,1
+4,Fase de grupos,Catar,Suiza,1,1,13 Jun,1
+5,Fase de grupos,Brasil,Marruecos,1,1,14 Jun,2
+6,Fase de grupos,Haití,Escocia,0,1,14 Jun,1
+7,Fase de grupos,Estados Unidos,Paraguay,4,1,13 Jun,1
+8,Fase de grupos,Australia,Turquía,2,0,14 Jun,1
+9,Fase de grupos,Alemania,Curazao,,,14 Jun,1
+10,Fase de grupos,Costa de Marfil,Ecuador,,,15 Jun,1
+11,Dieciseisavos,Países Bajos,Japón,,,15 Jun,1
+12,Dieciseisavos,Suecia,Túnez,,,15 Jun,1
+13,Dieciseisavos,Bélgica,Egipto,,,15 Jun,2
+14,Dieciseisavos,Irán,Nueva Zelanda,,,16 Jun,1
+15,Octavos,España,Cabo Verde,,,15 Jun,1
+16,Octavos,Arabia Saudita,Uruguay,,,16 Jun,1
+17,Octavos,Francia,Senegal,,,16 Jun,1
+18,Octavos,Irak,Noruega,,,17 Jun,1
+19,Cuartos,Argentina,Argelia,,,17 Jun,1
+20,Cuartos,Austria,Jordania,,,17 Jun,1
+21,Cuartos,Portugal,RD Congo,,,17 Jun,2
+22,Cuartos,Uzbekistán,Colombia,,,18 Jun,1
+23,Semifinal,Inglaterra,Croacia,,,18 Jun,2
+24,Semifinal,Ghana,Panamá,,,18 Jun,1
+25,Semifinal,República Checa,Sudáfrica,,,18 Jun,2
+26,Semifinal,México,Corea del Sur,,,19 Jun,1
+27,Semifinal,Suiza,Bosnia y Herzegovina,,,18 Jun,2
+28,3er puesto,Canadá,Catar,,,19 Jun,1
+29,3er puesto,Escocia,Marruecos,,,20 Jun,1
+30,3er puesto,Brasil,Haití,,,20 Jun,1
+31,Final,Estados Unidos,Australia,,,19 Jun,2
+32,Final,Turquía,Paraguay,,,20 Jun,1
+33,Final,Alemania,Costa de Marfil,,,21 Jun,1
+34,Final,Ecuador,Curazao,,,21 Jun,1
+35,Final,Países Bajos,Suecia,,,20 Jun,2
+36,Final,Túnez,Japón,,,21 Jun,1
+37,Final,Bélgica,Irán,,,21 Jun,1
+38,Final,Nueva Zelanda,Egipto,,,22 Jun,1
+39,Final,España,Arabia Saudita,,,21 Jun,2
+40,Final,Uruguay,Cabo Verde,,,22 Jun,1
+41,Final,Francia,Irak,,,23 Jun,1
+42,Final,Noruega,Senegal,,,23 Jun,1
+43,Final,Argentina,Austria,,,22 Jun,2
+44,Final,Jordania,Argelia,,,23 Jun,1
+45,Final,Portugal,Uzbekistán,,,23 Jun,1
+46,Final,Colombia,RD Congo,,,24 Jun,1
+47,Final,Inglaterra,Ghana,,,24 Jun,1
+48,Final,Panamá,Croacia,,,24 Jun,1
+49,Final,República Checa,México,,,25 Jun,1
+50,Final,Sudáfrica,Corea del Sur,,,25 Jun,1
+51,Final,Suiza,Canadá,,,24 Jun,1
+52,Final,Bosnia y Herzegovina,Catar,,,24 Jun,1
+53,Final,Escocia,Brasil,,,25 Jun,1
+54,Final,Marruecos,Haití,,,25 Jun,1
+55,Final,Turquía,Estados Unidos,,,26 Jun,1
+56,Final,Paraguay,Australia,,,26 Jun,1
+57,Final,Curazao,Costa de Marfil,,,26 Jun,1
+58,Final,Ecuador,Alemania,,,26 Jun,2
+59,Final,Japón,Suecia,,,26 Jun,1
+60,Final,Túnez,Países Bajos,,,26 Jun,1
+61,Final,Egipto,Irán,,,27 Jun,1
+62,Final,Nueva Zelanda,Bélgica,,,27 Jun,1
+63,Final,Cabo Verde,Arabia Saudita,,,27 Jun,1
+64,Final,Uruguay,España,,,27 Jun,1
+65,Final,Noruega,Francia,,,26 Jun,2
+66,Final,Senegal,Irak,,,26 Jun,1
+67,Final,Argelia,Austria,,,28 Jun,1
+68,Final,Jordania,Argentina,,,28 Jun,1
+69,Final,Colombia,Portugal,,,28 Jun,1
+70,Final,RD Congo,Uzbekistán,,,28 Jun,1
+71,Final,Panamá,Inglaterra,,,28 Jun,1
+72,Final,Croacia,Ghana,,,28 Jun,1
+73,Final,Dieciseisavofinalista,1,,,CLASIFICADOS PARA DIECISEISAVOS,1
+74,Final,Dieciseisavofinalista,2,,,CLASIFICADOS PARA DIECISEISAVOS,1
+75,Final,Dieciseisavofinalista,3,,,CLASIFICADOS PARA DIECISEISAVOS,1
+76,Final,Dieciseisavofinalista,4,,,CLASIFICADOS PARA DIECISEISAVOS,1
+77,Final,Dieciseisavofinalista,5,,,CLASIFICADOS PARA DIECISEISAVOS,1
+78,Final,Dieciseisavofinalista,6,,,CLASIFICADOS PARA DIECISEISAVOS,1
+79,Final,Dieciseisavofinalista,7,,,CLASIFICADOS PARA DIECISEISAVOS,1
+80,Final,Dieciseisavofinalista,8,,,CLASIFICADOS PARA DIECISEISAVOS,1
+81,Final,Dieciseisavofinalista,9,,,CLASIFICADOS PARA DIECISEISAVOS,1
+82,Final,Dieciseisavofinalista,10,,,CLASIFICADOS PARA DIECISEISAVOS,1
+83,Final,Dieciseisavofinalista,11,,,CLASIFICADOS PARA DIECISEISAVOS,1
+84,Final,Dieciseisavofinalista,12,,,CLASIFICADOS PARA DIECISEISAVOS,1
+85,Final,Dieciseisavofinalista,13,,,CLASIFICADOS PARA DIECISEISAVOS,1
+86,Final,Dieciseisavofinalista,14,,,CLASIFICADOS PARA DIECISEISAVOS,1
+87,Final,Dieciseisavofinalista,15,,,CLASIFICADOS PARA DIECISEISAVOS,1
+88,Final,Dieciseisavofinalista,16,,,CLASIFICADOS PARA DIECISEISAVOS,1
+89,Final,Dieciseisavofinalista,17,,,CLASIFICADOS PARA DIECISEISAVOS,1
+90,Final,Dieciseisavofinalista,18,,,CLASIFICADOS PARA DIECISEISAVOS,1
+91,Final,Dieciseisavofinalista,19,,,CLASIFICADOS PARA DIECISEISAVOS,1
+92,Final,Dieciseisavofinalista,20,,,CLASIFICADOS PARA DIECISEISAVOS,1
+93,Final,Dieciseisavofinalista,21,,,CLASIFICADOS PARA DIECISEISAVOS,1
+94,Final,Dieciseisavofinalista,22,,,CLASIFICADOS PARA DIECISEISAVOS,1
+95,Final,Dieciseisavofinalista,23,,,CLASIFICADOS PARA DIECISEISAVOS,1
+96,Final,Dieciseisavofinalista,24,,,CLASIFICADOS PARA DIECISEISAVOS,1
+97,Final,Dieciseisavofinalista,25,,,CLASIFICADOS PARA DIECISEISAVOS,1
+98,Final,Dieciseisavofinalista,26,,,CLASIFICADOS PARA DIECISEISAVOS,1
+99,Final,Dieciseisavofinalista,27,,,CLASIFICADOS PARA DIECISEISAVOS,1
+100,Final,Dieciseisavofinalista,28,,,CLASIFICADOS PARA DIECISEISAVOS,1
+101,Final,Dieciseisavofinalista,29,,,CLASIFICADOS PARA DIECISEISAVOS,1
+102,Final,Dieciseisavofinalista,30,,,CLASIFICADOS PARA DIECISEISAVOS,1
+103,Final,Dieciseisavofinalista,31,,,CLASIFICADOS PARA DIECISEISAVOS,1
+104,Final,Dieciseisavofinalista,32,,,CLASIFICADOS PARA DIECISEISAVOS,1
+105,Final,2A,2B,,,Dieciseisavos de final,1
+106,Final,1C,2F,,,Dieciseisavos de final,1
+107,Final,1E,3ABCDF,,,Dieciseisavos de final,1
+108,Final,1F,2C,,,Dieciseisavos de final,1
+109,Final,2E,2I,,,Dieciseisavos de final,1
+110,Final,1I,3CDFGH,,,Dieciseisavos de final,1
+111,Final,1A,3CEFHI,,,Dieciseisavos de final,1
+112,Final,1L,3EHIJK,,,Dieciseisavos de final,1
+113,Final,1G,3AEHIJ,,,Dieciseisavos de final,1
+114,Final,1D,3BEFIJ,,,Dieciseisavos de final,1
+115,Final,1H,2J,,,Dieciseisavos de final,1
+116,Final,2K,2L,,,Dieciseisavos de final,1
+117,Final,1B,3EFGIJ,,,Dieciseisavos de final,1
+118,Final,2D,2G,,,Dieciseisavos de final,1
+119,Final,1J,2H,,,Dieciseisavos de final,1
+120,Final,1K,3DEIJL,,,Dieciseisavos de final,1
+121,Final,Octavofinalista,1,,,Dieciseisavos de final,1
+122,Final,Octavofinalista,2,,,Dieciseisavos de final,1
+123,Final,Octavofinalista,3,,,Dieciseisavos de final,1
+124,Final,Octavofinalista,4,,,Dieciseisavos de final,1
+125,Final,Octavofinalista,5,,,Dieciseisavos de final,1
+126,Final,Octavofinalista,6,,,Dieciseisavos de final,1
+127,Final,Octavofinalista,7,,,Dieciseisavos de final,1
+128,Final,Octavofinalista,8,,,Dieciseisavos de final,1
+129,Final,Octavofinalista,9,,,Dieciseisavos de final,1
+130,Final,Octavofinalista,10,,,Dieciseisavos de final,1
+131,Final,Octavofinalista,11,,,Dieciseisavos de final,1
+132,Final,Octavofinalista,12,,,Dieciseisavos de final,1
+133,Final,Octavofinalista,13,,,Dieciseisavos de final,1
+134,Final,Octavofinalista,14,,,Dieciseisavos de final,1
+135,Final,Octavofinalista,15,,,Dieciseisavos de final,1
+136,Final,Octavofinalista,16,,,Dieciseisavos de final,1
+137,Final,Cuartofinalista,1,,,Octavos de final,1
+138,Final,Cuartofinalista,2,,,Octavos de final,1
+139,Final,Cuartofinalista,3,,,Octavos de final,1
+140,Final,Cuartofinalista,4,,,Octavos de final,1
+141,Final,Cuartofinalista,5,,,Octavos de final,1
+142,Final,Cuartofinalista,6,,,Octavos de final,1
+143,Final,Cuartofinalista,7,,,Octavos de final,1
+144,Final,Cuartofinalista,8,,,Octavos de final,1
+145,Final,Semifinalista,1,,,Cuartos de final,1
+146,Final,Semifinalista,2,,,Cuartos de final,1
+147,Final,Semifinalista,3,,,Cuartos de final,1
+148,Final,Semifinalista,4,,,Cuartos de final,1
+149,Final,3º y 4º puesto,1,,,Semifinales,1
+150,Final,Finalista,2,,,Semifinales,1
+151,Final,Equipos 3,4,,,,1
+152,Final,Finalista,1,,,Semifinales,1
+153,Final,3º,4º PUESTO,,,,1
+154,Final,Partido 3,4,,,,1
 `;
 const DATOS_PRONOSTICOS_CSV = `jugador,partido_id,gL,gV,campeon,subcampeon,tercero,bota_oro,bota_plata,bota_bronce,balon_oro,balon_plata,balon_bronce
 Ojeda,1,1,0,,,,,,,,,
@@ -1894,13 +1894,15 @@ async function fetchCSV(url) {
 //   signo ok      → signo pts
 //   signo + diff  → signo + diff pts
 //   resultado exacto → signo + diff + exacto pts  (máximo)
-function calcPoints(pronL, pronV, realL, realV, fase) {
+// Si el partido tiene bonus=2, se multiplica el total x2
+function calcPoints(pronL, pronV, realL, realV, fase, bonus) {
   if (realL === '' || realV === '') return { pts: 0, tipo: 'pending', detalle: '' };
   const rl = parseInt(realL), rv = parseInt(realV);
   const pl = parseInt(pronL), pv = parseInt(pronV);
   if (isNaN(rl) || isNaN(rv) || isNaN(pl) || isNaN(pv)) return { pts: 0, tipo: 'pending', detalle: '' };
 
   const phasePts = CONFIG.PTS[fase] ?? CONFIG.PTS['Final'];
+  const mult = (parseInt(bonus) === 2) ? 2 : 1;
   const signoPron = pl > pv ? 1 : pl < pv ? -1 : 0;
   const signoReal = rl > rv ? 1 : rl < rv ? -1 : 0;
 
@@ -1910,7 +1912,6 @@ function calcPoints(pronL, pronV, realL, realV, fase) {
   let tipo = 'sign';
   let detalle = `signo +${phasePts.signo}`;
 
-  // diff: misma diferencia de goles (ej. 2-0 y 3-1 tienen diff=2)
   const diffPron = pl - pv;
   const diffReal = rl - rv;
   if (diffPron === diffReal) {
@@ -1918,11 +1919,15 @@ function calcPoints(pronL, pronV, realL, realV, fase) {
     detalle += ` · diff +${phasePts.diff}`;
   }
 
-  // exacto: resultado exacto
   if (pl === rl && pv === rv) {
     pts += phasePts.exacto;
     tipo = 'exact';
     detalle += ` · exacto +${phasePts.exacto}`;
+  }
+
+  if (mult === 2) {
+    pts *= 2;
+    detalle += ' ×2🔥';
   }
 
   return { pts, tipo, detalle };
@@ -1935,30 +1940,39 @@ function getSign(l, v) {
 }
 
 // ── CARGA DE DATOS ──
+// Los pronósticos van embebidos en el HTML.
+// Los resultados se cargan desde resultados.json (edítalo en GitHub para actualizar).
 async function loadData() {
-  // Usar datos embebidos del Excel directamente
   try {
     const partidos = parseCSV(DATOS_PARTIDOS_CSV);
     const pronosticos = parseCSV(DATOS_PRONOSTICOS_CSV);
-    state.partidos = partidos;
-    state.pronosticos = pronosticos;
     state.players = [...new Set(
-      pronosticos
-        .filter(p => p.jugador && p.jugador !== '_resultados')
-        .map(p => p.jugador)
+      pronosticos.filter(p => p.jugador && p.jugador !== '_resultados').map(p => p.jugador)
     )];
-    // Resultados reales (fila _resultados en Pronosticos)
-    const resRows = pronosticos.filter(p => p.jugador === '_resultados');
-    const resReal = {};
-    resRows.forEach(r => {
-      if (r.partido_id === 'predicciones') {
-        resReal.campeon = r.campeon; resReal.subcampeon = r.subcampeon; resReal.tercero = r.tercero;
-      }
-      if (r.partido_id === 'premios') {
-        resReal.bota_oro = r.bota_oro; resReal.bota_plata = r.bota_plata; resReal.bota_bronce = r.bota_bronce;
-        resReal.balon_oro = r.balon_oro; resReal.balon_plata = r.balon_plata; resReal.balon_bronce = r.balon_bronce;
+    state.pronosticos = pronosticos;
+
+    // Cargar resultados desde resultados.json (se puede editar directamente en GitHub)
+    let resultados = {};
+    try {
+      const res = await fetch('resultados.json?v=' + Date.now());
+      if (res.ok) resultados = await res.json();
+    } catch(e) {
+      console.warn('No se pudo cargar resultados.json, usando datos del HTML', e);
+    }
+
+    // Aplicar resultados a los partidos
+    partidos.forEach(p => {
+      if (resultados[p.id]) {
+        p.gL = resultados[p.id].gL ?? p.gL;
+        p.gV = resultados[p.id].gV ?? p.gV;
       }
     });
+    state.partidos = partidos;
+
+    // Predicciones finales y premios reales
+    const resReal = {};
+    if (resultados['_predicciones']) Object.assign(resReal, resultados['_predicciones']);
+    if (resultados['_premios']) Object.assign(resReal, resultados['_premios']);
     state.predicciones_reales = resReal;
     state.ready = true;
 
@@ -1971,7 +1985,7 @@ async function loadData() {
 
     const now = new Date();
     document.getElementById('last-updated').textContent =
-      `Datos del Mundial 2026 · ${now.toLocaleDateString('es-ES')}`;
+      `Actualizado ${now.toLocaleDateString('es-ES')} ${now.toLocaleTimeString('es-ES', {hour:'2-digit',minute:'2-digit'})}`;
   } catch(e) {
     showError(e.message);
   }
@@ -2016,7 +2030,7 @@ function buildRanking() {
     state.partidos.forEach(partido => {
       const pick = picks.find(p => p.partido_id === partido.id);
       if (!pick) return;
-      const { pts: p, tipo } = calcPoints(pick.gL, pick.gV, partido.gL, partido.gV, partido.fase);
+      const { pts: p, tipo } = calcPoints(pick.gL, pick.gV, partido.gL, partido.gV, partido.fase, partido.bonus);
       if (tipo !== 'pending') {
         pts += p; jugados++;
         if (tipo === 'exact') exactos++;
@@ -2094,12 +2108,13 @@ function renderMatches() {
       const scoreHtml = jugado
         ? `<div class="score">${p.gL} – ${p.gV}</div>`
         : `<div class="score pending">vs</div>`;
+      const bonusTag = (parseInt(p.bonus) === 2) ? '<span style="font-size:0.65rem;font-weight:700;background:#2a1a00;color:var(--gold);border-radius:3px;padding:0.1rem 0.35rem;letter-spacing:0.05em">×2</span>' : '';
 
-      html += `<div class="match-card">
+      html += `<div class="match-card" style="${parseInt(p.bonus)===2?'border-color:#5a3a00;':''}" >
         <div class="team home">${p.local}</div>
         <div class="score-box">
           ${scoreHtml}
-          <div class="match-meta">${p.fecha ?? ''}</div>
+          <div class="match-meta">${p.fecha ?? ''} ${bonusTag}</div>
         </div>
         <div class="team away">${p.visitante}</div>
       </div>`;
@@ -2142,7 +2157,7 @@ function renderPicks() {
       const pronL = pick?.gL ?? '?';
       const pronV = pick?.gV ?? '?';
       const { pts, tipo, detalle } = pick
-        ? calcPoints(pronL, pronV, p.gL, p.gV, p.fase)
+        ? calcPoints(pronL, pronV, p.gL, p.gV, p.fase, p.bonus)
         : { pts: 0, tipo: 'pending', detalle: '' };
 
       const resultHtml = p.gL !== '' && p.gV !== ''
