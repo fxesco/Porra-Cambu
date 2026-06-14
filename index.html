@@ -438,6 +438,7 @@
 
 <div class="tabs">
   <button class="tab active" onclick="switchTab('ranking', this)">🏆 Clasificación</button>
+  <button class="tab" onclick="switchTab('upcoming', this)">🔜 Próximos</button>
   <button class="tab" onclick="switchTab('matches', this)">📅 Partidos</button>
   <button class="tab" onclick="switchTab('picks', this)">🎯 Pronósticos</button>
   <button class="tab" onclick="switchTab('champion', this)">⭐ Predicciones</button>
@@ -450,6 +451,12 @@
   <div id="panel-ranking" class="panel active">
     <div class="section-label">Clasificación general</div>
     <div id="ranking-content"><div class="loading"><div class="spinner"></div>Cargando datos...</div></div>
+  </div>
+
+  <!-- ══ PRÓXIMOS PARTIDOS ══ -->
+  <div id="panel-upcoming" class="panel">
+    <div class="section-label">Próximos 5 partidos · pronósticos de todos</div>
+    <div id="upcoming-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
   </div>
 
   <!-- ══ MATCHES ══ -->
@@ -1701,6 +1708,7 @@ async function loadData() {
 
     updateHero();
     renderRanking();
+    renderUpcoming();
     renderMatches();
     populatePlayerSelector();
     renderChampion();
@@ -1814,6 +1822,68 @@ function renderRanking() {
 
   html += '</tbody></table>';
   document.getElementById('ranking-content').innerHTML = html;
+}
+
+// ── PRÓXIMOS PARTIDOS ──
+function renderUpcoming() {
+  const pending = state.partidos
+    .filter(p => p.gL === '' && p.gV === '')
+    .slice(0, 5);
+
+  if (!pending.length) {
+    document.getElementById('upcoming-content').innerHTML =
+      '<div class="loading">No hay partidos pendientes.</div>';
+    return;
+  }
+
+  let html = '';
+
+  pending.forEach(p => {
+    const esBonus = parseInt(p.bonus) === 2;
+    const bonusTag = esBonus
+      ? '<span style="font-size:0.8rem;font-weight:900;background:#3a2200;color:var(--gold);border:1px solid var(--gold);border-radius:4px;padding:0.15rem 0.45rem;margin-left:0.5rem">×2🔥</span>'
+      : '';
+
+    // Cabecera del partido
+    html += `<div style="margin-bottom:1.5rem">
+      <div style="background:var(--card);border:${esBonus?'2px solid var(--gold)':'1px solid var(--border)'};border-radius:var(--radius);overflow:hidden">
+        <!-- Partido header -->
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:0.5rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border)">
+          <div class="team home">${p.local}</div>
+          <div class="score-box">
+            <div class="score pending" style="font-size:1.1rem">vs</div>
+            <div class="match-meta">${p.fecha ?? ''} ${bonusTag}</div>
+          </div>
+          <div class="team away">${p.visitante}</div>
+        </div>`;
+
+    // Pronósticos de cada participante
+    const picks = state.pronosticos.filter(pr => pr.partido_id === p.id && pr.jugador !== '_resultados');
+
+    if (picks.length) {
+      html += `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:0">`;
+      picks.forEach((pick, idx) => {
+        const borderRight = '1px solid var(--border)';
+        const borderBottom = '1px solid var(--border)';
+        const signo = parseInt(pick.gL) > parseInt(pick.gV) ? '1'
+                    : parseInt(pick.gL) < parseInt(pick.gV) ? '2' : 'X';
+        const signoColor = signo === '1' ? '#4a9' : signo === '2' ? '#e85' : '#99b';
+
+        html += `<div style="padding:0.6rem 0.75rem;border-right:${borderRight};border-bottom:${borderBottom};text-align:center">
+          <div style="font-size:0.7rem;color:var(--muted);font-weight:600;margin-bottom:0.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pick.jugador}</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--white);line-height:1">${pick.gL}–${pick.gV}</div>
+          <div style="font-size:0.65rem;font-weight:700;color:${signoColor};margin-top:0.1rem">${signo}</div>
+        </div>`;
+      });
+      html += `</div>`;
+    } else {
+      html += `<div style="padding:0.75rem;font-size:0.8rem;color:var(--muted);text-align:center">Sin pronósticos</div>`;
+    }
+
+    html += `</div></div>`;
+  });
+
+  document.getElementById('upcoming-content').innerHTML = html;
 }
 
 // ── PARTIDOS ──
