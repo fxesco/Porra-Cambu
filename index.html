@@ -409,6 +409,86 @@
       color: var(--lime);
     }
 
+    /* ── GRUPOS ── */
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .group-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .group-card-header {
+      background: var(--grass);
+      padding: 0.55rem 0.85rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--lime);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+
+    .group-table th {
+      text-align: center;
+      padding: 0.4rem 0.3rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-table th:first-child { text-align: left; padding-left: 0.75rem; }
+
+    .group-table td {
+      padding: 0.45rem 0.3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-table td.team-cell {
+      text-align: left;
+      padding-left: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 130px;
+    }
+
+    .group-table tr:last-child td { border-bottom: none; }
+
+    .group-table tr.qualify td.team-cell { color: var(--lime); }
+    .group-table tr.qualify td.pos-cell { color: var(--lime); font-weight: 700; }
+
+    .group-table td.pos-cell {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      width: 1.5rem;
+    }
+
+    .group-table td.pts-cell {
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .qualify-divider td {
+      border-bottom: 2px dashed var(--border) !important;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .match-card { grid-template-columns: 1fr; text-align: center; gap: 0.25rem; }
@@ -439,6 +519,7 @@
 <div class="tabs">
   <button class="tab active" onclick="switchTab('ranking', this)">🏆 Clasificación</button>
   <button class="tab" onclick="switchTab('upcoming', this)">🔜 Próximos</button>
+  <button class="tab" onclick="switchTab('groups', this)">🌍 Grupos</button>
   <button class="tab" onclick="switchTab('matches', this)">📅 Partidos</button>
   <button class="tab" onclick="switchTab('picks', this)">🎯 Pronósticos</button>
   <button class="tab" onclick="switchTab('champion', this)">⭐ Predicciones</button>
@@ -457,6 +538,12 @@
   <div id="panel-upcoming" class="panel">
     <div class="section-label">Próximos 5 partidos · pronósticos de todos</div>
     <div id="upcoming-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+  </div>
+
+  <!-- ══ GRUPOS ══ -->
+  <div id="panel-groups" class="panel">
+    <div class="section-label">Clasificación por grupos · fase de grupos</div>
+    <div id="groups-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
   </div>
 
   <!-- ══ MATCHES ══ -->
@@ -1589,6 +1676,8 @@ Presi,premios,,,,,,Julian Alvarez,Mbappe,Oyarzabal,Pedri,Raphinha,Vitinha
 _resultados,predicciones,,,,,,,,,,,
 _resultados,premios,,,,,,,,,,,
 `;
+const EQUIPO_GRUPO = {"República Checa": "A", "Sudáfrica": "A", "México": "A", "Corea del Sur": "A", "Catar": "B", "Bosnia y Herzegovina": "B", "Suiza": "B", "Canadá": "B", "Haití": "C", "Marruecos": "C", "Escocia": "C", "Brasil": "C", "Estados Unidos": "D", "Paraguay": "D", "Australia": "D", "Turquía": "D", "Alemania": "E", "Curazao": "E", "Ecuador": "E", "Costa de Marfil": "E", "Suecia": "F", "Japón": "F", "Países Bajos": "F", "Túnez": "F", "Irán": "G", "Nueva Zelanda": "G", "Bélgica": "G", "Egipto": "G", "Arabia Saudita": "H", "España": "H", "Cabo Verde": "H", "Uruguay": "H", "Irak": "I", "Senegal": "I", "Francia": "I", "Noruega": "I", "Argelia": "J", "Argentina": "J", "Jordania": "J", "Austria": "J", "RD Congo": "K", "Uzbekistán": "K", "Portugal": "K", "Colombia": "K", "Inglaterra": "L", "Croacia": "L", "Ghana": "L", "Panamá": "L"};
+
 // ══════════════════════════════════════════════
 
 // Estado global
@@ -1709,6 +1798,7 @@ async function loadData() {
     updateHero();
     renderRanking();
     renderUpcoming();
+    renderGroups();
     renderMatches();
     populatePlayerSelector();
     renderChampion();
@@ -1884,6 +1974,103 @@ function renderUpcoming() {
   });
 
   document.getElementById('upcoming-content').innerHTML = html;
+}
+
+// ── CLASIFICACIÓN POR GRUPOS ──
+// Calcula la tabla de cada grupo (Pts, PJ, GF, GC, DG) a partir de los
+// partidos de "Fase de grupos" ya jugados. Desempate: Pts > DG > GF.
+function buildGroupStandings() {
+  const grupos = {}; // letra → { equipo: {pj,pg,pe,pp,gf,gc} }
+
+  state.partidos
+    .filter(p => p.fase === 'Fase de grupos')
+    .forEach(p => {
+      const letraLocal = EQUIPO_GRUPO[p.local];
+      const letraVisit = EQUIPO_GRUPO[p.visitante];
+      const letra = letraLocal || letraVisit;
+      if (!letra) return;
+
+      if (!grupos[letra]) grupos[letra] = {};
+      [p.local, p.visitante].forEach(eq => {
+        if (!grupos[letra][eq]) {
+          grupos[letra][eq] = { equipo: eq, pj:0, pg:0, pe:0, pp:0, gf:0, gc:0 };
+        }
+      });
+
+      if (p.gL === '' || p.gV === '') return; // no jugado todavía
+      const gL = parseInt(p.gL), gV = parseInt(p.gV);
+      if (isNaN(gL) || isNaN(gV)) return;
+
+      const local = grupos[letra][p.local];
+      const visit = grupos[letra][p.visitante];
+
+      local.pj++; visit.pj++;
+      local.gf += gL; local.gc += gV;
+      visit.gf += gV; visit.gc += gL;
+
+      if (gL > gV) { local.pg++; visit.pp++; }
+      else if (gL < gV) { visit.pg++; local.pp++; }
+      else { local.pe++; visit.pe++; }
+    });
+
+  // Convertir a array ordenado por grupo, calculando pts y dg
+  const resultado = {};
+  Object.keys(grupos).sort().forEach(letra => {
+    const equipos = Object.values(grupos[letra]).map(e => ({
+      ...e,
+      pts: e.pg * 3 + e.pe,
+      dg: e.gf - e.gc,
+    }));
+    equipos.sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf);
+    resultado[letra] = equipos;
+  });
+
+  return resultado;
+}
+
+function renderGroups() {
+  const standings = buildGroupStandings();
+  const letras = Object.keys(standings);
+
+  if (!letras.length) {
+    document.getElementById('groups-content').innerHTML =
+      '<div class="loading">No hay datos de grupos.</div>';
+    return;
+  }
+
+  let html = '<div class="groups-grid">';
+
+  letras.forEach(letra => {
+    const equipos = standings[letra];
+    html += `<div class="group-card">
+      <div class="group-card-header">Grupo ${letra}</div>
+      <table class="group-table">
+        <thead><tr>
+          <th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th>
+        </tr></thead>
+        <tbody>`;
+
+    equipos.forEach((e, i) => {
+      const qualifyClass = i < 2 ? 'qualify' : '';
+      const dividerClass = i === 1 ? 'qualify-divider' : '';
+      html += `<tr class="${qualifyClass} ${dividerClass}">
+        <td class="pos-cell">${i+1}</td>
+        <td class="team-cell">${e.equipo}</td>
+        <td>${e.pj}</td><td>${e.pg}</td><td>${e.pe}</td><td>${e.pp}</td>
+        <td>${e.gf}</td><td>${e.gc}</td><td>${e.dg > 0 ? '+' : ''}${e.dg}</td>
+        <td class="pts-cell">${e.pts}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table></div>`;
+  });
+
+  html += '</div>';
+  html += `<div style="margin-top:1rem;font-size:0.75rem;color:var(--muted)">
+    <span style="color:var(--lime)">●</span> Clasificado para dieciseisavos (1º y 2º de grupo)
+  </div>`;
+
+  document.getElementById('groups-content').innerHTML = html;
 }
 
 // ── PARTIDOS ──
