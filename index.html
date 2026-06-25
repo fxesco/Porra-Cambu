@@ -409,12 +409,260 @@
       color: var(--lime);
     }
 
+    /* ── GRUPOS ── */
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .group-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .group-card-header {
+      background: var(--grass);
+      padding: 0.55rem 0.85rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--lime);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      table-layout: fixed;
+    }
+
+    .group-table th {
+      text-align: center;
+      padding: 0.35rem 0.15rem;
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Anchos por columna: # | Equipo | PJ PG PE PP GF GC DG | Pts */
+    .group-table th:nth-child(1),
+    .group-table td:nth-child(1) { width: 7%; }
+    .group-table th:nth-child(2),
+    .group-table td:nth-child(2) { width: 31%; }
+    .group-table th:nth-child(n+3):nth-child(-n+9),
+    .group-table td:nth-child(n+3):nth-child(-n+9) { width: 7%; }
+    .group-table th:nth-child(10),
+    .group-table td:nth-child(10) { width: 10%; }
+
+    .group-table th:nth-child(2) { text-align: left; padding-left: 0.4rem; }
+
+    .group-table td {
+      padding: 0.35rem 0.1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-table td.team-cell {
+      text-align: left;
+      padding-left: 0.4rem;
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.7rem;
+    }
+
+    .group-table tr:last-child td { border-bottom: none; }
+
+    .group-table tr.qualify td.team-cell { color: var(--lime); }
+    .group-table tr.qualify td.pos-cell { color: var(--lime); font-weight: 700; }
+
+    .group-table td.pos-cell {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .group-table td.pts-cell {
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .qualify-divider td {
+      border-bottom: 2px dashed var(--border) !important;
+    }
+
+    /* Mejores Terceros: 8 columnas (#, Equipo, Grp, PJ, GF, GC, DG, Pts) */
+    .thirds-table th:nth-child(n),
+    .thirds-table td:nth-child(n) { width: auto; }
+    .thirds-table th:nth-child(1), .thirds-table td:nth-child(1) { width: 8%; }
+    .thirds-table th:nth-child(2), .thirds-table td:nth-child(2) { width: 36%; }
+    .thirds-table th:nth-child(3), .thirds-table td:nth-child(3) { width: 10%; }
+    .thirds-table th:nth-child(n+4):nth-child(-n+7),
+    .thirds-table td:nth-child(n+4):nth-child(-n+7) { width: 9.5%; }
+    .thirds-table th:nth-child(8), .thirds-table td:nth-child(8) { width: 12%; }
+
+    /* ── PLAY OFF ── */
+    .playoff-wrapper {
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .playoff-board {
+      display: flex;
+      gap: 1.75rem;
+      min-width: max-content;
+      padding: 0.5rem 0.25rem;
+    }
+
+    .playoff-round {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 1rem;
+      min-width: 190px;
+    }
+
+    .playoff-round-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .playoff-matches {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex: 1;
+      gap: 1.1rem;
+    }
+
+    .po-match {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .po-match.bonus-match { border-color: var(--gold); }
+    .po-match.locked { border-color: #2a4a3a; background: linear-gradient(135deg, var(--card), #0d1f15); }
+
+    .po-slot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+      color: var(--white);
+    }
+
+    .po-slot:last-child { border-bottom: none; }
+    .po-slot:hover { background: rgba(255,255,255,0.05); }
+
+    .po-score {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .po-slot.placeholder {
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      cursor: default;
+    }
+    .po-slot.placeholder:hover { background: none; }
+
+    .po-slot.readonly { cursor: default; }
+    .po-slot.readonly:hover { background: none; }
+
+    .po-slot.winner {
+      background: rgba(200,241,53,0.08);
+      color: var(--lime);
+    }
+
+    .po-slot.loser { opacity: 0.45; }
+
+    .po-slot .po-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .po-match-label {
+      font-size: 0.6rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .po-final-trophy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-width: 140px;
+    }
+
+    .po-champion-box {
+      background: linear-gradient(135deg, #3a2200, var(--card));
+      border: 2px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      min-width: 160px;
+    }
+
+    .po-reset-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    .po-reset-btn:hover { color: var(--white); border-color: var(--lime); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .match-card { grid-template-columns: 1fr; text-align: center; gap: 0.25rem; }
       .team.home, .team.away { text-align: center; }
       .hero { padding: 1.5rem 1rem 1rem; }
       .content { padding: 1rem; }
+      .groups-grid { grid-template-columns: 1fr; }
+      .group-table { font-size: 0.66rem; }
+      .group-table th { font-size: 0.52rem; padding: 0.3rem 0.05rem; }
+      .group-table td { padding: 0.3rem 0.05rem; }
+      .group-table td.team-cell { font-size: 0.65rem; }
     }
   </style>
 </head>
@@ -439,6 +687,8 @@
 <div class="tabs">
   <button class="tab active" onclick="switchTab('ranking', this)">🏆 Clasificación</button>
   <button class="tab" onclick="switchTab('upcoming', this)">🔜 Próximos</button>
+  <button class="tab" onclick="switchTab('playoff', this)">🏟️ Play Off</button>
+  <button class="tab" onclick="switchTab('groups', this)">🌍 Grupos</button>
   <button class="tab" onclick="switchTab('matches', this)">📅 Partidos</button>
   <button class="tab" onclick="switchTab('picks', this)">🎯 Pronósticos</button>
   <button class="tab" onclick="switchTab('champion', this)">⭐ Predicciones</button>
@@ -457,6 +707,18 @@
   <div id="panel-upcoming" class="panel">
     <div class="section-label">Próximos 5 partidos · pronósticos de todos</div>
     <div id="upcoming-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+  </div>
+
+  <!-- ══ PLAY OFF ══ -->
+  <div id="panel-playoff" class="panel">
+    <div class="section-label">Cuadro eliminatorio · haz clic en el ganador de cada partido</div>
+    <div id="playoff-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
+  </div>
+
+  <!-- ══ GRUPOS ══ -->
+  <div id="panel-groups" class="panel">
+    <div class="section-label">Clasificación por grupos · fase de grupos</div>
+    <div id="groups-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
   </div>
 
   <!-- ══ MATCHES ══ -->
@@ -1589,6 +1851,11 @@ Presi,premios,,,,,,Julian Alvarez,Mbappe,Oyarzabal,Pedri,Raphinha,Vitinha
 _resultados,predicciones,,,,,,,,,,,
 _resultados,premios,,,,,,,,,,,
 `;
+const EQUIPO_GRUPO = {"República Checa": "A", "Sudáfrica": "A", "México": "A", "Corea del Sur": "A", "Catar": "B", "Bosnia y Herzegovina": "B", "Suiza": "B", "Canadá": "B", "Haití": "C", "Marruecos": "C", "Escocia": "C", "Brasil": "C", "Estados Unidos": "D", "Paraguay": "D", "Australia": "D", "Turquía": "D", "Alemania": "E", "Curazao": "E", "Ecuador": "E", "Costa de Marfil": "E", "Suecia": "F", "Japón": "F", "Países Bajos": "F", "Túnez": "F", "Irán": "G", "Nueva Zelanda": "G", "Bélgica": "G", "Egipto": "G", "Arabia Saudita": "H", "España": "H", "Cabo Verde": "H", "Uruguay": "H", "Irak": "I", "Senegal": "I", "Francia": "I", "Noruega": "I", "Argelia": "J", "Argentina": "J", "Jordania": "J", "Austria": "J", "RD Congo": "K", "Uzbekistán": "K", "Portugal": "K", "Colombia": "K", "Inglaterra": "L", "Croacia": "L", "Ghana": "L", "Panamá": "L"};
+const EQUIPO_BANDERA = {"República Checa": "🇨🇿", "Sudáfrica": "🇿🇦", "México": "🇲🇽", "Corea del Sur": "🇰🇷", "Catar": "🇶🇦", "Bosnia y Herzegovina": "🇧🇦", "Suiza": "🇨🇭", "Canadá": "🇨🇦", "Haití": "🇭🇹", "Marruecos": "🇲🇦", "Escocia": "🏴", "Brasil": "🇧🇷", "Estados Unidos": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turquía": "🇹🇷", "Alemania": "🇩🇪", "Curazao": "🇨🇼", "Ecuador": "🇪🇨", "Costa de Marfil": "🇨🇮", "Suecia": "🇸🇪", "Japón": "🇯🇵", "Países Bajos": "🇳🇱", "Túnez": "🇹🇳", "Irán": "🇮🇷", "Nueva Zelanda": "🇳🇿", "Bélgica": "🇧🇪", "Egipto": "🇪🇬", "Arabia Saudita": "🇸🇦", "España": "🇪🇸", "Cabo Verde": "🇨🇻", "Uruguay": "🇺🇾", "Irak": "🇮🇶", "Senegal": "🇸🇳", "Francia": "🇫🇷", "Noruega": "🇳🇴", "Argelia": "🇩🇿", "Argentina": "🇦🇷", "Jordania": "🇯🇴", "Austria": "🇦🇹", "RD Congo": "🇨🇩", "Uzbekistán": "🇺🇿", "Portugal": "🇵🇹", "Colombia": "🇨🇴", "Inglaterra": "🏴", "Croacia": "🇭🇷", "Ghana": "🇬🇭", "Panamá": "🇵🇦"};
+function getFlag(equipo) { return EQUIPO_BANDERA[equipo] || ''; }
+
+
 // ══════════════════════════════════════════════
 
 // Estado global
@@ -1704,11 +1971,23 @@ async function loadData() {
     if (resultados['_predicciones']) Object.assign(resReal, resultados['_predicciones']);
     if (resultados['_premios']) Object.assign(resReal, resultados['_premios']);
     state.predicciones_reales = resReal;
+    // Equipos reales asignados a cada cajón de TERCEROS (3ABCDF...). Solo
+    // los terceros necesitan fijarse a mano; 1º/2º se calculan solos.
+    state.playoffSlots = resultados['_playoff_slots'] || {};
+    // Partidos reales de eliminatoria (dieciseisavos en adelante) definidos
+    // a mano en resultados.json → "_playoff_partidos". Una vez registrados
+    // aquí ya NO se actualizan a través de la pestaña Grupos.
+    state.playoffPartidos = resultados['_playoff_partidos'] || [];
+    // Clasificación de grupos en vivo, recalculada cada carga — la usan
+    // tanto la pestaña Grupos como la resolución automática del Play Off.
+    state.groupStandings = buildGroupStandings();
     state.ready = true;
 
     updateHero();
     renderRanking();
     renderUpcoming();
+    renderGroups();
+    renderPlayoff();
     renderMatches();
     populatePlayerSelector();
     renderChampion();
@@ -1884,6 +2163,412 @@ function renderUpcoming() {
   });
 
   document.getElementById('upcoming-content').innerHTML = html;
+}
+
+// ── CLASIFICACIÓN POR GRUPOS ──
+// Calcula la tabla de cada grupo (Pts, PJ, GF, GC, DG) a partir de los
+// partidos de "Fase de grupos" ya jugados. Desempate: Pts > DG > GF.
+function buildGroupStandings() {
+  const grupos = {}; // letra → { equipo: {pj,pg,pe,pp,gf,gc} }
+
+  state.partidos
+    .filter(p => p.fase === 'Fase de grupos')
+    .forEach(p => {
+      const letraLocal = EQUIPO_GRUPO[p.local];
+      const letraVisit = EQUIPO_GRUPO[p.visitante];
+      const letra = letraLocal || letraVisit;
+      if (!letra) return;
+
+      if (!grupos[letra]) grupos[letra] = {};
+      [p.local, p.visitante].forEach(eq => {
+        if (!grupos[letra][eq]) {
+          grupos[letra][eq] = { equipo: eq, pj:0, pg:0, pe:0, pp:0, gf:0, gc:0 };
+        }
+      });
+
+      if (p.gL === '' || p.gV === '') return; // no jugado todavía
+      const gL = parseInt(p.gL), gV = parseInt(p.gV);
+      if (isNaN(gL) || isNaN(gV)) return;
+
+      const local = grupos[letra][p.local];
+      const visit = grupos[letra][p.visitante];
+
+      local.pj++; visit.pj++;
+      local.gf += gL; local.gc += gV;
+      visit.gf += gV; visit.gc += gL;
+
+      if (gL > gV) { local.pg++; visit.pp++; }
+      else if (gL < gV) { visit.pg++; local.pp++; }
+      else { local.pe++; visit.pe++; }
+    });
+
+  // Convertir a array ordenado por grupo, calculando pts y dg
+  const resultado = {};
+  Object.keys(grupos).sort().forEach(letra => {
+    const equipos = Object.values(grupos[letra]).map(e => ({
+      ...e,
+      pts: e.pg * 3 + e.pe,
+      dg: e.gf - e.gc,
+    }));
+    equipos.sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf);
+    resultado[letra] = equipos;
+  });
+
+  return resultado;
+}
+
+// Extrae el 3er clasificado de cada grupo y los ordena entre sí
+// (puntos → diferencia de goles → goles a favor), igual que hace la FIFA
+// para decidir qué 8 de los 12 terceros pasan a dieciseisavos.
+function buildBestThirds() {
+  const standings = buildGroupStandings();
+  const terceros = [];
+  Object.keys(standings).sort().forEach(letra => {
+    const equipos = standings[letra];
+    if (equipos[2]) {
+      terceros.push({ ...equipos[2], grupo: letra });
+    }
+  });
+  terceros.sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf);
+  return terceros;
+}
+
+function renderGroups() {
+  const standings = buildGroupStandings();
+  const letras = Object.keys(standings);
+
+  if (!letras.length) {
+    document.getElementById('groups-content').innerHTML =
+      '<div class="loading">No hay datos de grupos.</div>';
+    return;
+  }
+
+  let html = '<div class="groups-grid">';
+
+  letras.forEach(letra => {
+    const equipos = standings[letra];
+    html += `<div class="group-card">
+      <div class="group-card-header">Grupo ${letra}</div>
+      <table class="group-table">
+        <thead><tr>
+          <th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th>
+        </tr></thead>
+        <tbody>`;
+
+    equipos.forEach((e, i) => {
+      const qualifyClass = i < 2 ? 'qualify' : '';
+      const dividerClass = i === 1 ? 'qualify-divider' : '';
+      html += `<tr class="${qualifyClass} ${dividerClass}">
+        <td class="pos-cell">${i+1}</td>
+        <td class="team-cell">${getFlag(e.equipo)} ${e.equipo}</td>
+        <td>${e.pj}</td><td>${e.pg}</td><td>${e.pe}</td><td>${e.pp}</td>
+        <td>${e.gf}</td><td>${e.gc}</td><td>${e.dg > 0 ? '+' : ''}${e.dg}</td>
+        <td class="pts-cell">${e.pts}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table></div>`;
+  });
+
+  html += '</div>';
+
+  // ── Mejores Terceros ──
+  const terceros = buildBestThirds();
+  if (terceros.length) {
+    html += `<div class="section-label" style="margin-top:1.75rem">Mejores Terceros · 8 de 12 clasifican a dieciseisavos</div>`;
+    html += `<div class="group-card" style="max-width:480px">
+      <div class="group-card-header">🌍 Mejores Terceros</div>
+      <table class="group-table thirds-table">
+        <thead><tr>
+          <th>#</th><th>Equipo</th><th>Grp</th><th>PJ</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th>
+        </tr></thead>
+        <tbody>`;
+
+    terceros.forEach((e, i) => {
+      const qualifyClass = i < 8 ? 'qualify' : '';
+      const dividerClass = i === 7 ? 'qualify-divider' : '';
+      html += `<tr class="${qualifyClass} ${dividerClass}">
+        <td class="pos-cell">${i+1}</td>
+        <td class="team-cell">${getFlag(e.equipo)} ${e.equipo}</td>
+        <td style="font-weight:600;color:var(--muted)">${e.grupo}</td>
+        <td>${e.pj}</td>
+        <td>${e.gf}</td><td>${e.gc}</td><td>${e.dg > 0 ? '+' : ''}${e.dg}</td>
+        <td class="pts-cell">${e.pts}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table></div>`;
+  }
+
+  html += `<div style="margin-top:1rem;font-size:0.75rem;color:var(--muted)">
+    <span style="color:var(--lime)">●</span> Clasificado para dieciseisavos (1º y 2º de grupo)
+  </div>`;
+
+  document.getElementById('groups-content').innerHTML = html;
+}
+
+// ── PLAY OFF ──
+// Estructura oficial de dieciseisavos del Mundial 2026 (cruces fijos).
+// Los terceros clasificados dependen de una matriz FIFA de 495 combinaciones
+// que solo se resuelve al terminar la fase de grupos: hasta entonces se
+// muestran como etiqueta (3ABCDF = "mejor 3º entre los grupos A,B,C,D,F").
+// Edita PLAYOFF_SLOTS abajo para fijar el equipo real de cada cajón cuando
+// se confirme oficialmente.
+const DIECISEISAVOS_DEF = [
+  { id:'R16-1',  a:'2A', b:'2B' },
+  { id:'R16-2',  a:'1C', b:'2F' },
+  { id:'R16-3',  a:'1E', b:'3ABCDF' },
+  { id:'R16-4',  a:'1F', b:'2C' },
+  { id:'R16-5',  a:'2E', b:'2I' },
+  { id:'R16-6',  a:'1I', b:'3CDFGH' },
+  { id:'R16-7',  a:'1D', b:'3CEFHI' },
+  { id:'R16-8',  a:'1L', b:'3EHIJK' },
+  { id:'R16-9',  a:'1G', b:'3AEHIJ' },
+  { id:'R16-10', a:'1A', b:'3BEFIJ' },
+  { id:'R16-11', a:'1H', b:'2J' },
+  { id:'R16-12', a:'2K', b:'2L' },
+  { id:'R16-13', a:'1B', b:'3EFGIJ' },
+  { id:'R16-14', a:'2D', b:'2G' },
+  { id:'R16-15', a:'1J', b:'2H' },
+  { id:'R16-16', a:'1K', b:'3DEIJL' },
+];
+
+// Para cada cajón (1A, 2B, 3ABCDF...) resuelve el equipo real:
+//  - "1A" / "2A"  → se calculan SOLOS a partir de la clasificación de grupos
+//    en tiempo real (buildGroupStandings). Se actualizan solos al editar
+//    resultados.json, sin tocar nada más.
+//  - "3ABCDF" (terceros) → no se pueden calcular con fórmula simple porque
+//    dependen de la matriz oficial FIFA de 495 combinaciones. Se fijan a
+//    mano en resultados.json → "_playoff_slots" cuando la FIFA los confirme.
+function getSlotLabel(slot) {
+  const m = slot.match(/^([12])([A-L])$/);
+  if (m) {
+    const posicion = parseInt(m[1]) - 1; // 0=1º, 1=2º
+    const letra = m[2];
+    const tabla = state.groupStandings?.[letra];
+    if (tabla && tabla[posicion]) return tabla[posicion].equipo;
+    return slot; // grupo aún sin suficientes datos
+  }
+  // Terceros: solo manual vía _playoff_slots
+  const real = state.playoffSlots?.[slot];
+  return real && real.trim() ? real.trim() : slot;
+}
+
+// Partidos reales de eliminatoria ya jugados/programados, definidos en
+// resultados.json → "_playoff_partidos". Formato por cada entrada:
+//   { "ronda":"dieciseisavos", "match":"R16-1", "local":"México", "visitante":"Polonia",
+//     "gL":"2", "gV":"1", "fecha":"28 Jun", "bonus":1 }
+// Si tiene gL/gV con resultado, el cruce queda FIJADO (no clicable) y el
+// ganador avanza automáticamente. Si no tiene resultado, se muestran los
+// nombres reales pero el partido sigue pendiente.
+function getPlayoffPartidoFijado(matchId) {
+  const lista = state.playoffPartidos || [];
+  return lista.find(p => p.match === matchId) || null;
+}
+
+// Estado de los ganadores elegidos manualmente por el usuario (solo se usa
+// para partidos que NO están fijados por un resultado real en resultados.json).
+const PLAYOFF_STORAGE_KEY = 'porra_playoff_winners_' + (CONFIG.NOMBRE || 'default');
+
+function loadPlayoffWinners() {
+  try {
+    const raw = localStorage.getItem(PLAYOFF_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function savePlayoffWinners(winners) {
+  try { localStorage.setItem(PLAYOFF_STORAGE_KEY, JSON.stringify(winners)); } catch(e) {}
+}
+
+let playoffWinners = loadPlayoffWinners();
+
+function resetPlayoff() {
+  if (!confirm('¿Reiniciar tus pronósticos del Play Off? Los partidos ya disputados (con resultado real) no se verán afectados.')) return;
+  playoffWinners = {};
+  savePlayoffWinners(playoffWinners);
+  renderPlayoff();
+}
+
+// Determina el ganador ('A'|'B'|null) de un partido, ya sea porque está
+// fijado por un resultado real o porque el usuario lo eligió manualmente.
+function getWinnerSide(m) {
+  const fijado = getPlayoffPartidoFijado(m.id);
+  if (fijado && fijado.gL !== '' && fijado.gV !== '' && fijado.gL != null && fijado.gV != null) {
+    const gL = parseInt(fijado.gL), gV = parseInt(fijado.gV);
+    if (!isNaN(gL) && !isNaN(gV) && gL !== gV) {
+      return gL > gV ? 'A' : 'B';
+    }
+    return null; // empate sin desempate registrado: no se puede avanzar
+  }
+  return playoffWinners[m.id] || null;
+}
+
+function isMatchLocked(m) {
+  const fijado = getPlayoffPartidoFijado(m.id);
+  return !!(fijado && fijado.gL !== '' && fijado.gV !== '' && fijado.gL != null && fijado.gV != null);
+}
+
+// Construye dinámicamente las rondas siguientes (octavos, cuartos, semis, final)
+// a partir de los ganadores ya marcados/fijados de la ronda anterior.
+function buildPlayoffRounds() {
+  const rounds = [];
+
+  // Ronda 1: dieciseisavos (cruces fijos del torneo)
+  rounds.push(DIECISEISAVOS_DEF.map(m => {
+    const fijado = getPlayoffPartidoFijado(m.id);
+    // Si hay un partido real registrado, sus nombres de equipo tienen prioridad
+    const teamA = (fijado && fijado.local) ? fijado.local : getSlotLabel(m.a);
+    const teamB = (fijado && fijado.visitante) ? fijado.visitante : getSlotLabel(m.b);
+    return {
+      id: m.id, slotA: m.a, slotB: m.b,
+      teamA, teamB,
+      fijado,
+    };
+  }));
+
+  const roundNames = ['octavos', 'cuartos', 'semis', 'final'];
+  for (let r = 0; r < 4; r++) {
+    const prev = rounds[r];
+    const next = [];
+    for (let i = 0; i < prev.length; i += 2) {
+      const m1 = prev[i], m2 = prev[i+1];
+      const w1 = getWinnerSide(m1);
+      const w2 = m2 ? getWinnerSide(m2) : null;
+      const teamA = w1 === 'A' ? m1.teamA : w1 === 'B' ? m1.teamB : null;
+      const teamB = m2 ? (w2 === 'A' ? m2.teamA : w2 === 'B' ? m2.teamB : null) : null;
+      const id = `${roundNames[r]}-${(i/2)+1}`;
+      const fijado = getPlayoffPartidoFijado(id);
+      next.push({
+        id, slotA: m1.id, slotB: m2 ? m2.id : null,
+        teamA: (fijado && fijado.local) ? fijado.local : teamA,
+        teamB: (fijado && fijado.visitante) ? fijado.visitante : teamB,
+        fijado,
+      });
+    }
+    rounds.push(next);
+    if (next.length <= 1) break;
+  }
+
+  return rounds;
+}
+
+const ROUND_TITLES = ['DIECISEISAVOS', 'OCTAVOS', 'CUARTOS', 'SEMIFINALES', 'FINAL'];
+
+function renderPlayoff() {
+  const rounds = buildPlayoffRounds();
+
+  let html = `<button class="po-reset-btn" onclick="resetPlayoff()">↺ Reiniciar mis pronósticos</button>`;
+  html += `<div class="playoff-wrapper"><div class="playoff-board">`;
+
+  rounds.forEach((round, rIdx) => {
+    const title = ROUND_TITLES[rIdx] || '';
+    html += `<div class="playoff-round">
+      <div class="playoff-round-title">${title}</div>
+      <div class="playoff-matches">`;
+
+    round.forEach(m => {
+      const winner = getWinnerSide(m);
+      const locked = isMatchLocked(m);
+      const teamA = m.teamA;
+      const teamB = m.teamB;
+      const matchCls = locked ? 'po-match locked' : 'po-match';
+
+      // Si el partido está fijado con resultado real, mostramos el marcador
+      const fijado = m.fijado;
+      const tieneResultado = fijado && fijado.gL !== '' && fijado.gV !== '' && fijado.gL != null && fijado.gV != null;
+      const golesA = tieneResultado ? fijado.gL : null;
+      const golesB = tieneResultado ? fijado.gV : null;
+
+      const slotHtml = (team, side, goles) => {
+        if (!team) {
+          return `<div class="po-slot placeholder">⏳ Pendiente</div>`;
+        }
+        const isWinner = winner === side;
+        const isLoser = winner && winner !== side;
+        const clickAttr = locked ? '' : `onclick="pickWinner('${m.id}','${side}')"`;
+        const cursorCls = locked ? 'readonly' : '';
+        const cls = `po-slot ${isWinner?'winner':''} ${isLoser?'loser':''} ${cursorCls}`;
+        const lockIcon = (locked && isWinner) ? ' ✓' : '';
+        const scoreHtml = goles !== null ? `<span class="po-score">${goles}</span>` : '';
+        return `<div class="${cls}" ${clickAttr}>
+          <span>${getFlag(team)} ${team}${lockIcon}</span>
+          ${scoreHtml}
+        </div>`;
+      };
+
+      html += `<div class="${matchCls}">
+        ${slotHtml(teamA, 'A', golesA)}
+        ${slotHtml(teamB, 'B', golesB)}
+      </div>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  // Caja de campeón final
+  const finalRound = rounds[rounds.length - 1];
+  let campeonFinal = null;
+  if (finalRound && finalRound.length === 1) {
+    const w = getWinnerSide(finalRound[0]);
+    if (w === 'A') campeonFinal = finalRound[0].teamA;
+    if (w === 'B') campeonFinal = finalRound[0].teamB;
+  }
+
+  html += `<div class="po-final-trophy">
+    <div class="playoff-round-title">CAMPEÓN</div>
+    <div class="po-champion-box">${campeonFinal ? '🏆 ' + campeonFinal : '?'}</div>
+  </div>`;
+
+  html += `</div></div>`;
+
+  html += `<div style="margin-top:1rem;font-size:0.75rem;color:var(--muted);line-height:1.6">
+    <span style="color:var(--lime)">●</span> 1º/2º de cada grupo se actualizan solos según la clasificación en vivo.
+    <span style="color:var(--gold)">●</span> Las etiquetas como <strong style="color:var(--white)">3ABCDF</strong> ("mejor 3º entre A,B,C,D,F")
+    se fijan manualmente en resultados.json cuando la FIFA confirme la combinación oficial — consulta la pestaña
+    <strong style="color:var(--white)">🌍 Grupos → Mejores Terceros</strong> para ver qué 8 equipos clasifican.
+    Los partidos con <strong style="color:var(--white)">✓ resultado real</strong> quedan bloqueados; el resto puedes pronosticarlos haciendo clic en el ganador.
+  </div>`;
+
+  document.getElementById('playoff-content').innerHTML = html;
+}
+
+function pickWinner(matchId, side) {
+  const rounds = buildPlayoffRounds();
+  const match = rounds.flat().find(m => m.id === matchId);
+  if (match && isMatchLocked(match)) return; // no se puede tocar un partido ya jugado
+
+  if (playoffWinners[matchId] !== side) {
+    clearDownstreamPicks(matchId);
+  }
+  playoffWinners[matchId] = side;
+  savePlayoffWinners(playoffWinners);
+  renderPlayoff();
+}
+
+function clearDownstreamPicks(matchId) {
+  const rounds = buildPlayoffRounds();
+  let idsToClear = new Set();
+  rounds.forEach(round => {
+    round.forEach(m => {
+      if ((m.slotA === matchId || m.slotB === matchId) && !isMatchLocked(m)) {
+        idsToClear.add(m.id);
+      }
+    });
+  });
+  let changed = true;
+  while (changed) {
+    changed = false;
+    rounds.forEach(round => {
+      round.forEach(m => {
+        if ((idsToClear.has(m.slotA) || idsToClear.has(m.slotB)) && !idsToClear.has(m.id) && !isMatchLocked(m)) {
+          idsToClear.add(m.id);
+          changed = true;
+        }
+      });
+    });
+  }
+  idsToClear.forEach(id => delete playoffWinners[id]);
 }
 
 // ── PARTIDOS ──
