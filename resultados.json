@@ -316,8 +316,8 @@
       "match": "R16-1",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
+      "gL": "0",
+      "gV": "1",
       "fecha": "28 Jun",
       "bonus": 1
     },
