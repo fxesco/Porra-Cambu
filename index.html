@@ -2928,6 +2928,28 @@ function normEquipo(s) {
   return (s || '').trim().toLowerCase();
 }
 
+// Determina quién gana un cruce de eliminatoria, considerando que en
+// fútbol de eliminación directa un EMPATE no es un resultado final: hay
+// que ir a la prórroga y, si sigue empatado, a los penaltis. El marcador
+// (gL/gV) siempre refleja el resultado del partido (90/120 min), tal cual
+// se jugó; si terminó en empate, el campo opcional "penaltis" en
+// resultados.json indica quién pasó de ronda en la tanda:
+//   { "match":"R16-1", "gL":"1", "gV":"1", "penaltis":"local" }   // o "visitante"
+// Sin ese campo, un empate se trata como "todavía sin resultado de quién
+// avanza" (igual que antes de esta función existir).
+// Devuelve 'local' | 'visitante' | null.
+function resolverGanadorPartido(real) {
+  if (!real || real.gL === '' || real.gV === '' || real.gL == null || real.gV == null) return null;
+  const gL = parseInt(real.gL), gV = parseInt(real.gV);
+  if (isNaN(gL) || isNaN(gV)) return null;
+  if (gL > gV) return 'local';
+  if (gV > gL) return 'visitante';
+  // Empate: solo se puede determinar el ganador si resultados.json indica
+  // explícitamente quién pasó por penaltis.
+  if (real.penaltis === 'local' || real.penaltis === 'visitante') return real.penaltis;
+  return null;
+}
+
 // Dado el pronóstico de un cruce (equipoA/equipoB/gL/gV) y el partido real
 // fijado (local/visitante/gL/gV), calcula los puntos de signo/diff/exacto.
 // Solo se otorgan si el jugador acertó CUÁLES eran los dos equipos del cruce
@@ -3006,11 +3028,10 @@ function getEquipoClasificadoPronosticado(picks, matchId) {
 function getEquipoClasificadoReal(matchId) {
   const real = getPlayoffPartidoResuelto(matchId);
   if (real && real.gL !== '' && real.gV !== '') {
-    const gL = parseInt(real.gL), gV = parseInt(real.gV);
-    if (!isNaN(gL) && !isNaN(gV) && gL !== gV) {
-      return gL > gV ? real.local : real.visitante;
-    }
-    return null; // empate sin desempate
+    const lado = resolverGanadorPartido(real);
+    if (lado === 'local') return real.local;
+    if (lado === 'visitante') return real.visitante;
+    return null; // empate sin desempate registrado (ni gol de oro ni penaltis)
   }
   // Sin resultado real: usar la elección manual del cuadro de Play Off, si existe
   const side = playoffWinners[matchId];
@@ -3030,9 +3051,10 @@ function getEquipoClasificadoReal(matchId) {
 function getEquipoClasificadoRealEstricto(matchId) {
   const real = getPlayoffPartidoResuelto(matchId);
   if (!real || real.gL === '' || real.gV === '') return null;
-  const gL = parseInt(real.gL), gV = parseInt(real.gV);
-  if (isNaN(gL) || isNaN(gV) || gL === gV) return null;
-  return gL > gV ? real.local : real.visitante;
+  const lado = resolverGanadorPartido(real);
+  if (lado === 'local') return real.local;
+  if (lado === 'visitante') return real.visitante;
+  return null;
 }
 
 function calcPlayoffPointsForPlayer(jugador) {
@@ -4093,6 +4115,17 @@ function getSlotLabel(slot) {
 // Si tiene gL/gV con resultado, el cruce queda FIJADO (no clicable) y el
 // ganador avanza automáticamente. Si no tiene resultado, se muestran los
 // nombres reales pero el partido sigue pendiente.
+//
+// EMPATE RESUELTO POR PENALTIS: en eliminatoria un empate en gL/gV no es
+// un resultado final por sí solo — si el partido se decidió en la tanda
+// de penaltis, añade el campo opcional "penaltis" con el valor "local" o
+// "visitante" indicando quién pasó de ronda:
+//   { "match":"R16-5", "gL":"1", "gV":"1", "penaltis":"visitante", ... }
+// El marcador (gL/gV) sigue siendo el resultado real del partido (90/120
+// min) para puntuar el pronóstico de signo/diferencia/exacto — "penaltis"
+// solo decide quién avanza a la siguiente ronda. Sin este campo, un
+// empate se trata como "todavía sin determinar quién avanza" (ver
+// resolverGanadorPartido).
 function getPlayoffPartidoFijado(matchId) {
   const lista = state.playoffPartidos || [];
   return lista.find(p => p.match === matchId) || null;
@@ -4165,11 +4198,10 @@ function resetPlayoff() {
 function getWinnerSide(m) {
   const fijado = getPlayoffPartidoFijado(m.id);
   if (fijado && fijado.gL !== '' && fijado.gV !== '' && fijado.gL != null && fijado.gV != null) {
-    const gL = parseInt(fijado.gL), gV = parseInt(fijado.gV);
-    if (!isNaN(gL) && !isNaN(gV) && gL !== gV) {
-      return gL > gV ? 'A' : 'B';
-    }
-    return null; // empate sin desempate registrado: no se puede avanzar
+    const lado = resolverGanadorPartido(fijado);
+    if (lado === 'local') return 'A';
+    if (lado === 'visitante') return 'B';
+    return null; // empate sin desempate registrado (ni gol de oro ni penaltis): no se puede avanzar
   }
   return playoffWinners[m.id] || null;
 }
