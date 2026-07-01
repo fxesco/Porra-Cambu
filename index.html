@@ -1285,7 +1285,7 @@ const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha,bonus
 32,Fase de grupos,Turquía,Paraguay,,,20 Jun,1
 33,Fase de grupos,Alemania,Costa de Marfil,,,21 Jun,1
 34,Fase de grupos,Ecuador,Curazao,,,21 Jun,1
-35,Fase de grupos,Países Bajos,Suecia,,,20 Jun,2
+35,Fase de grupos,Países Bajos,Suecia,5,1,20 Jun,2
 36,Fase de grupos,Túnez,Japón,,,21 Jun,1
 37,Fase de grupos,Bélgica,Irán,,,21 Jun,1
 38,Fase de grupos,Nueva Zelanda,Egipto,,,22 Jun,1
@@ -3461,35 +3461,41 @@ function calcPosGruposYEquiposClasificados(jugador) {
 function calcEquiposRondaPosterior(jugador, matchIdsRondaAnterior, ptsPorAcierto, lado = 'ganador') {
   const picks = state.pronosticos.filter(p => p.jugador === jugador);
 
-  const obtenerLado = (matchId) => {
+  // ── Lista REAL: equipos que ya avanzaron (partidos jugados de esta ronda) ──
+  const listaRealBolsa = matchIdsRondaAnterior.map(matchId => {
     if (lado === 'ganador') {
       return getEquipoClasificadoRealEstricto(matchId);
     }
-    // 'perdedor': el lado contrario al ganador real de ese cruce
     const partido = getPlayoffPartidoResuelto(matchId);
     const ganador = getEquipoClasificadoRealEstricto(matchId);
     if (!partido || !ganador || partido.gL === '' || partido.gV === '') return null;
     return normEquipo(ganador) === normEquipo(partido.local) ? partido.visitante : partido.local;
-  };
-  const obtenerLadoPron = (matchId) => {
-    const pronostico = picks.find(p => p.partido_id === matchId);
-    if (!pronostico) return null;
-    if (lado === 'ganador') return getEquipoClasificadoPronosticado(picks, matchId);
-    // 'perdedor' pronosticado: el lado contrario al ganador que predijo el jugador
-    const ganadorPron = getEquipoClasificadoPronosticado(picks, matchId);
+  }).filter(Boolean).map(normEquipo);
+
+  // ── Lista PRONOSTICADA: ganador/perdedor pronosticado en CADA pick de la ronda ──
+  // Se recogen TODOS los picks del jugador en esta ronda (no solo el del slot exacto),
+  // para que si el jugador tiene a Brasil en R16-12 y Brasil ganó R16-1, cuente.
+  const picksDeRonda = picks.filter(p => matchIdsRondaAnterior.includes(p.partido_id));
+  const listaPron = picksDeRonda.map(p => {
+    if (lado === 'ganador') {
+      return getEquipoClasificadoPronosticado(picks, p.partido_id);
+    }
+    // 'perdedor' pronosticado: el que NO gana el cruce según el jugador
+    const ganadorPron = getEquipoClasificadoPronosticado(picks, p.partido_id);
     if (!ganadorPron) return null;
-    return normEquipo(ganadorPron) === normEquipo(pronostico.equipoA) ? pronostico.equipoB : pronostico.equipoA;
-  };
+    return normEquipo(ganadorPron) === normEquipo(p.equipoA) ? p.equipoB : p.equipoA;
+  }).filter(Boolean);
 
-  const listaPron = matchIdsRondaAnterior.map(matchId => obtenerLadoPron(matchId)).filter(Boolean);
-  const listaRealNorm = matchIdsRondaAnterior
-    .map(matchId => obtenerLado(matchId))
-    .filter(Boolean)
-    .map(normEquipo);
-
+  // ── Comparar lista vs bolsa (anti-duplicado: cada equipo real absorbe solo 1 acierto) ──
   let aciertos = 0;
+  const bolsaUsada = [...listaRealBolsa];
   listaPron.forEach(eq => {
-    if (listaRealNorm.includes(normEquipo(eq))) aciertos++;
+    const normEq = normEquipo(eq);
+    const idx = bolsaUsada.indexOf(normEq);
+    if (idx !== -1) {
+      aciertos++;
+      bolsaUsada.splice(idx, 1);
+    }
   });
   return { pts: aciertos * ptsPorAcierto, aciertos };
 }
@@ -3902,72 +3908,106 @@ function showDetalle(jugador, concepto) {
     if (modo === 'equipo') {
       const RONDA_ANTERIOR = { octavos: 0, cuartos: 1, semifinal: 2 };
       if (concepto2 in RONDA_ANTERIOR) {
+        // Misma lógica que calcEquiposRondaPosterior: lista pronosticada vs
+        // lista real — el acierto cuenta sin importar en qué cruce esté.
         const matchIdsAnterior = RONDAS_ELIMINATORIA[RONDA_ANTERIOR[concepto2]].matchIds;
         const faseAnterior = RONDAS_ELIMINATORIA[RONDA_ANTERIOR[concepto2]].faseKey;
         const ptsClasif = CONFIG.PTS[faseAnterior]?.clasificado || 0;
-        matchIdsAnterior.forEach(matchId => {
-          const clasifPron = getEquipoClasificadoPronosticadoEnRonda(picks, matchId, matchIdsAnterior, faseAnterior);
-          const clasifReal = getEquipoClasificadoRealEstricto(matchId);
-          if (!clasifPron && !clasifReal) return; // sin pronóstico ni resultado → saltar
-          const label = clasifPron
-            ? `${getFlag(clasifPron)} ${clasifPron} avanza`
-            : `${getFlag(clasifReal)} ${clasifReal} (sin pronóstico)`;
-          if (!clasifPron) {
-            filas.push({ label, pts: 0, sub: 'sin pronóstico de ganador' });
-            return;
+
+        // Lista real: qué equipos avanzaron realmente
+        const listaReal = matchIdsAnterior.map(id => getEquipoClasificadoRealEstricto(id)).filter(Boolean);
+        const listaRealNorm = listaReal.map(normEquipo);
+
+        // Lista pronosticada: qué equipo predijo el jugador que ganaría cada cruce
+        // (buscando en toda la ronda, no solo en el slot exacto)
+        const listaPron = matchIdsAnterior.map(id => {
+          const p = getEquipoClasificadoPronosticadoEnRonda(picks, id, matchIdsAnterior, faseAnterior);
+          return p ? { equipo: p, matchId: id } : null;
+        }).filter(Boolean);
+
+        // Para cada pronóstico, marcar si coincide con algún equipo real
+        const realesUsados = new Set();
+        listaPron.forEach(({ equipo: pron, matchId }) => {
+          const normPron = normEquipo(pron);
+          const coincide = listaRealNorm.includes(normPron) && !realesUsados.has(normPron);
+          if (coincide) realesUsados.add(normPron);
+          const realMatchEquipo = getEquipoClasificadoRealEstricto(matchId);
+          filas.push({
+            label: `${getFlag(pron)} ${pron} avanza (pronóstico)`,
+            pts: coincide ? ptsClasif : 0,
+            sub: coincide
+              ? `✓ clasificado a ${concepto2 === 'octavos' ? 'octavos' : concepto2 === 'cuartos' ? 'cuartos' : 'semifinal'}`
+              : realMatchEquipo
+                ? `real en este slot: ${getFlag(realMatchEquipo)} ${realMatchEquipo}`
+                : 'resultado pendiente'
+          });
+        });
+
+        // Equipos reales que avanzaron sin ningún pronóstico del jugador
+        listaReal.forEach(eq => {
+          if (!realesUsados.has(normEquipo(eq))) {
+            const yaEnPron = listaPron.some(p => normEquipo(p.equipo) === normEquipo(eq));
+            if (!yaEnPron) {
+              filas.push({ label: `${getFlag(eq)} ${eq} avanzó (sin pronóstico)`, pts: 0, sub: 'no pronosticado' });
+            }
           }
-          const acierto = clasifReal && normEquipo(clasifPron) === normEquipo(clasifReal) && ptsClasif;
-          filas.push({
-            label,
-            pts: acierto ? ptsClasif : 0,
-            sub: acierto ? 'equipo clasificado ✓' : clasifReal ? `real: ${getFlag(clasifReal)} ${clasifReal}` : 'resultado pendiente'
-          });
         });
+
       } else if (concepto2 === 'final') {
-        // Equipos Final: ganador de cada semifinal
-        ['semis-1','semis-2'].forEach(matchId => {
-          const semiIds = ['semis-1','semis-2'];
-          const clasifPron = getEquipoClasificadoPronosticadoEnRonda(picks, matchId, semiIds, 'Semifinal');
-          const clasifReal = getEquipoClasificadoRealEstricto(matchId);
-          if (!clasifPron && !clasifReal) return;
-          const pts = CONFIG.PTS['Semifinal']?.clasificado_final || 0;
-          const label = clasifPron ? `${getFlag(clasifPron)} ${clasifPron} finalista` : `${getFlag(clasifReal)} ${clasifReal} (sin pronóstico)`;
-          if (!clasifPron) { filas.push({ label, pts: 0, sub: 'sin pronóstico de ganador' }); return; }
-          const acierto = clasifReal && normEquipo(clasifPron) === normEquipo(clasifReal) && pts;
+        // Equipos Final: ganadores de semis → lista vs lista
+        const semiIds = ['semis-1','semis-2'];
+        const ptsF = CONFIG.PTS['Semifinal']?.clasificado_final || 0;
+        const listaRealF = semiIds.map(id => getEquipoClasificadoRealEstricto(id)).filter(Boolean);
+        const listaRealNormF = listaRealF.map(normEquipo);
+        const realesUsadosF = new Set();
+        semiIds.forEach(matchId => {
+          const pron = getEquipoClasificadoPronosticadoEnRonda(picks, matchId, semiIds, 'Semifinal');
+          if (!pron) return;
+          const normPron = normEquipo(pron);
+          const coincide = listaRealNormF.includes(normPron) && !realesUsadosF.has(normPron);
+          if (coincide) realesUsadosF.add(normPron);
+          const realSlot = getEquipoClasificadoRealEstricto(matchId);
           filas.push({
-            label,
-            pts: acierto ? pts : 0,
-            sub: acierto ? 'clasificado a la final ✓' : clasifReal ? `real: ${getFlag(clasifReal)} ${clasifReal}` : 'resultado pendiente'
+            label: `${getFlag(pron)} ${pron} finalista`,
+            pts: coincide ? ptsF : 0,
+            sub: coincide ? 'clasificado a la final ✓' : realSlot ? `real en slot: ${getFlag(realSlot)} ${realSlot}` : 'resultado pendiente'
           });
         });
+
       } else if (concepto2 === 'tercerPuesto') {
-        // Equipos 3-4: perdedor de cada semifinal
-        ['semis-1','semis-2'].forEach(matchId => {
+        // Equipos 3-4: perdedores de semis → lista vs lista
+        const semiIds = ['semis-1','semis-2'];
+        const ptsT = CONFIG.PTS['Semifinal']?.clasificado_3y4 || 0;
+        const perdedoresReales = semiIds.map(matchId => {
           const partido = getPlayoffPartidoResuelto(matchId);
           const ganador = getEquipoClasificadoRealEstricto(matchId);
-          const semiIds = ['semis-1','semis-2'];
+          if (!partido || !ganador || partido.gL === '') return null;
+          return normEquipo(ganador) === normEquipo(partido.local) ? partido.visitante : partido.local;
+        }).filter(Boolean);
+        const perdedoresNorm = perdedoresReales.map(normEquipo);
+        const realesUsadosT = new Set();
+        semiIds.forEach(matchId => {
           const ganadorPron = getEquipoClasificadoPronosticadoEnRonda(picks, matchId, semiIds, 'Semifinal');
+          if (!ganadorPron) return;
+          const partido = getPlayoffPartidoResuelto(matchId) || {};
           const pronostico = picks.find(p => p.partido_id === matchId) ||
-            semiIds.map(id => picks.find(p => p.partido_id === id)).find(p => {
-              if (!p || !p.equipoA || !partido) return false;
-              const rL = normEquipo(partido.local), rV = normEquipo(partido.visitante);
+            semiIds.map(id => picks.find(p => p.partido_id === id && p.equipoA)).find(p => {
+              if (!p || !p.equipoA) return false;
+              const rL = normEquipo(partido.local||''), rV = normEquipo(partido.visitante||'');
               const pA = normEquipo(p.equipoA), pB = normEquipo(p.equipoB);
               return (pA===rL&&pB===rV)||(pA===rV&&pB===rL);
             });
-          if (!partido || partido.gL === '' || !pronostico || !ganadorPron) return;
+          if (!pronostico) return;
           const perdedorPron = normEquipo(ganadorPron) === normEquipo(pronostico.equipoA) ? pronostico.equipoB : pronostico.equipoA;
           if (!perdedorPron) return;
-          const pts = CONFIG.PTS['Semifinal']?.clasificado_3y4 || 0;
-          if (!ganador) {
-            filas.push({ label: `${getFlag(perdedorPron)} ${perdedorPron} a 3º/4º puesto`, pts: 0, sub: 'resultado pendiente' });
-            return;
-          }
-          const perdedorReal = normEquipo(ganador) === normEquipo(partido.local) ? partido.visitante : partido.local;
-          const acierto = perdedorReal && normEquipo(perdedorPron) === normEquipo(perdedorReal) && pts;
+          const normPerd = normEquipo(perdedorPron);
+          const coincide = perdedoresNorm.includes(normPerd) && !realesUsadosT.has(normPerd);
+          if (coincide) realesUsadosT.add(normPerd);
+          const ganadorReal = getEquipoClasificadoRealEstricto(matchId);
           filas.push({
             label: `${getFlag(perdedorPron)} ${perdedorPron} a 3º/4º puesto`,
-            pts: acierto ? pts : 0,
-            sub: acierto ? 'clasificado al partido de consolación ✓' : `real: ${getFlag(perdedorReal)} ${perdedorReal}`
+            pts: coincide ? ptsT : 0,
+            sub: coincide ? 'clasificado al partido de consolación ✓' : ganadorReal ? `real: pasó ${getFlag(ganadorReal)} ${ganadorReal}` : 'resultado pendiente'
           });
         });
       }
@@ -5122,18 +5162,56 @@ function renderUpcomingEliminatoria() {
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0">`;
 
+    // Todos los cruces reales de esta ronda para detectar coincidencia en ronda
+    const rondaDeEsteMatch = RONDAS_ELIMINATORIA.find(r => r.matchIds.includes(matchId));
+    const todosMatchIdsRonda = rondaDeEsteMatch ? rondaDeEsteMatch.matchIds : [];
+    const otrosMatchIdsRonda = todosMatchIdsRonda.filter(id => id !== matchId);
+
     picksDelCruce.forEach(pick => {
-      // Buscar también en el resto de pronósticos de ESTA RONDA del mismo
-      // jugador (mismo criterio que el resto del motor): si acertó el
-      // cruce en otro cajón del cuadro, también cuenta.
-      const rondaDeEsteMatch = RONDAS_ELIMINATORIA.find(r => r.matchIds.includes(matchId));
       const pronosRondaJugador = rondaDeEsteMatch
         ? state.pronosticos.filter(p => p.jugador === pick.jugador && rondaDeEsteMatch.matchIds.includes(p.partido_id))
         : null;
       const { pts, tipo } = calcPlayoffMatchPoints(pick, real, faseKey, pronosRondaJugador);
       const colorResultado = tipo === 'exact' ? 'var(--lime)' : tipo === 'sign' ? '#9fc050' : tieneResultadoReal ? 'var(--red)' : 'var(--white)';
       const ptsTag = tieneResultadoReal ? `<div style="font-size:0.65rem;font-weight:700;color:${pts>0?'var(--lime)':'var(--muted)'};margin-top:0.15rem">${pts>0?'+'+pts:'0'}pts</div>` : '';
-      bloque += `<div style="padding:0.6rem 0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
+
+      // ── Detección de coincidencia de equipos con el cruce real ──
+      const normA = normEquipo(pick.equipoA), normB = normEquipo(pick.equipoB);
+      const normRA = normEquipo(equipoRealA), normRB = normEquipo(equipoRealB);
+      const esEquipoReal = equipoRealA !== '?' && equipoRealB !== '?';
+
+      // 1) Coincide EXACTO: los mismos dos equipos en este slot
+      const matchExacto = esEquipoReal && ((normA === normRA && normB === normRB) || (normA === normRB && normB === normRA));
+
+      // 2) Coincide en RONDA: los mismos equipos están en otro slot de la ronda
+      let matchRonda = false;
+      if (!matchExacto && esEquipoReal) {
+        matchRonda = otrosMatchIdsRonda.some(otherId => {
+          const otroReal = getPlayoffPartidoResuelto(otherId);
+          const infoOtro = cruceInfoPorMatch[otherId];
+          const oA = normEquipo((otroReal && otroReal.local) || infoOtro?.teamA || '');
+          const oB = normEquipo((otroReal && otroReal.visitante) || infoOtro?.teamB || '');
+          if (!oA || !oB) return false;
+          return (normA === oA && normB === oB) || (normA === oB && normB === oA);
+        });
+      }
+
+      // Estilos de borde según coincidencia
+      let cardBorder = '1px solid var(--border)';
+      let cardBg = 'transparent';
+      let cardBadge = '';
+      if (matchExacto) {
+        cardBorder = '2px solid var(--gold)';
+        cardBg = 'oklch(from var(--gold) l c h / 0.08)';
+        cardBadge = `<div style="font-size:0.55rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">✓ cruce exacto</div>`;
+      } else if (matchRonda) {
+        cardBorder = '2px solid #e07c2a';
+        cardBg = 'oklch(from #e07c2a l c h / 0.08)';
+        cardBadge = `<div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>`;
+      }
+
+      bloque += `<div style="padding:0.6rem 0.6rem;border-right:${cardBorder};border-bottom:${cardBorder};border-top:${matchExacto||matchRonda?cardBorder:'1px solid var(--border)'};border-left:${matchExacto||matchRonda?cardBorder:'1px solid var(--border)'};background:${cardBg};text-align:center;margin:${matchExacto||matchRonda?'2px':'0'};border-radius:${matchExacto||matchRonda?'4px':'0'}">
+        ${cardBadge}
         <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pick.jugador}</div>
         <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(pick.equipoA)} ${pick.equipoA}<br>${getFlag(pick.equipoB)} ${pick.equipoB}</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorResultado};margin-top:0.2rem">${pick.gL||'?'}–${pick.gV||'?'}</div>
@@ -5213,12 +5291,12 @@ function renderJugadosEliminatoria() {
           // Tiene el cruce en otro slot — mostrar ese pick
           const sp = bestOtro.cand;
           const colorRes = bestOtro.resultado.tipo === 'exact' ? 'var(--lime)' : bestOtro.resultado.tipo === 'sign' ? '#9fc050' : 'var(--red)';
-          seccion += `<div style="padding:0.6rem 0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
+          seccion += `<div style="padding:0.6rem 0.6rem;border:2px solid #e07c2a;background:oklch(from #e07c2a l c h / 0.08);border-radius:4px;margin:2px;text-align:center">
+            <div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>
             <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${jugador}</div>
             <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(sp.equipoA)} ${sp.equipoA}<br>${getFlag(sp.equipoB)} ${sp.equipoB}</div>
             <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorRes};margin-top:0.2rem">${sp.gL||'?'}–${sp.gV||'?'}</div>
             <div style="font-size:0.65rem;font-weight:700;color:${bestOtro.resultado.pts>0?'var(--lime)':'var(--muted)'};margin-top:0.1rem">${bestOtro.resultado.pts>0?'+'+bestOtro.resultado.pts+'pts':'0pts'}</div>
-            <div style="font-size:0.58rem;color:var(--muted)">(slot ${sp.partido_id})</div>
           </div>`;
           return;
         }
@@ -5226,7 +5304,16 @@ function renderJugadosEliminatoria() {
         const { pts, tipo } = calcPlayoffMatchPoints(pick, real, ronda.faseKey, pronosRondaJugador);
         const shownPick = best?.cand || pick;
         const colorRes = tipo === 'exact' ? 'var(--lime)' : tipo === 'sign' ? '#9fc050' : 'var(--red)';
-        seccion += `<div style="padding:0.6rem 0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
+        // shownPick puede ser del slot correcto (cruce exacto) o del mejor slot de ronda
+        const esSlotCorrecto = shownPick.partido_id === matchId;
+        const cardStyle = esSlotCorrecto
+          ? 'border:2px solid var(--gold);background:oklch(from var(--gold) l c h / 0.08);border-radius:4px;margin:2px'
+          : 'border:2px solid #e07c2a;background:oklch(from #e07c2a l c h / 0.08);border-radius:4px;margin:2px';
+        const cardBadge = esSlotCorrecto
+          ? `<div style="font-size:0.55rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">✓ cruce exacto</div>`
+          : `<div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>`;
+        seccion += `<div style="padding:0.6rem 0.6rem;${cardStyle};text-align:center">
+          ${cardBadge}
           <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${jugador}</div>
           <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(shownPick.equipoA)} ${shownPick.equipoA}<br>${getFlag(shownPick.equipoB)} ${shownPick.equipoB}</div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorRes};margin-top:0.2rem">${shownPick.gL||'?'}–${shownPick.gV||'?'}</div>
