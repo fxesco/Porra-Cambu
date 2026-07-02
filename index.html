@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>⚽ Porra CAMBU Mundial 2026</title>
+  <title>⚽ Porra Tribuneros 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     /* ── TOKENS ── */
     :root {
-      --pitch:    #0a2e1a;
-      --grass:    #0f4a2c;
-      --lime:     #c8f135;
+      --pitch:    #0a1a2e;
+      --grass:    #0f2c4a;
+      --lime:     #35c8f1;
       --gold:     #f5c842;
       --white:    #f0f4f0;
       --muted:    #7a9485;
-      --card:     #112b1c;
-      --border:   #1e4a30;
+      --card:     #111d2b;
+      --border:   #1e304a;
       --red:      #e85555;
       --radius:   6px;
     }
@@ -66,7 +66,7 @@
 
     /* ── HERO STRIP ── */
     .hero {
-      background: linear-gradient(135deg, var(--grass) 0%, #0d3d22 100%);
+      background: linear-gradient(135deg, var(--grass) 0%, #0d2233 100%);
       padding: 2rem 1.5rem 1.5rem;
       display: flex;
       flex-wrap: wrap;
@@ -213,13 +213,9 @@
       font-size: 0.78rem;
       min-width: 720px;
     }
-    .round-ranking-table th { padding: 0.38rem 0.22rem; font-size: 0.56rem; white-space: nowrap; }
-    .round-ranking-table td { padding: 0.34rem 0.22rem; vertical-align: middle; line-height: 1.15; }
+    .round-ranking-table th { padding: 0.5rem 0.4rem; font-size: 0.62rem; white-space: nowrap; }
+    .round-ranking-table td { padding: 0.45rem 0.4rem; vertical-align: middle; line-height: 1.25; }
     .round-ranking-table .player-name { font-weight: 600; white-space: nowrap; }
-    .round-ranking-table .pts-cell-clickable { padding: 0.05rem 0.08rem; }
-    .round-ranking-table .sub-stat { letter-spacing: 0.01em; }
-    .round-ranking-table th:first-child, .round-ranking-table td:first-child { width: 1.7rem !important; }
-    .round-ranking-table th:nth-child(2), .round-ranking-table td:nth-child(2) { min-width: 92px; }
 
     .pts-cell-clickable { cursor: pointer; border-radius: 4px; padding: 0.1rem 0.2rem; transition: background 0.12s; }
     .pts-cell-clickable:hover { background: rgba(255,255,255,0.06); }
@@ -634,15 +630,15 @@
     .bracket-titles {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      gap: 0.3rem;
-      margin-bottom: 0.35rem;
-      min-width: 440px;
+      gap: 0.8rem;
+      margin-bottom: 0.5rem;
+      min-width: 680px;
     }
     .bracket-titles span {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.55rem;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       text-align: center;
@@ -654,8 +650,8 @@
     .bracket-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      gap: 0.3rem;
-      min-width: 440px;
+      gap: 0.8rem;
+      min-width: 680px;
       align-items: stretch;
     }
 
@@ -667,7 +663,7 @@
     .bracket-col {
       display: flex;
       flex-direction: column;
-      min-height: 600px;
+      min-height: 920px;
       grid-row: 1;
     }
     .bracket-col > .bracket-match-wrap {
@@ -764,9 +760,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.25rem;
-      padding: 0 0.2rem;
-      min-height: 600px;
+      gap: 0.4rem;
+      padding: 0 0.5rem;
+      min-height: 920px;
     }
 
     .bracket-bronze-label {
@@ -797,19 +793,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.25rem;
+      gap: 0.5rem;
     }
 
     .po-slot-circular {
-      width: 2.0rem;
-      height: 2.0rem;
+      width: 3.1rem;
+      height: 3.1rem;
       border-radius: 50%;
       border: 2px solid var(--border);
       background: var(--card);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 1.5rem;
       cursor: pointer;
       position: relative;
       flex-shrink: 0;
@@ -919,10 +915,10 @@
     }
 
     .po-match-label {
-      font-size: 0.52rem;
+      font-size: 0.6rem;
       color: var(--muted);
       text-align: center;
-      padding: 0.1rem 0;
+      padding: 0.2rem 0;
       border-bottom: 1px solid var(--border);
       font-family: 'JetBrains Mono', monospace;
       letter-spacing: 0.04em;
@@ -974,75 +970,6 @@
       .group-table td { padding: 0.3rem 0.05rem; }
       .group-table td.team-cell { font-size: 0.65rem; }
     }
-
-    /* ── RESPONSIVE 768px ── */
-    @media (max-width: 768px) {
-      .content { padding: 0.75rem; }
-      .hero { padding: 1.25rem 0.75rem 1rem; flex-direction: column; align-items: flex-start; }
-      .stat-pills { gap: 0.5rem; }
-      .tabs { padding: 0 0.75rem; }
-      .tab { padding: 0.75rem 0.85rem; font-size: 0.8rem; }
-      .round-ranking-table { font-size: 0.68rem; }
-      .round-ranking-table th { font-size: 0.54rem; padding: 0.32rem 0.16rem; }
-      .round-ranking-table td { padding: 0.28rem 0.16rem; }
-      .champion-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-      .matches-groups-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-      .detalle-box { padding: 1rem; }
-      select { max-width: 100%; }
-      .bracket-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    }
-
-    /* ── RESPONSIVE 480px ── */
-    @media (max-width: 480px) {
-      header { padding: 0 0.75rem; height: 50px; }
-      .logo { font-size: 1.35rem; }
-      .header-meta { font-size: 0.65rem; }
-      .hero-title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
-      .pill { padding: 0.35rem 0.7rem; font-size: 0.72rem; }
-      .content { padding: 0.5rem; }
-      .tab { padding: 0.65rem 0.65rem; font-size: 0.72rem; }
-      .section-label { font-size: 0.62rem; }
-      .ranking-table td, .ranking-table th { padding: 0.5rem 0.4rem; }
-      .pts { font-size: 1.2rem; }
-      .match-card-compact { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
-      .po-slot-circular { width: 1.8rem; height: 1.8rem; font-size: 0.85rem; }
-      .champion-grid { grid-template-columns: 1fr 1fr; }
-      .detalle-box { max-height: 90vh; }
-    }
-
-    /* ── SKELETON LOADERS ── */
-    @keyframes shimmer {
-      0%   { background-position: -200% 0; }
-      100% { background-position:  200% 0; }
-    }
-    .skeleton-wrap { padding: 0.5rem 0; }
-    .skeleton-line {
-      height: 1rem; border-radius: 4px; margin-bottom: 0.6rem;
-      background: linear-gradient(90deg, var(--card) 25%, #1e4a3080 50%, var(--card) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-    .skeleton-line.wide  { width: 100%; }
-    .skeleton-line.med   { width: 70%; }
-    .skeleton-line.short { width: 40%; }
-    .skeleton-line.tall  { height: 1.5rem; }
-
-    /* ── BRACKET PICK ANIMATION ── */
-    @keyframes pop {
-      0%   { transform: scale(1); }
-      40%  { transform: scale(1.18); }
-      100% { transform: scale(1); }
-    }
-    .po-slot-circular.just-picked { animation: pop 0.22s ease-out; }
-
-    /* ── TODAY MATCH HIGHLIGHT ── */
-    .match-card-compact.today { border-color: var(--gold); background: rgba(245,200,66,0.06); }
-    .match-card-compact.today .score.pending { color: var(--gold); }
-
-    /* ── RANKING TREND ── */
-    .trend-up   { color: var(--lime); font-size: 0.7rem; font-weight: 700; }
-    .trend-down { color: var(--red);  font-size: 0.7rem; font-weight: 700; }
-    .trend-same { color: var(--muted); font-size: 0.7rem; }
   </style>
 </head>
 <body>
@@ -1063,13 +990,13 @@
   </div>
 </div>
 
-<div class="tabs" role="tablist" aria-label="Secciones principales">
-  <button class="tab active" onclick="switchTab('ranking', this)" role="tab" aria-selected="true">🏆 Clasificación</button>
-  <button class="tab" onclick="switchTab('upcoming', this)" role="tab" aria-selected="false">🔜 Próximos</button>
-  <button class="tab" onclick="switchTab('playoff', this)" role="tab" aria-selected="false">🏟️ Play Off</button>
-  <button class="tab" onclick="switchTab('grupos', this)" role="tab" aria-selected="false">🌍 Fase grupos</button>
-  <button class="tab" onclick="switchTab('picks', this)" role="tab" aria-selected="false">🎯 Pronósticos</button>
-  <button class="tab" onclick="switchTab('ganadores', this)" role="tab" aria-selected="false">⭐ Ganadores</button>
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('ranking', this)">🏆 Clasificación</button>
+  <button class="tab" onclick="switchTab('upcoming', this)">🔜 Próximos</button>
+  <button class="tab" onclick="switchTab('playoff', this)">🏟️ Play Off</button>
+  <button class="tab" onclick="switchTab('grupos', this)">🌍 Fase grupos</button>
+  <button class="tab" onclick="switchTab('picks', this)">🎯 Pronósticos</button>
+  <button class="tab" onclick="switchTab('ganadores', this)">⭐ Ganadores</button>
 </div>
 
 <div class="content">
@@ -1077,15 +1004,7 @@
   <!-- ══ RANKING ══ -->
   <div id="panel-ranking" class="panel active">
     <div class="section-label">Clasificación general</div>
-    <div id="ranking-content"><div class="skeleton-wrap">
-    <div class="skeleton-line tall wide"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line short"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-  </div></div>
+    <div id="ranking-content"><div class="loading"><div class="spinner"></div>Cargando datos...</div></div>
   </div>
 
   <!-- ══ PRÓXIMOS PARTIDOS (ELIMINATORIA) ══ -->
@@ -1093,40 +1012,14 @@
        pendientes, así que este panel ya no necesita el sub-tab de
        "Fase de grupos" que tenía antes — solo queda eliminatoria. -->
   <div id="panel-upcoming" class="panel">
-    <div class="subtabs">
-      <button class="subtab active" onclick="switchSubTab('upcoming','proximos',this)">🔜 Próximos</button>
-      <button class="subtab" onclick="switchSubTab('upcoming','jugados',this)">✅ Jugados</button>
-    </div>
-    <div id="subpanel-upcoming-proximos" class="subpanel active">
-      <div class="section-label">Pronósticos de todos para las rondas eliminatorias</div>
-      <div id="upcoming-eliminatoria-content"><div class="skeleton-wrap">
-      <div class="skeleton-line tall wide"></div>
-      <div class="skeleton-line wide"></div>
-      <div class="skeleton-line med"></div>
-      <div class="skeleton-line wide"></div>
-      <div class="skeleton-line short"></div>
-      <div class="skeleton-line wide"></div>
-      <div class="skeleton-line med"></div>
-    </div></div>
-    </div>
-    <div id="subpanel-upcoming-jugados" class="subpanel">
-      <div class="section-label">Partidos eliminatorios ya disputados</div>
-      <div id="jugados-eliminatoria-content"><div class="loading" style="padding:2rem;text-align:center;color:var(--muted)">Cargando…</div></div>
-    </div>
+    <div class="section-label">Pronósticos de todos para las rondas eliminatorias</div>
+    <div id="upcoming-eliminatoria-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
   </div>
 
   <!-- ══ PLAY OFF ══ -->
   <div id="panel-playoff" class="panel">
     <div class="section-label">Cuadro eliminatorio · haz clic en el ganador de cada partido</div>
-    <div id="playoff-content"><div class="skeleton-wrap">
-    <div class="skeleton-line tall wide"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line short"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-  </div></div>
+    <div id="playoff-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
   </div>
 
   <!-- ══ FASE GRUPOS (unifica Partidos + Clasificación de grupos) ══ -->
@@ -1141,15 +1034,7 @@
     </div>
     <div id="subpanel-grupos-clasificacion" class="subpanel">
       <div class="section-label">Clasificación por grupos · fase de grupos</div>
-      <div id="groups-content"><div class="skeleton-wrap">
-    <div class="skeleton-line tall wide"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line short"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-  </div></div>
+      <div id="groups-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
     </div>
   </div>
 
@@ -1185,27 +1070,11 @@
     </div>
     <div id="subpanel-ganadores-finalistas" class="subpanel active">
       <div class="section-label">Predicciones finales · Campeón / Subcampeón / 3.º</div>
-      <div id="champion-content"><div class="skeleton-wrap">
-    <div class="skeleton-line tall wide"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line short"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-  </div></div>
+      <div id="champion-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
     </div>
     <div id="subpanel-ganadores-botabalon" class="subpanel">
       <div class="section-label">Premios individuales · Bota de Oro · Balón de Oro</div>
-      <div id="awards-content"><div class="skeleton-wrap">
-    <div class="skeleton-line tall wide"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line short"></div>
-    <div class="skeleton-line wide"></div>
-    <div class="skeleton-line med"></div>
-  </div></div>
+      <div id="awards-content"><div class="loading"><div class="spinner"></div>Cargando...</div></div>
     </div>
   </div>
 
@@ -1244,11 +1113,11 @@ const CONFIG = {
   PTS_BALON_BRONCE:  2,
 
   // Nombre del torneo
-  NOMBRE: 'Porra Mundial 2026',
+  NOMBRE: 'Porra Tribuneros 2026',
 };
 // ══════════════════════════════════════════════
 
-// ── DATOS DEL EXCEL (Canbu.xlsx) ──
+// ── DATOS DEL EXCEL (Tribuneros.xlsx) ──
 // Para actualizar resultados: edita resultados.json en GitHub directamente
 const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha,bonus
 1,Fase de grupos,México,Sudáfrica,2,0,11 Jun,1
@@ -1285,7 +1154,7 @@ const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha,bonus
 32,Fase de grupos,Turquía,Paraguay,,,20 Jun,1
 33,Fase de grupos,Alemania,Costa de Marfil,,,21 Jun,1
 34,Fase de grupos,Ecuador,Curazao,,,21 Jun,1
-35,Fase de grupos,Países Bajos,Suecia,5,1,20 Jun,2
+35,Fase de grupos,Países Bajos,Suecia,,,20 Jun,2
 36,Fase de grupos,Túnez,Japón,,,21 Jun,1
 37,Fase de grupos,Bélgica,Irán,,,21 Jun,1
 38,Fase de grupos,Nueva Zelanda,Egipto,,,22 Jun,1
@@ -1325,1507 +1194,682 @@ const DATOS_PARTIDOS_CSV = `id,fase,local,visitante,gL,gV,fecha,bonus
 72,Fase de grupos,Croacia,Ghana,,,28 Jun,1
 `;
 const DATOS_PRONOSTICOS_CSV = `jugador,partido_id,gL,gV,equipoA,equipoB,pos1,pos2,pos3,pos4,campeon,subcampeon,tercero,bota_oro,bota_plata,bota_bronce,balon_oro,balon_plata,balon_bronce
-Ojeda,1,1,0,,,,,,,,,,,,,,,
-Juanillo,1,2,1,,,,,,,,,,,,,,,
-Fran,1,3,1,,,,,,,,,,,,,,,
-Lebo,1,1,0,,,,,,,,,,,,,,,
-Crivi,1,2,1,,,,,,,,,,,,,,,
-Pati,1,2,0,,,,,,,,,,,,,,,
-Castillo,1,1,1,,,,,,,,,,,,,,,
-Isaac,1,3,1,,,,,,,,,,,,,,,
-FILTER,1,1,0,,,,,,,,,,,,,,,
+Dani,1,2,1,,,,,,,,,,,,,,,
+ruly,1,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,1,2,0,,,,,,,,,,,,,,,
 Fer,1,2,0,,,,,,,,,,,,,,,
-Aitor,1,2,1,,,,,,,,,,,,,,,
-Cuco,1,3,3,,,,,,,,,,,,,,,
-Presi,1,0,1,,,,,,,,,,,,,,,
-Ojeda,2,1,0,,,,,,,,,,,,,,,
-Juanillo,2,1,1,,,,,,,,,,,,,,,
-Fran,2,1,0,,,,,,,,,,,,,,,
-Lebo,2,2,1,,,,,,,,,,,,,,,
-Crivi,2,1,1,,,,,,,,,,,,,,,
-Pati,2,2,1,,,,,,,,,,,,,,,
-Castillo,2,1,2,,,,,,,,,,,,,,,
-Isaac,2,1,1,,,,,,,,,,,,,,,
-FILTER,2,0,0,,,,,,,,,,,,,,,
+Fran,1,3,1,,,,,,,,,,,,,,,
+JLABALOS,1,2,0,,,,,,,,,,,,,,,
+Crivi,1,2,1,,,,,,,,,,,,,,,
+Castillo,1,1,1,,,,,,,,,,,,,,,
+Dani,2,0,1,,,,,,,,,,,,,,,
+ruly,2,0,0,,,,,,,,,,,,,,,
+Arnau Jorba,2,1,1,,,,,,,,,,,,,,,
 Fer,2,1,2,,,,,,,,,,,,,,,
-Aitor,2,1,1,,,,,,,,,,,,,,,
-Cuco,2,1,1,,,,,,,,,,,,,,,
-Presi,2,1,3,,,,,,,,,,,,,,,
-Ojeda,3,1,0,,,,,,,,,,,,,,,
-Juanillo,3,1,1,,,,,,,,,,,,,,,
-Fran,3,1,0,,,,,,,,,,,,,,,
-Lebo,3,2,1,,,,,,,,,,,,,,,
-Crivi,3,1,2,,,,,,,,,,,,,,,
-Pati,3,2,0,,,,,,,,,,,,,,,
-Castillo,3,2,1,,,,,,,,,,,,,,,
-Isaac,3,2,2,,,,,,,,,,,,,,,
-FILTER,3,1,0,,,,,,,,,,,,,,,
+Fran,2,1,0,,,,,,,,,,,,,,,
+JLABALOS,2,1,1,,,,,,,,,,,,,,,
+Crivi,2,1,1,,,,,,,,,,,,,,,
+Castillo,2,1,2,,,,,,,,,,,,,,,
+Dani,3,1,1,,,,,,,,,,,,,,,
+ruly,3,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,3,1,1,,,,,,,,,,,,,,,
 Fer,3,0,1,,,,,,,,,,,,,,,
-Aitor,3,1,1,,,,,,,,,,,,,,,
-Cuco,3,1,1,,,,,,,,,,,,,,,
-Presi,3,2,1,,,,,,,,,,,,,,,
-Ojeda,4,1,0,,,,,,,,,,,,,,,
-Juanillo,4,1,2,,,,,,,,,,,,,,,
-Fran,4,0,2,,,,,,,,,,,,,,,
-Lebo,4,0,2,,,,,,,,,,,,,,,
-Crivi,4,1,3,,,,,,,,,,,,,,,
-Pati,4,0,2,,,,,,,,,,,,,,,
-Castillo,4,1,3,,,,,,,,,,,,,,,
-Isaac,4,0,2,,,,,,,,,,,,,,,
-FILTER,4,0,2,,,,,,,,,,,,,,,
+Fran,3,1,0,,,,,,,,,,,,,,,
+JLABALOS,3,2,1,,,,,,,,,,,,,,,
+Crivi,3,1,2,,,,,,,,,,,,,,,
+Castillo,3,2,1,,,,,,,,,,,,,,,
+Dani,4,0,2,,,,,,,,,,,,,,,
+ruly,4,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,4,0,2,,,,,,,,,,,,,,,
 Fer,4,1,2,,,,,,,,,,,,,,,
-Aitor,4,0,1,,,,,,,,,,,,,,,
-Cuco,4,0,2,,,,,,,,,,,,,,,
-Presi,4,0,2,,,,,,,,,,,,,,,
-Ojeda,5,1,0,,,,,,,,,,,,,,,
-Juanillo,5,1,1,,,,,,,,,,,,,,,
-Fran,5,1,1,,,,,,,,,,,,,,,
-Lebo,5,3,1,,,,,,,,,,,,,,,
-Crivi,5,2,1,,,,,,,,,,,,,,,
-Pati,5,3,2,,,,,,,,,,,,,,,
-Castillo,5,2,1,,,,,,,,,,,,,,,
-Isaac,5,1,1,,,,,,,,,,,,,,,
-FILTER,5,1,0,,,,,,,,,,,,,,,
+Fran,4,0,2,,,,,,,,,,,,,,,
+JLABALOS,4,0,2,,,,,,,,,,,,,,,
+Crivi,4,1,3,,,,,,,,,,,,,,,
+Castillo,4,1,3,,,,,,,,,,,,,,,
+Dani,5,2,1,,,,,,,,,,,,,,,
+ruly,5,2,2,,,,,,,,,,,,,,,
+Arnau Jorba,5,3,2,,,,,,,,,,,,,,,
 Fer,5,3,1,,,,,,,,,,,,,,,
-Aitor,5,2,2,,,,,,,,,,,,,,,
-Cuco,5,0,0,,,,,,,,,,,,,,,
-Presi,5,1,1,,,,,,,,,,,,,,,
-Ojeda,6,1,0,,,,,,,,,,,,,,,
-Juanillo,6,0,2,,,,,,,,,,,,,,,
-Fran,6,0,2,,,,,,,,,,,,,,,
-Lebo,6,0,2,,,,,,,,,,,,,,,
-Crivi,6,1,3,,,,,,,,,,,,,,,
-Pati,6,0,0,,,,,,,,,,,,,,,
-Castillo,6,0,2,,,,,,,,,,,,,,,
-Isaac,6,0,2,,,,,,,,,,,,,,,
-FILTER,6,0,2,,,,,,,,,,,,,,,
+Fran,5,1,1,,,,,,,,,,,,,,,
+JLABALOS,5,2,1,,,,,,,,,,,,,,,
+Crivi,5,2,1,,,,,,,,,,,,,,,
+Castillo,5,2,1,,,,,,,,,,,,,,,
+Dani,6,0,2,,,,,,,,,,,,,,,
+ruly,6,0,4,,,,,,,,,,,,,,,
+Arnau Jorba,6,1,2,,,,,,,,,,,,,,,
 Fer,6,0,2,,,,,,,,,,,,,,,
-Aitor,6,0,2,,,,,,,,,,,,,,,
-Cuco,6,0,3,,,,,,,,,,,,,,,
-Presi,6,0,4,,,,,,,,,,,,,,,
-Ojeda,7,1,0,,,,,,,,,,,,,,,
-Juanillo,7,1,1,,,,,,,,,,,,,,,
-Fran,7,2,1,,,,,,,,,,,,,,,
-Lebo,7,2,1,,,,,,,,,,,,,,,
-Crivi,7,1,1,,,,,,,,,,,,,,,
-Pati,7,1,1,,,,,,,,,,,,,,,
-Castillo,7,2,0,,,,,,,,,,,,,,,
-Isaac,7,2,2,,,,,,,,,,,,,,,
-FILTER,7,1,1,,,,,,,,,,,,,,,
+Fran,6,0,2,,,,,,,,,,,,,,,
+JLABALOS,6,0,2,,,,,,,,,,,,,,,
+Crivi,6,1,3,,,,,,,,,,,,,,,
+Castillo,6,0,2,,,,,,,,,,,,,,,
+Dani,7,1,1,,,,,,,,,,,,,,,
+ruly,7,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,7,2,0,,,,,,,,,,,,,,,
 Fer,7,2,0,,,,,,,,,,,,,,,
-Aitor,7,2,1,,,,,,,,,,,,,,,
-Cuco,7,1,2,,,,,,,,,,,,,,,
-Presi,7,1,1,,,,,,,,,,,,,,,
-Ojeda,8,1,0,,,,,,,,,,,,,,,
-Juanillo,8,1,2,,,,,,,,,,,,,,,
-Fran,8,0,2,,,,,,,,,,,,,,,
-Lebo,8,1,2,,,,,,,,,,,,,,,
-Crivi,8,1,3,,,,,,,,,,,,,,,
-Pati,8,0,2,,,,,,,,,,,,,,,
-Castillo,8,0,1,,,,,,,,,,,,,,,
-Isaac,8,1,1,,,,,,,,,,,,,,,
-FILTER,8,0,1,,,,,,,,,,,,,,,
+Fran,7,2,1,,,,,,,,,,,,,,,
+JLABALOS,7,1,0,,,,,,,,,,,,,,,
+Crivi,7,1,1,,,,,,,,,,,,,,,
+Castillo,7,2,0,,,,,,,,,,,,,,,
+Dani,8,1,2,,,,,,,,,,,,,,,
+ruly,8,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,8,0,2,,,,,,,,,,,,,,,
 Fer,8,1,2,,,,,,,,,,,,,,,
-Aitor,8,1,2,,,,,,,,,,,,,,,
-Cuco,8,0,1,,,,,,,,,,,,,,,
-Presi,8,1,3,,,,,,,,,,,,,,,
-Ojeda,9,1,0,,,,,,,,,,,,,,,
-Juanillo,9,3,1,,,,,,,,,,,,,,,
-Fran,9,4,0,,,,,,,,,,,,,,,
-Lebo,9,4,0,,,,,,,,,,,,,,,
-Crivi,9,5,0,,,,,,,,,,,,,,,
-Pati,9,5,0,,,,,,,,,,,,,,,
-Castillo,9,4,1,,,,,,,,,,,,,,,
-Isaac,9,10,0,,,,,,,,,,,,,,,
-FILTER,9,5,0,,,,,,,,,,,,,,,
+Fran,8,0,2,,,,,,,,,,,,,,,
+JLABALOS,8,1,2,,,,,,,,,,,,,,,
+Crivi,8,1,3,,,,,,,,,,,,,,,
+Castillo,8,0,1,,,,,,,,,,,,,,,
+Dani,9,4,0,,,,,,,,,,,,,,,
+ruly,9,7,0,,,,,,,,,,,,,,,
+Arnau Jorba,9,3,0,,,,,,,,,,,,,,,
 Fer,9,3,0,,,,,,,,,,,,,,,
-Aitor,9,5,0,,,,,,,,,,,,,,,
-Cuco,9,6,0,,,,,,,,,,,,,,,
-Presi,9,7,0,,,,,,,,,,,,,,,
-Ojeda,10,1,0,,,,,,,,,,,,,,,
-Juanillo,10,1,2,,,,,,,,,,,,,,,
-Fran,10,1,1,,,,,,,,,,,,,,,
-Lebo,10,2,0,,,,,,,,,,,,,,,
-Crivi,10,1,1,,,,,,,,,,,,,,,
-Pati,10,1,1,,,,,,,,,,,,,,,
-Castillo,10,1,1,,,,,,,,,,,,,,,
-Isaac,10,1,2,,,,,,,,,,,,,,,
-FILTER,10,1,1,,,,,,,,,,,,,,,
+Fran,9,4,0,,,,,,,,,,,,,,,
+JLABALOS,9,4,0,,,,,,,,,,,,,,,
+Crivi,9,5,0,,,,,,,,,,,,,,,
+Castillo,9,4,1,,,,,,,,,,,,,,,
+Dani,10,1,1,,,,,,,,,,,,,,,
+ruly,10,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,10,1,1,,,,,,,,,,,,,,,
 Fer,10,2,1,,,,,,,,,,,,,,,
-Aitor,10,2,0,,,,,,,,,,,,,,,
-Cuco,10,1,3,,,,,,,,,,,,,,,
-Presi,10,2,2,,,,,,,,,,,,,,,
-Ojeda,11,1,0,,,,,,,,,,,,,,,
-Juanillo,11,0,1,,,,,,,,,,,,,,,
-Fran,11,2,1,,,,,,,,,,,,,,,
-Lebo,11,2,1,,,,,,,,,,,,,,,
-Crivi,11,2,1,,,,,,,,,,,,,,,
-Pati,11,2,2,,,,,,,,,,,,,,,
-Castillo,11,2,1,,,,,,,,,,,,,,,
-Isaac,11,2,2,,,,,,,,,,,,,,,
-FILTER,11,2,1,,,,,,,,,,,,,,,
+Fran,10,1,1,,,,,,,,,,,,,,,
+JLABALOS,10,1,2,,,,,,,,,,,,,,,
+Crivi,10,1,1,,,,,,,,,,,,,,,
+Castillo,10,1,1,,,,,,,,,,,,,,,
+Dani,11,2,1,,,,,,,,,,,,,,,
+ruly,11,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,11,2,1,,,,,,,,,,,,,,,
 Fer,11,3,1,,,,,,,,,,,,,,,
-Aitor,11,1,2,,,,,,,,,,,,,,,
-Cuco,11,1,1,,,,,,,,,,,,,,,
-Presi,11,1,2,,,,,,,,,,,,,,,
-Ojeda,12,1,0,,,,,,,,,,,,,,,
-Juanillo,12,1,0,,,,,,,,,,,,,,,
-Fran,12,1,0,,,,,,,,,,,,,,,
-Lebo,12,3,1,,,,,,,,,,,,,,,
-Crivi,12,2,1,,,,,,,,,,,,,,,
-Pati,12,1,0,,,,,,,,,,,,,,,
-Castillo,12,0,0,,,,,,,,,,,,,,,
-Isaac,12,3,1,,,,,,,,,,,,,,,
-FILTER,12,2,0,,,,,,,,,,,,,,,
+Fran,11,2,1,,,,,,,,,,,,,,,
+JLABALOS,11,2,1,,,,,,,,,,,,,,,
+Crivi,11,2,1,,,,,,,,,,,,,,,
+Castillo,11,2,1,,,,,,,,,,,,,,,
+Dani,12,1,0,,,,,,,,,,,,,,,
+ruly,12,0,3,,,,,,,,,,,,,,,
+Arnau Jorba,12,2,1,,,,,,,,,,,,,,,
 Fer,12,2,0,,,,,,,,,,,,,,,
-Aitor,12,1,0,,,,,,,,,,,,,,,
-Cuco,12,2,1,,,,,,,,,,,,,,,
-Presi,12,0,0,,,,,,,,,,,,,,,
-Ojeda,13,1,0,,,,,,,,,,,,,,,
-Juanillo,13,1,1,,,,,,,,,,,,,,,
-Fran,13,2,0,,,,,,,,,,,,,,,
-Lebo,13,2,0,,,,,,,,,,,,,,,
-Crivi,13,1,1,,,,,,,,,,,,,,,
-Pati,13,3,1,,,,,,,,,,,,,,,
-Castillo,13,2,0,,,,,,,,,,,,,,,
-Isaac,13,4,1,,,,,,,,,,,,,,,
-FILTER,13,2,0,,,,,,,,,,,,,,,
+Fran,12,1,0,,,,,,,,,,,,,,,
+JLABALOS,12,1,0,,,,,,,,,,,,,,,
+Crivi,12,2,1,,,,,,,,,,,,,,,
+Castillo,12,0,0,,,,,,,,,,,,,,,
+Dani,13,2,0,,,,,,,,,,,,,,,
+ruly,13,3,1,,,,,,,,,,,,,,,
+Arnau Jorba,13,2,1,,,,,,,,,,,,,,,
 Fer,13,2,1,,,,,,,,,,,,,,,
-Aitor,13,2,1,,,,,,,,,,,,,,,
-Cuco,13,2,1,,,,,,,,,,,,,,,
-Presi,13,1,1,,,,,,,,,,,,,,,
-Ojeda,14,1,0,,,,,,,,,,,,,,,
-Juanillo,14,0,0,,,,,,,,,,,,,,,
-Fran,14,1,0,,,,,,,,,,,,,,,
-Lebo,14,2,0,,,,,,,,,,,,,,,
-Crivi,14,2,0,,,,,,,,,,,,,,,
-Pati,14,0,0,,,,,,,,,,,,,,,
-Castillo,14,0,0,,,,,,,,,,,,,,,
-Isaac,14,1,0,,,,,,,,,,,,,,,
-FILTER,14,1,0,,,,,,,,,,,,,,,
+Fran,13,2,0,,,,,,,,,,,,,,,
+JLABALOS,13,2,0,,,,,,,,,,,,,,,
+Crivi,13,1,1,,,,,,,,,,,,,,,
+Castillo,13,2,0,,,,,,,,,,,,,,,
+Dani,14,1,1,,,,,,,,,,,,,,,
+ruly,14,0,0,,,,,,,,,,,,,,,
+Arnau Jorba,14,0,0,,,,,,,,,,,,,,,
 Fer,14,1,1,,,,,,,,,,,,,,,
-Aitor,14,1,1,,,,,,,,,,,,,,,
-Cuco,14,0,0,,,,,,,,,,,,,,,
-Presi,14,0,0,,,,,,,,,,,,,,,
-Ojeda,15,1,0,,,,,,,,,,,,,,,
-Juanillo,15,2,0,,,,,,,,,,,,,,,
-Fran,15,5,0,,,,,,,,,,,,,,,
-Lebo,15,3,0,,,,,,,,,,,,,,,
-Crivi,15,5,0,,,,,,,,,,,,,,,
-Pati,15,4,0,,,,,,,,,,,,,,,
-Castillo,15,3,0,,,,,,,,,,,,,,,
-Isaac,15,5,0,,,,,,,,,,,,,,,
-FILTER,15,3,0,,,,,,,,,,,,,,,
+Fran,14,1,0,,,,,,,,,,,,,,,
+JLABALOS,14,1,1,,,,,,,,,,,,,,,
+Crivi,14,2,0,,,,,,,,,,,,,,,
+Castillo,14,0,0,,,,,,,,,,,,,,,
+Dani,15,4,0,,,,,,,,,,,,,,,
+ruly,15,8,0,,,,,,,,,,,,,,,
+Arnau Jorba,15,4,1,,,,,,,,,,,,,,,
 Fer,15,6,0,,,,,,,,,,,,,,,
-Aitor,15,3,0,,,,,,,,,,,,,,,
-Cuco,15,5,0,,,,,,,,,,,,,,,
-Presi,15,6,0,,,,,,,,,,,,,,,
-Ojeda,16,1,0,,,,,,,,,,,,,,,
-Juanillo,16,1,1,,,,,,,,,,,,,,,
-Fran,16,0,2,,,,,,,,,,,,,,,
-Lebo,16,0,2,,,,,,,,,,,,,,,
-Crivi,16,1,2,,,,,,,,,,,,,,,
-Pati,16,0,1,,,,,,,,,,,,,,,
-Castillo,16,1,2,,,,,,,,,,,,,,,
-Isaac,16,0,2,,,,,,,,,,,,,,,
-FILTER,16,0,2,,,,,,,,,,,,,,,
+Fran,15,5,0,,,,,,,,,,,,,,,
+JLABALOS,15,3,0,,,,,,,,,,,,,,,
+Crivi,15,5,0,,,,,,,,,,,,,,,
+Castillo,15,3,0,,,,,,,,,,,,,,,
+Dani,16,1,2,,,,,,,,,,,,,,,
+ruly,16,0,1,,,,,,,,,,,,,,,
+Arnau Jorba,16,1,2,,,,,,,,,,,,,,,
 Fer,16,1,2,,,,,,,,,,,,,,,
-Aitor,16,1,2,,,,,,,,,,,,,,,
-Cuco,16,1,1,,,,,,,,,,,,,,,
-Presi,16,1,3,,,,,,,,,,,,,,,
-Ojeda,17,1,0,,,,,,,,,,,,,,,
-Juanillo,17,3,2,,,,,,,,,,,,,,,
-Fran,17,2,0,,,,,,,,,,,,,,,
-Lebo,17,3,1,,,,,,,,,,,,,,,
-Crivi,17,2,2,,,,,,,,,,,,,,,
-Pati,17,3,1,,,,,,,,,,,,,,,
-Castillo,17,3,1,,,,,,,,,,,,,,,
-Isaac,17,4,1,,,,,,,,,,,,,,,
-FILTER,17,3,1,,,,,,,,,,,,,,,
+Fran,16,0,2,,,,,,,,,,,,,,,
+JLABALOS,16,1,2,,,,,,,,,,,,,,,
+Crivi,16,1,2,,,,,,,,,,,,,,,
+Castillo,16,1,2,,,,,,,,,,,,,,,
+Dani,17,2,0,,,,,,,,,,,,,,,
+ruly,17,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,17,3,1,,,,,,,,,,,,,,,
 Fer,17,2,1,,,,,,,,,,,,,,,
-Aitor,17,1,1,,,,,,,,,,,,,,,
-Cuco,17,4,1,,,,,,,,,,,,,,,
-Presi,17,2,2,,,,,,,,,,,,,,,
-Ojeda,18,0,1,,,,,,,,,,,,,,,
-Juanillo,18,1,2,,,,,,,,,,,,,,,
-Fran,18,0,1,,,,,,,,,,,,,,,
-Lebo,18,1,3,,,,,,,,,,,,,,,
-Crivi,18,1,3,,,,,,,,,,,,,,,
-Pati,18,0,2,,,,,,,,,,,,,,,
-Castillo,18,0,2,,,,,,,,,,,,,,,
-Isaac,18,0,2,,,,,,,,,,,,,,,
-FILTER,18,0,2,,,,,,,,,,,,,,,
+Fran,17,2,0,,,,,,,,,,,,,,,
+JLABALOS,17,3,1,,,,,,,,,,,,,,,
+Crivi,17,2,2,,,,,,,,,,,,,,,
+Castillo,17,3,1,,,,,,,,,,,,,,,
+Dani,18,0,3,,,,,,,,,,,,,,,
+ruly,18,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,18,1,3,,,,,,,,,,,,,,,
 Fer,18,0,2,,,,,,,,,,,,,,,
-Aitor,18,1,2,,,,,,,,,,,,,,,
-Cuco,18,0,3,,,,,,,,,,,,,,,
-Presi,18,0,3,,,,,,,,,,,,,,,
-Ojeda,19,1,0,,,,,,,,,,,,,,,
-Juanillo,19,2,0,,,,,,,,,,,,,,,
-Fran,19,3,0,,,,,,,,,,,,,,,
-Lebo,19,3,0,,,,,,,,,,,,,,,
-Crivi,19,3,1,,,,,,,,,,,,,,,
-Pati,19,3,0,,,,,,,,,,,,,,,
-Castillo,19,2,0,,,,,,,,,,,,,,,
-Isaac,19,3,1,,,,,,,,,,,,,,,
-FILTER,19,3,0,,,,,,,,,,,,,,,
+Fran,18,0,1,,,,,,,,,,,,,,,
+JLABALOS,18,0,1,,,,,,,,,,,,,,,
+Crivi,18,1,3,,,,,,,,,,,,,,,
+Castillo,18,0,2,,,,,,,,,,,,,,,
+Dani,19,3,0,,,,,,,,,,,,,,,
+ruly,19,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,19,2,1,,,,,,,,,,,,,,,
 Fer,19,2,0,,,,,,,,,,,,,,,
-Aitor,19,2,0,,,,,,,,,,,,,,,
-Cuco,19,2,1,,,,,,,,,,,,,,,
-Presi,19,2,0,,,,,,,,,,,,,,,
-Ojeda,20,1,0,,,,,,,,,,,,,,,
-Juanillo,20,1,0,,,,,,,,,,,,,,,
-Fran,20,2,0,,,,,,,,,,,,,,,
-Lebo,20,2,1,,,,,,,,,,,,,,,
-Crivi,20,2,0,,,,,,,,,,,,,,,
-Pati,20,3,0,,,,,,,,,,,,,,,
-Castillo,20,1,0,,,,,,,,,,,,,,,
-Isaac,20,3,0,,,,,,,,,,,,,,,
-FILTER,20,2,0,,,,,,,,,,,,,,,
+Fran,19,3,0,,,,,,,,,,,,,,,
+JLABALOS,19,2,0,,,,,,,,,,,,,,,
+Crivi,19,3,1,,,,,,,,,,,,,,,
+Castillo,19,2,0,,,,,,,,,,,,,,,
+Dani,20,2,0,,,,,,,,,,,,,,,
+ruly,20,3,0,,,,,,,,,,,,,,,
+Arnau Jorba,20,1,0,,,,,,,,,,,,,,,
 Fer,20,2,0,,,,,,,,,,,,,,,
-Aitor,20,1,0,,,,,,,,,,,,,,,
-Cuco,20,3,0,,,,,,,,,,,,,,,
-Presi,20,1,1,,,,,,,,,,,,,,,
-Ojeda,21,1,0,,,,,,,,,,,,,,,
-Juanillo,21,3,0,,,,,,,,,,,,,,,
-Fran,21,4,0,,,,,,,,,,,,,,,
-Lebo,21,3,1,,,,,,,,,,,,,,,
-Crivi,21,5,1,,,,,,,,,,,,,,,
-Pati,21,4,0,,,,,,,,,,,,,,,
-Castillo,21,2,0,,,,,,,,,,,,,,,
-Isaac,21,2,1,,,,,,,,,,,,,,,
-FILTER,21,3,0,,,,,,,,,,,,,,,
+Fran,20,2,0,,,,,,,,,,,,,,,
+JLABALOS,20,1,0,,,,,,,,,,,,,,,
+Crivi,20,2,0,,,,,,,,,,,,,,,
+Castillo,20,1,0,,,,,,,,,,,,,,,
+Dani,21,4,0,,,,,,,,,,,,,,,
+ruly,21,3,0,,,,,,,,,,,,,,,
+Arnau Jorba,21,3,0,,,,,,,,,,,,,,,
 Fer,21,3,0,,,,,,,,,,,,,,,
-Aitor,21,2,0,,,,,,,,,,,,,,,
-Cuco,21,4,0,,,,,,,,,,,,,,,
-Presi,21,4,1,,,,,,,,,,,,,,,
-Ojeda,22,0,1,,,,,,,,,,,,,,,
-Juanillo,22,1,3,,,,,,,,,,,,,,,
-Fran,22,0,3,,,,,,,,,,,,,,,
-Lebo,22,0,2,,,,,,,,,,,,,,,
-Crivi,22,1,3,,,,,,,,,,,,,,,
-Pati,22,0,2,,,,,,,,,,,,,,,
-Castillo,22,0,2,,,,,,,,,,,,,,,
-Isaac,22,0,2,,,,,,,,,,,,,,,
-FILTER,22,0,2,,,,,,,,,,,,,,,
+Fran,21,4,0,,,,,,,,,,,,,,,
+JLABALOS,21,2,0,,,,,,,,,,,,,,,
+Crivi,21,5,1,,,,,,,,,,,,,,,
+Castillo,21,2,0,,,,,,,,,,,,,,,
+Dani,22,0,3,,,,,,,,,,,,,,,
+ruly,22,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,22,0,2,,,,,,,,,,,,,,,
 Fer,22,0,2,,,,,,,,,,,,,,,
-Aitor,22,0,2,,,,,,,,,,,,,,,
-Cuco,22,0,3,,,,,,,,,,,,,,,
-Presi,22,0,3,,,,,,,,,,,,,,,
-Ojeda,23,1,0,,,,,,,,,,,,,,,
-Juanillo,23,2,2,,,,,,,,,,,,,,,
-Fran,23,2,1,,,,,,,,,,,,,,,
-Lebo,23,2,1,,,,,,,,,,,,,,,
-Crivi,23,3,1,,,,,,,,,,,,,,,
-Pati,23,1,1,,,,,,,,,,,,,,,
-Castillo,23,1,1,,,,,,,,,,,,,,,
-Isaac,23,3,0,,,,,,,,,,,,,,,
-FILTER,23,1,1,,,,,,,,,,,,,,,
+Fran,22,0,3,,,,,,,,,,,,,,,
+JLABALOS,22,0,3,,,,,,,,,,,,,,,
+Crivi,22,1,3,,,,,,,,,,,,,,,
+Castillo,22,0,2,,,,,,,,,,,,,,,
+Dani,23,2,1,,,,,,,,,,,,,,,
+ruly,23,2,2,,,,,,,,,,,,,,,
+Arnau Jorba,23,2,2,,,,,,,,,,,,,,,
 Fer,23,1,1,,,,,,,,,,,,,,,
-Aitor,23,0,1,,,,,,,,,,,,,,,
-Cuco,23,2,1,,,,,,,,,,,,,,,
-Presi,23,2,2,,,,,,,,,,,,,,,
-Ojeda,24,1,0,,,,,,,,,,,,,,,
-Juanillo,24,1,0,,,,,,,,,,,,,,,
-Fran,24,3,0,,,,,,,,,,,,,,,
-Lebo,24,2,1,,,,,,,,,,,,,,,
-Crivi,24,2,1,,,,,,,,,,,,,,,
-Pati,24,1,0,,,,,,,,,,,,,,,
-Castillo,24,2,1,,,,,,,,,,,,,,,
-Isaac,24,2,1,,,,,,,,,,,,,,,
-FILTER,24,2,0,,,,,,,,,,,,,,,
+Fran,23,2,1,,,,,,,,,,,,,,,
+JLABALOS,23,2,1,,,,,,,,,,,,,,,
+Crivi,23,3,1,,,,,,,,,,,,,,,
+Castillo,23,1,1,,,,,,,,,,,,,,,
+Dani,24,1,1,,,,,,,,,,,,,,,
+ruly,24,3,0,,,,,,,,,,,,,,,
+Arnau Jorba,24,1,0,,,,,,,,,,,,,,,
 Fer,24,2,0,,,,,,,,,,,,,,,
-Aitor,24,1,0,,,,,,,,,,,,,,,
-Cuco,24,2,0,,,,,,,,,,,,,,,
-Presi,24,1,0,,,,,,,,,,,,,,,
-Ojeda,25,1,0,,,,,,,,,,,,,,,
-Juanillo,25,1,1,,,,,,,,,,,,,,,
-Fran,25,1,0,,,,,,,,,,,,,,,
-Lebo,25,2,0,,,,,,,,,,,,,,,
-Crivi,25,1,2,,,,,,,,,,,,,,,
-Pati,25,1,1,,,,,,,,,,,,,,,
-Castillo,25,2,1,,,,,,,,,,,,,,,
-Isaac,25,3,1,,,,,,,,,,,,,,,
-FILTER,25,3,1,,,,,,,,,,,,,,,
+Fran,24,3,0,,,,,,,,,,,,,,,
+JLABALOS,24,1,0,,,,,,,,,,,,,,,
+Crivi,24,2,1,,,,,,,,,,,,,,,
+Castillo,24,2,1,,,,,,,,,,,,,,,
+Dani,25,1,0,,,,,,,,,,,,,,,
+ruly,25,0,0,,,,,,,,,,,,,,,
+Arnau Jorba,25,3,1,,,,,,,,,,,,,,,
 Fer,25,1,0,,,,,,,,,,,,,,,
-Aitor,25,2,0,,,,,,,,,,,,,,,
-Cuco,25,3,0,,,,,,,,,,,,,,,
-Presi,25,1,1,,,,,,,,,,,,,,,
-Ojeda,26,1,0,,,,,,,,,,,,,,,
-Juanillo,26,1,2,,,,,,,,,,,,,,,
-Fran,26,2,1,,,,,,,,,,,,,,,
-Lebo,26,2,1,,,,,,,,,,,,,,,
-Crivi,26,1,0,,,,,,,,,,,,,,,
-Pati,26,1,1,,,,,,,,,,,,,,,
-Castillo,26,2,1,,,,,,,,,,,,,,,
-Isaac,26,1,2,,,,,,,,,,,,,,,
-FILTER,26,2,0,,,,,,,,,,,,,,,
+Fran,25,1,0,,,,,,,,,,,,,,,
+JLABALOS,25,1,0,,,,,,,,,,,,,,,
+Crivi,25,1,2,,,,,,,,,,,,,,,
+Castillo,25,2,1,,,,,,,,,,,,,,,
+Dani,26,1,0,,,,,,,,,,,,,,,
+ruly,26,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,26,2,1,,,,,,,,,,,,,,,
 Fer,26,1,1,,,,,,,,,,,,,,,
-Aitor,26,2,0,,,,,,,,,,,,,,,
-Cuco,26,1,1,,,,,,,,,,,,,,,
-Presi,26,1,0,,,,,,,,,,,,,,,
-Ojeda,27,1,0,,,,,,,,,,,,,,,
-Juanillo,27,1,1,,,,,,,,,,,,,,,
-Fran,27,2,1,,,,,,,,,,,,,,,
-Lebo,27,1,1,,,,,,,,,,,,,,,
-Crivi,27,2,2,,,,,,,,,,,,,,,
-Pati,27,3,0,,,,,,,,,,,,,,,
-Castillo,27,2,1,,,,,,,,,,,,,,,
-Isaac,27,2,1,,,,,,,,,,,,,,,
-FILTER,27,2,1,,,,,,,,,,,,,,,
+Fran,26,2,1,,,,,,,,,,,,,,,
+JLABALOS,26,3,1,,,,,,,,,,,,,,,
+Crivi,26,1,0,,,,,,,,,,,,,,,
+Castillo,26,2,1,,,,,,,,,,,,,,,
+Dani,27,1,0,,,,,,,,,,,,,,,
+ruly,27,3,0,,,,,,,,,,,,,,,
+Arnau Jorba,27,2,1,,,,,,,,,,,,,,,
 Fer,27,3,2,,,,,,,,,,,,,,,
-Aitor,27,1,2,,,,,,,,,,,,,,,
-Cuco,27,1,0,,,,,,,,,,,,,,,
-Presi,27,1,1,,,,,,,,,,,,,,,
-Ojeda,28,1,0,,,,,,,,,,,,,,,
-Juanillo,28,2,1,,,,,,,,,,,,,,,
-Fran,28,3,1,,,,,,,,,,,,,,,
-Lebo,28,3,0,,,,,,,,,,,,,,,
-Crivi,28,1,2,,,,,,,,,,,,,,,
-Pati,28,3,0,,,,,,,,,,,,,,,
-Castillo,28,1,1,,,,,,,,,,,,,,,
-Isaac,28,1,0,,,,,,,,,,,,,,,
-FILTER,28,2,1,,,,,,,,,,,,,,,
+Fran,27,2,1,,,,,,,,,,,,,,,
+JLABALOS,27,1,0,,,,,,,,,,,,,,,
+Crivi,27,2,2,,,,,,,,,,,,,,,
+Castillo,27,2,1,,,,,,,,,,,,,,,
+Dani,28,2,1,,,,,,,,,,,,,,,
+ruly,28,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,28,2,0,,,,,,,,,,,,,,,
 Fer,28,1,1,,,,,,,,,,,,,,,
-Aitor,28,2,1,,,,,,,,,,,,,,,
-Cuco,28,2,1,,,,,,,,,,,,,,,
-Presi,28,3,1,,,,,,,,,,,,,,,
-Ojeda,29,0,1,,,,,,,,,,,,,,,
-Juanillo,29,1,3,,,,,,,,,,,,,,,
-Fran,29,0,2,,,,,,,,,,,,,,,
-Lebo,29,1,2,,,,,,,,,,,,,,,
-Crivi,29,1,2,,,,,,,,,,,,,,,
-Pati,29,0,2,,,,,,,,,,,,,,,
-Castillo,29,1,3,,,,,,,,,,,,,,,
-Isaac,29,1,1,,,,,,,,,,,,,,,
-FILTER,29,1,2,,,,,,,,,,,,,,,
+Fran,28,3,1,,,,,,,,,,,,,,,
+JLABALOS,28,1,0,,,,,,,,,,,,,,,
+Crivi,28,1,2,,,,,,,,,,,,,,,
+Castillo,28,1,1,,,,,,,,,,,,,,,
+Dani,29,1,2,,,,,,,,,,,,,,,
+ruly,29,1,3,,,,,,,,,,,,,,,
+Arnau Jorba,29,0,1,,,,,,,,,,,,,,,
 Fer,29,1,2,,,,,,,,,,,,,,,
-Aitor,29,1,3,,,,,,,,,,,,,,,
-Cuco,29,1,3,,,,,,,,,,,,,,,
-Presi,29,1,4,,,,,,,,,,,,,,,
-Ojeda,30,1,0,,,,,,,,,,,,,,,
-Juanillo,30,2,0,,,,,,,,,,,,,,,
-Fran,30,5,0,,,,,,,,,,,,,,,
-Lebo,30,4,0,,,,,,,,,,,,,,,
-Crivi,30,4,0,,,,,,,,,,,,,,,
-Pati,30,4,0,,,,,,,,,,,,,,,
-Castillo,30,4,0,,,,,,,,,,,,,,,
-Isaac,30,5,0,,,,,,,,,,,,,,,
-FILTER,30,4,0,,,,,,,,,,,,,,,
+Fran,29,0,2,,,,,,,,,,,,,,,
+JLABALOS,29,0,1,,,,,,,,,,,,,,,
+Crivi,29,1,2,,,,,,,,,,,,,,,
+Castillo,29,1,3,,,,,,,,,,,,,,,
+Dani,30,4,0,,,,,,,,,,,,,,,
+ruly,30,5,0,,,,,,,,,,,,,,,
+Arnau Jorba,30,4,0,,,,,,,,,,,,,,,
 Fer,30,4,0,,,,,,,,,,,,,,,
-Aitor,30,3,0,,,,,,,,,,,,,,,
-Cuco,30,5,0,,,,,,,,,,,,,,,
-Presi,30,6,0,,,,,,,,,,,,,,,
-Ojeda,31,1,0,,,,,,,,,,,,,,,
-Juanillo,31,1,0,,,,,,,,,,,,,,,
-Fran,31,1,0,,,,,,,,,,,,,,,
-Lebo,31,2,0,,,,,,,,,,,,,,,
-Crivi,31,1,0,,,,,,,,,,,,,,,
-Pati,31,2,0,,,,,,,,,,,,,,,
-Castillo,31,3,1,,,,,,,,,,,,,,,
-Isaac,31,2,1,,,,,,,,,,,,,,,
-FILTER,31,1,1,,,,,,,,,,,,,,,
+Fran,30,5,0,,,,,,,,,,,,,,,
+JLABALOS,30,4,0,,,,,,,,,,,,,,,
+Crivi,30,4,0,,,,,,,,,,,,,,,
+Castillo,30,4,0,,,,,,,,,,,,,,,
+Dani,31,1,0,,,,,,,,,,,,,,,
+ruly,31,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,31,2,1,,,,,,,,,,,,,,,
 Fer,31,1,0,,,,,,,,,,,,,,,
-Aitor,31,1,0,,,,,,,,,,,,,,,
-Cuco,31,2,0,,,,,,,,,,,,,,,
-Presi,31,3,2,,,,,,,,,,,,,,,
-Ojeda,32,1,0,,,,,,,,,,,,,,,
-Juanillo,32,2,2,,,,,,,,,,,,,,,
-Fran,32,1,0,,,,,,,,,,,,,,,
-Lebo,32,2,0,,,,,,,,,,,,,,,
-Crivi,32,2,2,,,,,,,,,,,,,,,
-Pati,32,3,1,,,,,,,,,,,,,,,
-Castillo,32,2,1,,,,,,,,,,,,,,,
-Isaac,32,1,3,,,,,,,,,,,,,,,
-FILTER,32,2,1,,,,,,,,,,,,,,,
+Fran,31,1,0,,,,,,,,,,,,,,,
+JLABALOS,31,2,0,,,,,,,,,,,,,,,
+Crivi,31,1,0,,,,,,,,,,,,,,,
+Castillo,31,3,1,,,,,,,,,,,,,,,
+Dani,32,2,1,,,,,,,,,,,,,,,
+ruly,32,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,32,1,0,,,,,,,,,,,,,,,
 Fer,32,2,2,,,,,,,,,,,,,,,
-Aitor,32,2,2,,,,,,,,,,,,,,,
-Cuco,32,2,2,,,,,,,,,,,,,,,
-Presi,32,1,0,,,,,,,,,,,,,,,
-Ojeda,33,1,0,,,,,,,,,,,,,,,
-Juanillo,33,2,1,,,,,,,,,,,,,,,
-Fran,33,2,0,,,,,,,,,,,,,,,
-Lebo,33,2,1,,,,,,,,,,,,,,,
-Crivi,33,3,2,,,,,,,,,,,,,,,
-Pati,33,3,1,,,,,,,,,,,,,,,
-Castillo,33,3,1,,,,,,,,,,,,,,,
-Isaac,33,2,1,,,,,,,,,,,,,,,
-FILTER,33,3,1,,,,,,,,,,,,,,,
+Fran,32,1,0,,,,,,,,,,,,,,,
+JLABALOS,32,1,1,,,,,,,,,,,,,,,
+Crivi,32,2,2,,,,,,,,,,,,,,,
+Castillo,32,2,1,,,,,,,,,,,,,,,
+Dani,33,2,1,,,,,,,,,,,,,,,
+ruly,33,4,1,,,,,,,,,,,,,,,
+Arnau Jorba,33,3,1,,,,,,,,,,,,,,,
 Fer,33,2,0,,,,,,,,,,,,,,,
-Aitor,33,2,1,,,,,,,,,,,,,,,
-Cuco,33,2,1,,,,,,,,,,,,,,,
-Presi,33,1,1,,,,,,,,,,,,,,,
-Ojeda,34,1,0,,,,,,,,,,,,,,,
-Juanillo,34,2,0,,,,,,,,,,,,,,,
-Fran,34,3,0,,,,,,,,,,,,,,,
-Lebo,34,2,0,,,,,,,,,,,,,,,
-Crivi,34,3,0,,,,,,,,,,,,,,,
-Pati,34,2,0,,,,,,,,,,,,,,,
-Castillo,34,1,0,,,,,,,,,,,,,,,
-Isaac,34,3,1,,,,,,,,,,,,,,,
-FILTER,34,2,0,,,,,,,,,,,,,,,
+Fran,33,2,0,,,,,,,,,,,,,,,
+JLABALOS,33,2,0,,,,,,,,,,,,,,,
+Crivi,33,3,2,,,,,,,,,,,,,,,
+Castillo,33,3,1,,,,,,,,,,,,,,,
+Dani,34,2,0,,,,,,,,,,,,,,,
+ruly,34,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,34,1,0,,,,,,,,,,,,,,,
 Fer,34,3,1,,,,,,,,,,,,,,,
-Aitor,34,2,1,,,,,,,,,,,,,,,
-Cuco,34,5,0,,,,,,,,,,,,,,,
-Presi,34,4,0,,,,,,,,,,,,,,,
-Ojeda,35,1,0,,,,,,,,,,,,,,,
-Juanillo,35,2,1,,,,,,,,,,,,,,,
-Fran,35,3,0,,,,,,,,,,,,,,,
-Lebo,35,2,2,,,,,,,,,,,,,,,
-Crivi,35,2,0,,,,,,,,,,,,,,,
-Pati,35,1,0,,,,,,,,,,,,,,,
-Castillo,35,2,1,,,,,,,,,,,,,,,
-Isaac,35,2,2,,,,,,,,,,,,,,,
-FILTER,35,1,1,,,,,,,,,,,,,,,
+Fran,34,3,0,,,,,,,,,,,,,,,
+JLABALOS,34,3,0,,,,,,,,,,,,,,,
+Crivi,34,3,0,,,,,,,,,,,,,,,
+Castillo,34,1,0,,,,,,,,,,,,,,,
+Dani,35,1,1,,,,,,,,,,,,,,,
+ruly,35,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,35,2,1,,,,,,,,,,,,,,,
 Fer,35,2,0,,,,,,,,,,,,,,,
-Aitor,35,1,1,,,,,,,,,,,,,,,
-Cuco,35,2,0,,,,,,,,,,,,,,,
-Presi,35,1,0,,,,,,,,,,,,,,,
-Ojeda,36,0,1,,,,,,,,,,,,,,,
-Juanillo,36,1,3,,,,,,,,,,,,,,,
-Fran,36,0,3,,,,,,,,,,,,,,,
-Lebo,36,1,2,,,,,,,,,,,,,,,
-Crivi,36,2,2,,,,,,,,,,,,,,,
-Pati,36,0,3,,,,,,,,,,,,,,,
-Castillo,36,1,2,,,,,,,,,,,,,,,
-Isaac,36,1,3,,,,,,,,,,,,,,,
-FILTER,36,0,1,,,,,,,,,,,,,,,
+Fran,35,3,0,,,,,,,,,,,,,,,
+JLABALOS,35,2,1,,,,,,,,,,,,,,,
+Crivi,35,2,0,,,,,,,,,,,,,,,
+Castillo,35,2,1,,,,,,,,,,,,,,,
+Dani,36,1,1,,,,,,,,,,,,,,,
+ruly,36,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,36,0,1,,,,,,,,,,,,,,,
 Fer,36,0,2,,,,,,,,,,,,,,,
-Aitor,36,0,1,,,,,,,,,,,,,,,
-Cuco,36,0,2,,,,,,,,,,,,,,,
-Presi,36,0,3,,,,,,,,,,,,,,,
-Ojeda,37,1,0,,,,,,,,,,,,,,,
-Juanillo,37,2,1,,,,,,,,,,,,,,,
-Fran,37,2,1,,,,,,,,,,,,,,,
-Lebo,37,3,0,,,,,,,,,,,,,,,
-Crivi,37,2,1,,,,,,,,,,,,,,,
-Pati,37,4,0,,,,,,,,,,,,,,,
-Castillo,37,1,1,,,,,,,,,,,,,,,
-Isaac,37,2,1,,,,,,,,,,,,,,,
-FILTER,37,2,1,,,,,,,,,,,,,,,
+Fran,36,0,3,,,,,,,,,,,,,,,
+JLABALOS,36,0,2,,,,,,,,,,,,,,,
+Crivi,36,2,2,,,,,,,,,,,,,,,
+Castillo,36,1,2,,,,,,,,,,,,,,,
+Dani,37,2,0,,,,,,,,,,,,,,,
+ruly,37,4,0,,,,,,,,,,,,,,,
+Arnau Jorba,37,1,0,,,,,,,,,,,,,,,
 Fer,37,2,0,,,,,,,,,,,,,,,
-Aitor,37,2,0,,,,,,,,,,,,,,,
-Cuco,37,3,1,,,,,,,,,,,,,,,
-Presi,37,2,0,,,,,,,,,,,,,,,
-Ojeda,38,0,1,,,,,,,,,,,,,,,
-Juanillo,38,0,3,,,,,,,,,,,,,,,
-Fran,38,0,1,,,,,,,,,,,,,,,
-Lebo,38,1,3,,,,,,,,,,,,,,,
-Crivi,38,1,4,,,,,,,,,,,,,,,
-Pati,38,0,3,,,,,,,,,,,,,,,
-Castillo,38,0,2,,,,,,,,,,,,,,,
-Isaac,38,1,2,,,,,,,,,,,,,,,
-FILTER,38,1,1,,,,,,,,,,,,,,,
+Fran,37,2,1,,,,,,,,,,,,,,,
+JLABALOS,37,2,0,,,,,,,,,,,,,,,
+Crivi,37,2,1,,,,,,,,,,,,,,,
+Castillo,37,1,1,,,,,,,,,,,,,,,
+Dani,38,1,1,,,,,,,,,,,,,,,
+ruly,38,1,3,,,,,,,,,,,,,,,
+Arnau Jorba,38,0,2,,,,,,,,,,,,,,,
 Fer,38,1,2,,,,,,,,,,,,,,,
-Aitor,38,0,2,,,,,,,,,,,,,,,
-Cuco,38,1,2,,,,,,,,,,,,,,,
-Presi,38,0,4,,,,,,,,,,,,,,,
-Ojeda,39,1,0,,,,,,,,,,,,,,,
-Juanillo,39,2,1,,,,,,,,,,,,,,,
-Fran,39,4,0,,,,,,,,,,,,,,,
-Lebo,39,3,1,,,,,,,,,,,,,,,
-Crivi,39,3,1,,,,,,,,,,,,,,,
-Pati,39,5,0,,,,,,,,,,,,,,,
-Castillo,39,2,0,,,,,,,,,,,,,,,
-Isaac,39,2,1,,,,,,,,,,,,,,,
-FILTER,39,3,1,,,,,,,,,,,,,,,
+Fran,38,0,1,,,,,,,,,,,,,,,
+JLABALOS,38,1,2,,,,,,,,,,,,,,,
+Crivi,38,1,4,,,,,,,,,,,,,,,
+Castillo,38,0,2,,,,,,,,,,,,,,,
+Dani,39,3,0,,,,,,,,,,,,,,,
+ruly,39,3,0,,,,,,,,,,,,,,,
+Arnau Jorba,39,3,0,,,,,,,,,,,,,,,
 Fer,39,2,0,,,,,,,,,,,,,,,
-Aitor,39,2,0,,,,,,,,,,,,,,,
-Cuco,39,2,0,,,,,,,,,,,,,,,
-Presi,39,2,1,,,,,,,,,,,,,,,
-Ojeda,40,1,0,,,,,,,,,,,,,,,
-Juanillo,40,2,1,,,,,,,,,,,,,,,
-Fran,40,3,0,,,,,,,,,,,,,,,
-Lebo,40,2,1,,,,,,,,,,,,,,,
-Crivi,40,4,0,,,,,,,,,,,,,,,
-Pati,40,3,0,,,,,,,,,,,,,,,
-Castillo,40,1,0,,,,,,,,,,,,,,,
-Isaac,40,2,0,,,,,,,,,,,,,,,
-FILTER,40,2,0,,,,,,,,,,,,,,,
+Fran,39,4,0,,,,,,,,,,,,,,,
+JLABALOS,39,1,0,,,,,,,,,,,,,,,
+Crivi,39,3,1,,,,,,,,,,,,,,,
+Castillo,39,2,0,,,,,,,,,,,,,,,
+Dani,40,2,0,,,,,,,,,,,,,,,
+ruly,40,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,40,2,1,,,,,,,,,,,,,,,
 Fer,40,3,0,,,,,,,,,,,,,,,
-Aitor,40,3,1,,,,,,,,,,,,,,,
-Cuco,40,3,0,,,,,,,,,,,,,,,
-Presi,40,4,1,,,,,,,,,,,,,,,
-Ojeda,41,1,0,,,,,,,,,,,,,,,
-Juanillo,41,3,0,,,,,,,,,,,,,,,
-Fran,41,4,0,,,,,,,,,,,,,,,
-Lebo,41,3,0,,,,,,,,,,,,,,,
-Crivi,41,5,1,,,,,,,,,,,,,,,
-Pati,41,4,0,,,,,,,,,,,,,,,
-Castillo,41,2,1,,,,,,,,,,,,,,,
-Isaac,41,2,0,,,,,,,,,,,,,,,
-FILTER,41,2,0,,,,,,,,,,,,,,,
+Fran,40,3,0,,,,,,,,,,,,,,,
+JLABALOS,40,3,1,,,,,,,,,,,,,,,
+Crivi,40,4,0,,,,,,,,,,,,,,,
+Castillo,40,1,0,,,,,,,,,,,,,,,
+Dani,41,4,0,,,,,,,,,,,,,,,
+ruly,41,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,41,3,0,,,,,,,,,,,,,,,
 Fer,41,3,0,,,,,,,,,,,,,,,
-Aitor,41,2,0,,,,,,,,,,,,,,,
-Cuco,41,3,0,,,,,,,,,,,,,,,
-Presi,41,2,0,,,,,,,,,,,,,,,
-Ojeda,42,1,0,,,,,,,,,,,,,,,
-Juanillo,42,1,1,,,,,,,,,,,,,,,
-Fran,42,1,1,,,,,,,,,,,,,,,
-Lebo,42,2,1,,,,,,,,,,,,,,,
-Crivi,42,1,2,,,,,,,,,,,,,,,
-Pati,42,1,1,,,,,,,,,,,,,,,
-Castillo,42,1,0,,,,,,,,,,,,,,,
-Isaac,42,3,1,,,,,,,,,,,,,,,
-FILTER,42,1,1,,,,,,,,,,,,,,,
+Fran,41,4,0,,,,,,,,,,,,,,,
+JLABALOS,41,5,0,,,,,,,,,,,,,,,
+Crivi,41,5,1,,,,,,,,,,,,,,,
+Castillo,41,2,1,,,,,,,,,,,,,,,
+Dani,42,1,0,,,,,,,,,,,,,,,
+ruly,42,1,2,,,,,,,,,,,,,,,
+Arnau Jorba,42,2,2,,,,,,,,,,,,,,,
 Fer,42,2,2,,,,,,,,,,,,,,,
-Aitor,42,1,2,,,,,,,,,,,,,,,
-Cuco,42,3,2,,,,,,,,,,,,,,,
-Presi,42,1,2,,,,,,,,,,,,,,,
-Ojeda,43,1,0,,,,,,,,,,,,,,,
-Juanillo,43,2,1,,,,,,,,,,,,,,,
-Fran,43,1,0,,,,,,,,,,,,,,,
-Lebo,43,2,1,,,,,,,,,,,,,,,
-Crivi,43,2,1,,,,,,,,,,,,,,,
-Pati,43,2,1,,,,,,,,,,,,,,,
-Castillo,43,1,0,,,,,,,,,,,,,,,
-Isaac,43,2,1,,,,,,,,,,,,,,,
-FILTER,43,1,0,,,,,,,,,,,,,,,
+Fran,42,1,1,,,,,,,,,,,,,,,
+JLABALOS,42,1,1,,,,,,,,,,,,,,,
+Crivi,42,1,2,,,,,,,,,,,,,,,
+Castillo,42,1,0,,,,,,,,,,,,,,,
+Dani,43,2,1,,,,,,,,,,,,,,,
+ruly,43,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,43,2,0,,,,,,,,,,,,,,,
 Fer,43,3,1,,,,,,,,,,,,,,,
-Aitor,43,3,1,,,,,,,,,,,,,,,
-Cuco,43,2,0,,,,,,,,,,,,,,,
-Presi,43,3,0,,,,,,,,,,,,,,,
-Ojeda,44,0,1,,,,,,,,,,,,,,,
-Juanillo,44,0,3,,,,,,,,,,,,,,,
-Fran,44,0,1,,,,,,,,,,,,,,,
-Lebo,44,0,3,,,,,,,,,,,,,,,
-Crivi,44,1,2,,,,,,,,,,,,,,,
-Pati,44,0,0,,,,,,,,,,,,,,,
-Castillo,44,0,2,,,,,,,,,,,,,,,
-Isaac,44,0,1,,,,,,,,,,,,,,,
-FILTER,44,0,2,,,,,,,,,,,,,,,
+Fran,43,1,0,,,,,,,,,,,,,,,
+JLABALOS,43,3,1,,,,,,,,,,,,,,,
+Crivi,43,2,1,,,,,,,,,,,,,,,
+Castillo,43,1,0,,,,,,,,,,,,,,,
+Dani,44,0,1,,,,,,,,,,,,,,,
+ruly,44,0,1,,,,,,,,,,,,,,,
+Arnau Jorba,44,0,2,,,,,,,,,,,,,,,
 Fer,44,1,2,,,,,,,,,,,,,,,
-Aitor,44,0,2,,,,,,,,,,,,,,,
-Cuco,44,0,2,,,,,,,,,,,,,,,
-Presi,44,0,0,,,,,,,,,,,,,,,
-Ojeda,45,1,0,,,,,,,,,,,,,,,
-Juanillo,45,2,0,,,,,,,,,,,,,,,
-Fran,45,4,0,,,,,,,,,,,,,,,
-Lebo,45,4,0,,,,,,,,,,,,,,,
-Crivi,45,4,0,,,,,,,,,,,,,,,
-Pati,45,3,1,,,,,,,,,,,,,,,
-Castillo,45,2,0,,,,,,,,,,,,,,,
-Isaac,45,4,1,,,,,,,,,,,,,,,
-FILTER,45,2,0,,,,,,,,,,,,,,,
+Fran,44,0,1,,,,,,,,,,,,,,,
+JLABALOS,44,0,1,,,,,,,,,,,,,,,
+Crivi,44,1,2,,,,,,,,,,,,,,,
+Castillo,44,0,2,,,,,,,,,,,,,,,
+Dani,45,4,0,,,,,,,,,,,,,,,
+ruly,45,4,0,,,,,,,,,,,,,,,
+Arnau Jorba,45,2,0,,,,,,,,,,,,,,,
 Fer,45,3,0,,,,,,,,,,,,,,,
-Aitor,45,3,1,,,,,,,,,,,,,,,
-Cuco,45,3,0,,,,,,,,,,,,,,,
-Presi,45,3,1,,,,,,,,,,,,,,,
-Ojeda,46,1,0,,,,,,,,,,,,,,,
-Juanillo,46,2,1,,,,,,,,,,,,,,,
-Fran,46,3,1,,,,,,,,,,,,,,,
-Lebo,46,2,1,,,,,,,,,,,,,,,
-Crivi,46,3,0,,,,,,,,,,,,,,,
-Pati,46,1,0,,,,,,,,,,,,,,,
-Castillo,46,1,1,,,,,,,,,,,,,,,
-Isaac,46,1,1,,,,,,,,,,,,,,,
-FILTER,46,2,0,,,,,,,,,,,,,,,
+Fran,45,4,0,,,,,,,,,,,,,,,
+JLABALOS,45,4,1,,,,,,,,,,,,,,,
+Crivi,45,4,0,,,,,,,,,,,,,,,
+Castillo,45,2,0,,,,,,,,,,,,,,,
+Dani,46,2,0,,,,,,,,,,,,,,,
+ruly,46,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,46,2,0,,,,,,,,,,,,,,,
 Fer,46,2,1,,,,,,,,,,,,,,,
-Aitor,46,2,1,,,,,,,,,,,,,,,
-Cuco,46,3,1,,,,,,,,,,,,,,,
-Presi,46,1,0,,,,,,,,,,,,,,,
-Ojeda,47,1,0,,,,,,,,,,,,,,,
-Juanillo,47,2,1,,,,,,,,,,,,,,,
-Fran,47,1,0,,,,,,,,,,,,,,,
-Lebo,47,2,0,,,,,,,,,,,,,,,
-Crivi,47,2,1,,,,,,,,,,,,,,,
-Pati,47,3,0,,,,,,,,,,,,,,,
-Castillo,47,2,1,,,,,,,,,,,,,,,
-Isaac,47,2,1,,,,,,,,,,,,,,,
-FILTER,47,3,0,,,,,,,,,,,,,,,
+Fran,46,3,1,,,,,,,,,,,,,,,
+JLABALOS,46,2,1,,,,,,,,,,,,,,,
+Crivi,46,3,0,,,,,,,,,,,,,,,
+Castillo,46,1,1,,,,,,,,,,,,,,,
+Dani,47,2,0,,,,,,,,,,,,,,,
+ruly,47,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,47,2,1,,,,,,,,,,,,,,,
 Fer,47,2,1,,,,,,,,,,,,,,,
-Aitor,47,2,2,,,,,,,,,,,,,,,
-Cuco,47,3,0,,,,,,,,,,,,,,,
-Presi,47,2,1,,,,,,,,,,,,,,,
-Ojeda,48,0,1,,,,,,,,,,,,,,,
-Juanillo,48,1,3,,,,,,,,,,,,,,,
-Fran,48,0,2,,,,,,,,,,,,,,,
-Lebo,48,0,2,,,,,,,,,,,,,,,
-Crivi,48,0,1,,,,,,,,,,,,,,,
-Pati,48,0,2,,,,,,,,,,,,,,,
-Castillo,48,1,2,,,,,,,,,,,,,,,
-Isaac,48,1,2,,,,,,,,,,,,,,,
-FILTER,48,0,2,,,,,,,,,,,,,,,
+Fran,47,1,0,,,,,,,,,,,,,,,
+JLABALOS,47,3,1,,,,,,,,,,,,,,,
+Crivi,47,2,1,,,,,,,,,,,,,,,
+Castillo,47,2,1,,,,,,,,,,,,,,,
+Dani,48,0,1,,,,,,,,,,,,,,,
+ruly,48,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,48,0,2,,,,,,,,,,,,,,,
 Fer,48,0,2,,,,,,,,,,,,,,,
-Aitor,48,1,1,,,,,,,,,,,,,,,
-Cuco,48,0,2,,,,,,,,,,,,,,,
-Presi,48,0,4,,,,,,,,,,,,,,,
-Ojeda,49,1,0,,,,,,,,,,,,,,,
-Juanillo,49,2,2,,,,,,,,,,,,,,,
-Fran,49,1,2,,,,,,,,,,,,,,,
-Lebo,49,1,1,,,,,,,,,,,,,,,
-Crivi,49,0,0,,,,,,,,,,,,,,,
-Pati,49,1,2,,,,,,,,,,,,,,,
-Castillo,49,1,1,,,,,,,,,,,,,,,
-Isaac,49,1,3,,,,,,,,,,,,,,,
-FILTER,49,1,1,,,,,,,,,,,,,,,
+Fran,48,0,2,,,,,,,,,,,,,,,
+JLABALOS,48,0,2,,,,,,,,,,,,,,,
+Crivi,48,0,1,,,,,,,,,,,,,,,
+Castillo,48,1,2,,,,,,,,,,,,,,,
+Dani,49,1,1,,,,,,,,,,,,,,,
+ruly,49,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,49,1,1,,,,,,,,,,,,,,,
 Fer,49,1,3,,,,,,,,,,,,,,,
-Aitor,49,0,1,,,,,,,,,,,,,,,
-Cuco,49,0,2,,,,,,,,,,,,,,,
-Presi,49,0,3,,,,,,,,,,,,,,,
-Ojeda,50,1,0,,,,,,,,,,,,,,,
-Juanillo,50,1,3,,,,,,,,,,,,,,,
-Fran,50,1,1,,,,,,,,,,,,,,,
-Lebo,50,1,2,,,,,,,,,,,,,,,
-Crivi,50,1,1,,,,,,,,,,,,,,,
-Pati,50,0,1,,,,,,,,,,,,,,,
-Castillo,50,0,3,,,,,,,,,,,,,,,
-Isaac,50,1,3,,,,,,,,,,,,,,,
-FILTER,50,1,2,,,,,,,,,,,,,,,
+Fran,49,1,2,,,,,,,,,,,,,,,
+JLABALOS,49,2,2,,,,,,,,,,,,,,,
+Crivi,49,0,0,,,,,,,,,,,,,,,
+Castillo,49,1,1,,,,,,,,,,,,,,,
+Dani,50,1,1,,,,,,,,,,,,,,,
+ruly,50,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,50,1,2,,,,,,,,,,,,,,,
 Fer,50,0,3,,,,,,,,,,,,,,,
-Aitor,50,0,1,,,,,,,,,,,,,,,
-Cuco,50,1,3,,,,,,,,,,,,,,,
-Presi,50,0,2,,,,,,,,,,,,,,,
-Ojeda,51,1,0,,,,,,,,,,,,,,,
-Juanillo,51,0,1,,,,,,,,,,,,,,,
-Fran,51,2,1,,,,,,,,,,,,,,,
-Lebo,51,1,2,,,,,,,,,,,,,,,
-Crivi,51,2,0,,,,,,,,,,,,,,,
-Pati,51,1,2,,,,,,,,,,,,,,,
-Castillo,51,2,0,,,,,,,,,,,,,,,
-Isaac,51,3,1,,,,,,,,,,,,,,,
-FILTER,51,1,1,,,,,,,,,,,,,,,
+Fran,50,1,1,,,,,,,,,,,,,,,
+JLABALOS,50,1,3,,,,,,,,,,,,,,,
+Crivi,50,1,1,,,,,,,,,,,,,,,
+Castillo,50,0,3,,,,,,,,,,,,,,,
+Dani,51,1,1,,,,,,,,,,,,,,,
+ruly,51,1,1,,,,,,,,,,,,,,,
+Arnau Jorba,51,1,1,,,,,,,,,,,,,,,
 Fer,51,2,0,,,,,,,,,,,,,,,
-Aitor,51,2,0,,,,,,,,,,,,,,,
-Cuco,51,2,1,,,,,,,,,,,,,,,
-Presi,51,0,0,,,,,,,,,,,,,,,
-Ojeda,52,1,0,,,,,,,,,,,,,,,
-Juanillo,52,2,1,,,,,,,,,,,,,,,
-Fran,52,3,1,,,,,,,,,,,,,,,
-Lebo,52,2,0,,,,,,,,,,,,,,,
-Crivi,52,1,1,,,,,,,,,,,,,,,
-Pati,52,0,0,,,,,,,,,,,,,,,
-Castillo,52,0,1,,,,,,,,,,,,,,,
-Isaac,52,3,2,,,,,,,,,,,,,,,
-FILTER,52,3,0,,,,,,,,,,,,,,,
+Fran,51,2,1,,,,,,,,,,,,,,,
+JLABALOS,51,1,1,,,,,,,,,,,,,,,
+Crivi,51,2,0,,,,,,,,,,,,,,,
+Castillo,51,2,0,,,,,,,,,,,,,,,
+Dani,52,1,0,,,,,,,,,,,,,,,
+ruly,52,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,52,1,0,,,,,,,,,,,,,,,
 Fer,52,1,1,,,,,,,,,,,,,,,
-Aitor,52,1,1,,,,,,,,,,,,,,,
-Cuco,52,1,1,,,,,,,,,,,,,,,
-Presi,52,2,0,,,,,,,,,,,,,,,
-Ojeda,53,0,1,,,,,,,,,,,,,,,
-Juanillo,53,0,1,,,,,,,,,,,,,,,
-Fran,53,1,3,,,,,,,,,,,,,,,
-Lebo,53,1,3,,,,,,,,,,,,,,,
-Crivi,53,1,3,,,,,,,,,,,,,,,
-Pati,53,1,2,,,,,,,,,,,,,,,
-Castillo,53,1,3,,,,,,,,,,,,,,,
-Isaac,53,1,2,,,,,,,,,,,,,,,
-FILTER,53,0,2,,,,,,,,,,,,,,,
+Fran,52,3,1,,,,,,,,,,,,,,,
+JLABALOS,52,2,1,,,,,,,,,,,,,,,
+Crivi,52,1,1,,,,,,,,,,,,,,,
+Castillo,52,0,1,,,,,,,,,,,,,,,
+Dani,53,1,2,,,,,,,,,,,,,,,
+ruly,53,1,2,,,,,,,,,,,,,,,
+Arnau Jorba,53,0,2,,,,,,,,,,,,,,,
 Fer,53,1,3,,,,,,,,,,,,,,,
-Aitor,53,1,3,,,,,,,,,,,,,,,
-Cuco,53,1,1,,,,,,,,,,,,,,,
-Presi,53,1,2,,,,,,,,,,,,,,,
-Ojeda,54,1,0,,,,,,,,,,,,,,,
-Juanillo,54,3,0,,,,,,,,,,,,,,,
-Fran,54,3,0,,,,,,,,,,,,,,,
-Lebo,54,2,0,,,,,,,,,,,,,,,
-Crivi,54,4,1,,,,,,,,,,,,,,,
-Pati,54,3,0,,,,,,,,,,,,,,,
-Castillo,54,2,0,,,,,,,,,,,,,,,
-Isaac,54,7,0,,,,,,,,,,,,,,,
-FILTER,54,2,0,,,,,,,,,,,,,,,
+Fran,53,1,3,,,,,,,,,,,,,,,
+JLABALOS,53,1,2,,,,,,,,,,,,,,,
+Crivi,53,1,3,,,,,,,,,,,,,,,
+Castillo,53,1,3,,,,,,,,,,,,,,,
+Dani,54,3,0,,,,,,,,,,,,,,,
+ruly,54,4,0,,,,,,,,,,,,,,,
+Arnau Jorba,54,2,0,,,,,,,,,,,,,,,
 Fer,54,3,0,,,,,,,,,,,,,,,
-Aitor,54,3,0,,,,,,,,,,,,,,,
-Cuco,54,4,0,,,,,,,,,,,,,,,
-Presi,54,5,0,,,,,,,,,,,,,,,
-Ojeda,55,1,0,,,,,,,,,,,,,,,
-Juanillo,55,1,0,,,,,,,,,,,,,,,
-Fran,55,2,1,,,,,,,,,,,,,,,
-Lebo,55,2,1,,,,,,,,,,,,,,,
-Crivi,55,1,0,,,,,,,,,,,,,,,
-Pati,55,1,1,,,,,,,,,,,,,,,
-Castillo,55,1,2,,,,,,,,,,,,,,,
-Isaac,55,1,3,,,,,,,,,,,,,,,
-FILTER,55,1,2,,,,,,,,,,,,,,,
+Fran,54,3,0,,,,,,,,,,,,,,,
+JLABALOS,54,3,0,,,,,,,,,,,,,,,
+Crivi,54,4,1,,,,,,,,,,,,,,,
+Castillo,54,2,0,,,,,,,,,,,,,,,
+Dani,55,1,1,,,,,,,,,,,,,,,
+ruly,55,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,55,1,1,,,,,,,,,,,,,,,
 Fer,55,3,1,,,,,,,,,,,,,,,
-Aitor,55,1,1,,,,,,,,,,,,,,,
-Cuco,55,2,1,,,,,,,,,,,,,,,
-Presi,55,0,2,,,,,,,,,,,,,,,
-Ojeda,56,1,0,,,,,,,,,,,,,,,
-Juanillo,56,1,1,,,,,,,,,,,,,,,
-Fran,56,2,1,,,,,,,,,,,,,,,
-Lebo,56,2,0,,,,,,,,,,,,,,,
-Crivi,56,1,0,,,,,,,,,,,,,,,
-Pati,56,0,0,,,,,,,,,,,,,,,
-Castillo,56,0,1,,,,,,,,,,,,,,,
-Isaac,56,3,2,,,,,,,,,,,,,,,
-FILTER,56,1,1,,,,,,,,,,,,,,,
+Fran,55,2,1,,,,,,,,,,,,,,,
+JLABALOS,55,1,1,,,,,,,,,,,,,,,
+Crivi,55,1,0,,,,,,,,,,,,,,,
+Castillo,55,1,2,,,,,,,,,,,,,,,
+Dani,56,1,1,,,,,,,,,,,,,,,
+ruly,56,0,1,,,,,,,,,,,,,,,
+Arnau Jorba,56,2,1,,,,,,,,,,,,,,,
 Fer,56,2,1,,,,,,,,,,,,,,,
-Aitor,56,1,0,,,,,,,,,,,,,,,
-Cuco,56,3,1,,,,,,,,,,,,,,,
-Presi,56,1,2,,,,,,,,,,,,,,,
-Ojeda,57,0,1,,,,,,,,,,,,,,,
-Juanillo,57,1,2,,,,,,,,,,,,,,,
-Fran,57,0,2,,,,,,,,,,,,,,,
-Lebo,57,1,3,,,,,,,,,,,,,,,
-Crivi,57,1,4,,,,,,,,,,,,,,,
-Pati,57,2,1,,,,,,,,,,,,,,,
-Castillo,57,0,2,,,,,,,,,,,,,,,
-Isaac,57,0,2,,,,,,,,,,,,,,,
-FILTER,57,0,2,,,,,,,,,,,,,,,
+Fran,56,2,1,,,,,,,,,,,,,,,
+JLABALOS,56,2,1,,,,,,,,,,,,,,,
+Crivi,56,1,0,,,,,,,,,,,,,,,
+Castillo,56,0,1,,,,,,,,,,,,,,,
+Dani,57,0,1,,,,,,,,,,,,,,,
+ruly,57,0,3,,,,,,,,,,,,,,,
+Arnau Jorba,57,1,2,,,,,,,,,,,,,,,
 Fer,57,0,3,,,,,,,,,,,,,,,
-Aitor,57,0,3,,,,,,,,,,,,,,,
-Cuco,57,0,3,,,,,,,,,,,,,,,
-Presi,57,0,2,,,,,,,,,,,,,,,
-Ojeda,58,0,1,,,,,,,,,,,,,,,
-Juanillo,58,1,1,,,,,,,,,,,,,,,
-Fran,58,1,2,,,,,,,,,,,,,,,
-Lebo,58,1,3,,,,,,,,,,,,,,,
-Crivi,58,1,1,,,,,,,,,,,,,,,
-Pati,58,1,3,,,,,,,,,,,,,,,
-Castillo,58,1,2,,,,,,,,,,,,,,,
-Isaac,58,1,1,,,,,,,,,,,,,,,
-FILTER,58,1,2,,,,,,,,,,,,,,,
+Fran,57,0,2,,,,,,,,,,,,,,,
+JLABALOS,57,1,3,,,,,,,,,,,,,,,
+Crivi,57,1,4,,,,,,,,,,,,,,,
+Castillo,57,0,2,,,,,,,,,,,,,,,
+Dani,58,1,2,,,,,,,,,,,,,,,
+ruly,58,0,3,,,,,,,,,,,,,,,
+Arnau Jorba,58,2,2,,,,,,,,,,,,,,,
 Fer,58,0,2,,,,,,,,,,,,,,,
-Aitor,58,1,3,,,,,,,,,,,,,,,
-Cuco,58,1,1,,,,,,,,,,,,,,,
-Presi,58,0,0,,,,,,,,,,,,,,,
-Ojeda,59,1,0,,,,,,,,,,,,,,,
-Juanillo,59,1,1,,,,,,,,,,,,,,,
-Fran,59,2,0,,,,,,,,,,,,,,,
-Lebo,59,1,2,,,,,,,,,,,,,,,
-Crivi,59,1,1,,,,,,,,,,,,,,,
-Pati,59,2,0,,,,,,,,,,,,,,,
-Castillo,59,2,1,,,,,,,,,,,,,,,
-Isaac,59,3,2,,,,,,,,,,,,,,,
-FILTER,59,1,1,,,,,,,,,,,,,,,
+Fran,58,1,2,,,,,,,,,,,,,,,
+JLABALOS,58,1,1,,,,,,,,,,,,,,,
+Crivi,58,1,1,,,,,,,,,,,,,,,
+Castillo,58,1,2,,,,,,,,,,,,,,,
+Dani,59,1,1,,,,,,,,,,,,,,,
+ruly,59,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,59,1,1,,,,,,,,,,,,,,,
 Fer,59,2,2,,,,,,,,,,,,,,,
-Aitor,59,0,0,,,,,,,,,,,,,,,
-Cuco,59,1,0,,,,,,,,,,,,,,,
-Presi,59,0,1,,,,,,,,,,,,,,,
-Ojeda,60,0,1,,,,,,,,,,,,,,,
-Juanillo,60,1,3,,,,,,,,,,,,,,,
-Fran,60,0,2,,,,,,,,,,,,,,,
-Lebo,60,1,2,,,,,,,,,,,,,,,
-Crivi,60,1,2,,,,,,,,,,,,,,,
-Pati,60,0,3,,,,,,,,,,,,,,,
-Castillo,60,0,1,,,,,,,,,,,,,,,
-Isaac,60,1,4,,,,,,,,,,,,,,,
-FILTER,60,0,2,,,,,,,,,,,,,,,
+Fran,59,2,0,,,,,,,,,,,,,,,
+JLABALOS,59,2,2,,,,,,,,,,,,,,,
+Crivi,59,1,1,,,,,,,,,,,,,,,
+Castillo,59,2,1,,,,,,,,,,,,,,,
+Dani,60,1,2,,,,,,,,,,,,,,,
+ruly,60,2,3,,,,,,,,,,,,,,,
+Arnau Jorba,60,0,1,,,,,,,,,,,,,,,
 Fer,60,0,3,,,,,,,,,,,,,,,
-Aitor,60,1,2,,,,,,,,,,,,,,,
-Cuco,60,0,3,,,,,,,,,,,,,,,
-Presi,60,1,3,,,,,,,,,,,,,,,
-Ojeda,61,1,0,,,,,,,,,,,,,,,
-Juanillo,61,2,1,,,,,,,,,,,,,,,
-Fran,61,2,2,,,,,,,,,,,,,,,
-Lebo,61,2,1,,,,,,,,,,,,,,,
-Crivi,61,1,1,,,,,,,,,,,,,,,
-Pati,61,2,0,,,,,,,,,,,,,,,
-Castillo,61,1,0,,,,,,,,,,,,,,,
-Isaac,61,1,1,,,,,,,,,,,,,,,
-FILTER,61,1,0,,,,,,,,,,,,,,,
+Fran,60,0,2,,,,,,,,,,,,,,,
+JLABALOS,60,1,3,,,,,,,,,,,,,,,
+Crivi,60,1,2,,,,,,,,,,,,,,,
+Castillo,60,0,1,,,,,,,,,,,,,,,
+Dani,61,1,1,,,,,,,,,,,,,,,
+ruly,61,2,0,,,,,,,,,,,,,,,
+Arnau Jorba,61,1,1,,,,,,,,,,,,,,,
 Fer,61,2,2,,,,,,,,,,,,,,,
-Aitor,61,1,1,,,,,,,,,,,,,,,
-Cuco,61,1,1,,,,,,,,,,,,,,,
-Presi,61,2,0,,,,,,,,,,,,,,,
-Ojeda,62,0,1,,,,,,,,,,,,,,,
-Juanillo,62,1,3,,,,,,,,,,,,,,,
-Fran,62,0,3,,,,,,,,,,,,,,,
-Lebo,62,1,2,,,,,,,,,,,,,,,
-Crivi,62,0,3,,,,,,,,,,,,,,,
-Pati,62,0,2,,,,,,,,,,,,,,,
-Castillo,62,0,2,,,,,,,,,,,,,,,
-Isaac,62,1,2,,,,,,,,,,,,,,,
-FILTER,62,0,3,,,,,,,,,,,,,,,
+Fran,61,2,2,,,,,,,,,,,,,,,
+JLABALOS,61,1,0,,,,,,,,,,,,,,,
+Crivi,61,1,1,,,,,,,,,,,,,,,
+Castillo,61,1,0,,,,,,,,,,,,,,,
+Dani,62,0,2,,,,,,,,,,,,,,,
+ruly,62,0,2,,,,,,,,,,,,,,,
+Arnau Jorba,62,0,2,,,,,,,,,,,,,,,
 Fer,62,1,3,,,,,,,,,,,,,,,
-Aitor,62,0,3,,,,,,,,,,,,,,,
-Cuco,62,0,2,,,,,,,,,,,,,,,
-Presi,62,1,1,,,,,,,,,,,,,,,
-Ojeda,63,1,0,,,,,,,,,,,,,,,
-Juanillo,63,1,3,,,,,,,,,,,,,,,
-Fran,63,0,1,,,,,,,,,,,,,,,
-Lebo,63,2,1,,,,,,,,,,,,,,,
-Crivi,63,1,3,,,,,,,,,,,,,,,
-Pati,63,0,0,,,,,,,,,,,,,,,
-Castillo,63,0,1,,,,,,,,,,,,,,,
-Isaac,63,1,2,,,,,,,,,,,,,,,
-FILTER,63,0,1,,,,,,,,,,,,,,,
+Fran,62,0,3,,,,,,,,,,,,,,,
+JLABALOS,62,0,5,,,,,,,,,,,,,,,
+Crivi,62,0,3,,,,,,,,,,,,,,,
+Castillo,62,0,2,,,,,,,,,,,,,,,
+Dani,63,1,2,,,,,,,,,,,,,,,
+ruly,63,0,1,,,,,,,,,,,,,,,
+Arnau Jorba,63,1,1,,,,,,,,,,,,,,,
 Fer,63,0,1,,,,,,,,,,,,,,,
-Aitor,63,1,1,,,,,,,,,,,,,,,
-Cuco,63,0,2,,,,,,,,,,,,,,,
-Presi,63,1,3,,,,,,,,,,,,,,,
-Ojeda,64,1,0,,,,,,,,,,,,,,,
-Juanillo,64,2,2,,,,,,,,,,,,,,,
-Fran,64,1,2,,,,,,,,,,,,,,,
-Lebo,64,1,2,,,,,,,,,,,,,,,
-Crivi,64,1,2,,,,,,,,,,,,,,,
-Pati,64,2,2,,,,,,,,,,,,,,,
-Castillo,64,1,1,,,,,,,,,,,,,,,
-Isaac,64,2,3,,,,,,,,,,,,,,,
-FILTER,64,1,1,,,,,,,,,,,,,,,
+Fran,63,0,1,,,,,,,,,,,,,,,
+JLABALOS,63,1,1,,,,,,,,,,,,,,,
+Crivi,63,1,3,,,,,,,,,,,,,,,
+Castillo,63,0,1,,,,,,,,,,,,,,,
+Dani,64,1,2,,,,,,,,,,,,,,,
+ruly,64,0,3,,,,,,,,,,,,,,,
+Arnau Jorba,64,1,2,,,,,,,,,,,,,,,
 Fer,64,1,3,,,,,,,,,,,,,,,
-Aitor,64,0,2,,,,,,,,,,,,,,,
-Cuco,64,1,3,,,,,,,,,,,,,,,
-Presi,64,1,2,,,,,,,,,,,,,,,
-Ojeda,65,0,1,,,,,,,,,,,,,,,
-Juanillo,65,1,3,,,,,,,,,,,,,,,
-Fran,65,0,3,,,,,,,,,,,,,,,
-Lebo,65,1,2,,,,,,,,,,,,,,,
-Crivi,65,2,3,,,,,,,,,,,,,,,
-Pati,65,1,3,,,,,,,,,,,,,,,
-Castillo,65,1,2,,,,,,,,,,,,,,,
-Isaac,65,2,1,,,,,,,,,,,,,,,
-FILTER,65,1,2,,,,,,,,,,,,,,,
+Fran,64,1,2,,,,,,,,,,,,,,,
+JLABALOS,64,1,1,,,,,,,,,,,,,,,
+Crivi,64,1,2,,,,,,,,,,,,,,,
+Castillo,64,1,1,,,,,,,,,,,,,,,
+Dani,65,1,2,,,,,,,,,,,,,,,
+ruly,65,1,2,,,,,,,,,,,,,,,
+Arnau Jorba,65,1,2,,,,,,,,,,,,,,,
 Fer,65,1,3,,,,,,,,,,,,,,,
-Aitor,65,0,2,,,,,,,,,,,,,,,
-Cuco,65,1,2,,,,,,,,,,,,,,,
-Presi,65,1,2,,,,,,,,,,,,,,,
-Ojeda,66,1,0,,,,,,,,,,,,,,,
-Juanillo,66,2,1,,,,,,,,,,,,,,,
-Fran,66,1,0,,,,,,,,,,,,,,,
-Lebo,66,3,0,,,,,,,,,,,,,,,
-Crivi,66,3,0,,,,,,,,,,,,,,,
-Pati,66,3,0,,,,,,,,,,,,,,,
-Castillo,66,1,0,,,,,,,,,,,,,,,
-Isaac,66,2,1,,,,,,,,,,,,,,,
-FILTER,66,2,1,,,,,,,,,,,,,,,
+Fran,65,0,3,,,,,,,,,,,,,,,
+JLABALOS,65,1,1,,,,,,,,,,,,,,,
+Crivi,65,2,3,,,,,,,,,,,,,,,
+Castillo,65,1,2,,,,,,,,,,,,,,,
+Dani,66,1,0,,,,,,,,,,,,,,,
+ruly,66,1,0,,,,,,,,,,,,,,,
+Arnau Jorba,66,2,0,,,,,,,,,,,,,,,
 Fer,66,2,0,,,,,,,,,,,,,,,
-Aitor,66,2,1,,,,,,,,,,,,,,,
-Cuco,66,3,0,,,,,,,,,,,,,,,
-Presi,66,4,0,,,,,,,,,,,,,,,
-Ojeda,67,1,0,,,,,,,,,,,,,,,
-Juanillo,67,1,1,,,,,,,,,,,,,,,
-Fran,67,1,3,,,,,,,,,,,,,,,
-Lebo,67,2,1,,,,,,,,,,,,,,,
-Crivi,67,0,1,,,,,,,,,,,,,,,
-Pati,67,0,2,,,,,,,,,,,,,,,
-Castillo,67,1,1,,,,,,,,,,,,,,,
-Isaac,67,1,3,,,,,,,,,,,,,,,
-FILTER,67,1,2,,,,,,,,,,,,,,,
+Fran,66,1,0,,,,,,,,,,,,,,,
+JLABALOS,66,2,0,,,,,,,,,,,,,,,
+Crivi,66,3,0,,,,,,,,,,,,,,,
+Castillo,66,1,0,,,,,,,,,,,,,,,
+Dani,67,1,1,,,,,,,,,,,,,,,
+ruly,67,1,3,,,,,,,,,,,,,,,
+Arnau Jorba,67,1,1,,,,,,,,,,,,,,,
 Fer,67,0,1,,,,,,,,,,,,,,,
-Aitor,67,1,2,,,,,,,,,,,,,,,
-Cuco,67,1,2,,,,,,,,,,,,,,,
-Presi,67,1,1,,,,,,,,,,,,,,,
-Ojeda,68,0,1,,,,,,,,,,,,,,,
-Juanillo,68,0,1,,,,,,,,,,,,,,,
-Fran,68,0,4,,,,,,,,,,,,,,,
-Lebo,68,1,3,,,,,,,,,,,,,,,
-Crivi,68,0,4,,,,,,,,,,,,,,,
-Pati,68,0,3,,,,,,,,,,,,,,,
-Castillo,68,0,2,,,,,,,,,,,,,,,
-Isaac,68,0,3,,,,,,,,,,,,,,,
-FILTER,68,0,2,,,,,,,,,,,,,,,
+Fran,67,1,3,,,,,,,,,,,,,,,
+JLABALOS,67,1,2,,,,,,,,,,,,,,,
+Crivi,67,0,1,,,,,,,,,,,,,,,
+Castillo,67,1,1,,,,,,,,,,,,,,,
+Dani,68,0,3,,,,,,,,,,,,,,,
+ruly,68,0,4,,,,,,,,,,,,,,,
+Arnau Jorba,68,0,3,,,,,,,,,,,,,,,
 Fer,68,0,3,,,,,,,,,,,,,,,
-Aitor,68,0,3,,,,,,,,,,,,,,,
-Cuco,68,0,4,,,,,,,,,,,,,,,
-Presi,68,0,6,,,,,,,,,,,,,,,
-Ojeda,69,1,0,,,,,,,,,,,,,,,
-Juanillo,69,1,3,,,,,,,,,,,,,,,
-Fran,69,1,2,,,,,,,,,,,,,,,
-Lebo,69,1,2,,,,,,,,,,,,,,,
-Crivi,69,1,1,,,,,,,,,,,,,,,
-Pati,69,1,3,,,,,,,,,,,,,,,
-Castillo,69,1,2,,,,,,,,,,,,,,,
-Isaac,69,1,1,,,,,,,,,,,,,,,
-FILTER,69,2,2,,,,,,,,,,,,,,,
+Fran,68,0,4,,,,,,,,,,,,,,,
+JLABALOS,68,0,4,,,,,,,,,,,,,,,
+Crivi,68,0,4,,,,,,,,,,,,,,,
+Castillo,68,0,2,,,,,,,,,,,,,,,
+Dani,69,2,2,,,,,,,,,,,,,,,
+ruly,69,2,2,,,,,,,,,,,,,,,
+Arnau Jorba,69,2,2,,,,,,,,,,,,,,,
 Fer,69,1,2,,,,,,,,,,,,,,,
-Aitor,69,1,2,,,,,,,,,,,,,,,
-Cuco,69,1,2,,,,,,,,,,,,,,,
-Presi,69,0,0,,,,,,,,,,,,,,,
-Ojeda,70,0,1,,,,,,,,,,,,,,,
-Juanillo,70,1,1,,,,,,,,,,,,,,,
-Fran,70,2,1,,,,,,,,,,,,,,,
-Lebo,70,2,0,,,,,,,,,,,,,,,
-Crivi,70,1,2,,,,,,,,,,,,,,,
-Pati,70,0,0,,,,,,,,,,,,,,,
-Castillo,70,0,1,,,,,,,,,,,,,,,
-Isaac,70,2,1,,,,,,,,,,,,,,,
-FILTER,70,1,1,,,,,,,,,,,,,,,
+Fran,69,1,2,,,,,,,,,,,,,,,
+JLABALOS,69,1,1,,,,,,,,,,,,,,,
+Crivi,69,1,1,,,,,,,,,,,,,,,
+Castillo,69,1,2,,,,,,,,,,,,,,,
+Dani,70,0,0,,,,,,,,,,,,,,,
+ruly,70,0,0,,,,,,,,,,,,,,,
+Arnau Jorba,70,0,0,,,,,,,,,,,,,,,
 Fer,70,2,1,,,,,,,,,,,,,,,
-Aitor,70,1,1,,,,,,,,,,,,,,,
-Cuco,70,0,0,,,,,,,,,,,,,,,
-Presi,70,1,1,,,,,,,,,,,,,,,
-Ojeda,71,0,1,,,,,,,,,,,,,,,
-Juanillo,71,1,3,,,,,,,,,,,,,,,
-Fran,71,0,3,,,,,,,,,,,,,,,
-Lebo,71,0,4,,,,,,,,,,,,,,,
-Crivi,71,0,3,,,,,,,,,,,,,,,
-Pati,71,1,3,,,,,,,,,,,,,,,
-Castillo,71,1,2,,,,,,,,,,,,,,,
-Isaac,71,1,4,,,,,,,,,,,,,,,
-FILTER,71,0,3,,,,,,,,,,,,,,,
+Fran,70,2,1,,,,,,,,,,,,,,,
+JLABALOS,70,2,2,,,,,,,,,,,,,,,
+Crivi,70,1,2,,,,,,,,,,,,,,,
+Castillo,70,0,1,,,,,,,,,,,,,,,
+Dani,71,0,3,,,,,,,,,,,,,,,
+ruly,71,0,3,,,,,,,,,,,,,,,
+Arnau Jorba,71,0,2,,,,,,,,,,,,,,,
 Fer,71,0,2,,,,,,,,,,,,,,,
-Aitor,71,0,1,,,,,,,,,,,,,,,
-Cuco,71,0,3,,,,,,,,,,,,,,,
-Presi,71,0,2,,,,,,,,,,,,,,,
-Ojeda,72,1,0,,,,,,,,,,,,,,,
-Juanillo,72,2,2,,,,,,,,,,,,,,,
-Fran,72,1,1,,,,,,,,,,,,,,,
-Lebo,72,1,2,,,,,,,,,,,,,,,
-Crivi,72,1,1,,,,,,,,,,,,,,,
-Pati,72,4,0,,,,,,,,,,,,,,,
-Castillo,72,2,1,,,,,,,,,,,,,,,
-Isaac,72,1,2,,,,,,,,,,,,,,,
-FILTER,72,1,1,,,,,,,,,,,,,,,
+Fran,71,0,3,,,,,,,,,,,,,,,
+JLABALOS,71,0,3,,,,,,,,,,,,,,,
+Crivi,71,0,3,,,,,,,,,,,,,,,
+Castillo,71,1,2,,,,,,,,,,,,,,,
+Dani,72,1,1,,,,,,,,,,,,,,,
+ruly,72,2,1,,,,,,,,,,,,,,,
+Arnau Jorba,72,1,1,,,,,,,,,,,,,,,
 Fer,72,1,1,,,,,,,,,,,,,,,
-Aitor,72,2,1,,,,,,,,,,,,,,,
-Cuco,72,1,1,,,,,,,,,,,,,,,
-Presi,72,1,1,,,,,,,,,,,,,,,
-Ojeda,73,1,0,,,,,,,,,,,,,,,
-Juanillo,73,2,1,,,,,,,,,,,,,,,
-Fran,73,0,1,,,,,,,,,,,,,,,
-Lebo,73,2,1,,,,,,,,,,,,,,,
-Crivi,73,1,2,,,,,,,,,,,,,,,
-Pati,73,1,1,,,,,,,,,,,,,,,
-Castillo,73,2,1,,,,,,,,,,,,,,,
-Isaac,73,1,0,,,,,,,,,,,,,,,
-FILTER,73,2,1,,,,,,,,,,,,,,,
-Fer,73,2,1,,,,,,,,,,,,,,,
-Aitor,73,2,1,,,,,,,,,,,,,,,
-Cuco,73,2,1,,,,,,,,,,,,,,,
-Presi,73,1,0,,,,,,,,,,,,,,,
-Ojeda,predicciones,,,,,,,,,España,Francia,Portugal,,,,,,
-Ojeda,premios,,,,,,,,,,,,Mbappe,Vinicius,Julian Alvarez,Pedri,Lamine Yamal,Eric Garcia
-Juanillo,predicciones,,,,,,,,,España,Portugal,Ecuador,,,,,,
-Juanillo,premios,,,,,,,,,,,,mbape,oyarzabal,cristiano,lamine yamal,cristiano,pedri
-Fran,predicciones,,,,,,,,,España,Portugal,Francia,,,,,,
-Fran,premios,,,,,,,,,,,,Mbappe,Oyarzabal,Kane,Lamine Yamal,Mbappe,Pedri
-Lebo,predicciones,,,,,,,,,Portugal,Francia,Inglaterra,,,,,,
-Lebo,premios,,,,,,,,,,,,Mbappe,Kane,Cristiano,Vitinha,Cristiano,Mbappe
-Crivi,predicciones,,,,,,,,,Argentina,España,Francia,,,,,,
-Crivi,premios,,,,,,,,,,,,Mbappé,Raphinha,Messi,Messi,Lamine Yamal,Pedri
-Pati,predicciones,,,,,,,,,Alemania,Argentina,España,,,,,,
-Pati,premios,,,,,,,,,,,,Olisse,Lamine Yamal,Messi,Lamine Yamal,Messi,Musiala
-Castillo,predicciones,,,,,,,,,Portugal,Alemania,España,,,,,,
-Castillo,premios,,,,,,,,,,,,ferran torres,mbappe,haaland,vitinha,musiala,pedri
-Isaac,predicciones,,,,,,,,,España,Inglaterra,Portugal,,,,,,
-Isaac,premios,,,,,,,,,,,,Havertz,Oyarzabal,H.Keane,Lamine Yamal,Pedri,Gordon
-FILTER,predicciones,,,,,,,,,España,Argentina,Francia,,,,,,
-FILTER,premios,,,,,,,,,,,,Mbappe,Harry Kane,Lamine Yamal,Pedri,Olise,Mbappe
+Fran,72,1,1,,,,,,,,,,,,,,,
+JLABALOS,72,2,1,,,,,,,,,,,,,,,
+Crivi,72,1,1,,,,,,,,,,,,,,,
+Castillo,72,2,1,,,,,,,,,,,,,,,
+Dani,predicciones,,,,,,,,,Francia,Portugal,Brasil,,,,,,
+Dani,premios,,,,,,,,,,,,Mbappé,Kane,Vinicius,Mbappé,Vitinha,Lamine Yamal
+ruly,predicciones,,,,,,,,,España,Portugal,Países Bajos,,,,,,
+ruly,premios,,,,,,,,,,,,poyarzabal,mena lamine,gakpo,pedri,poyarzabal,lamine
+Arnau Jorba,predicciones,,,,,,,,,España,Argentina,Brasil,,,,,,
+Arnau Jorba,premios,,,,,,,,,,,,Donatello,Hurri Kane,Lautaro,Lamine,Messi,Pedri
 Fer,predicciones,,,,,,,,,España,Portugal,Brasil,,,,,,
 Fer,premios,,,,,,,,,,,,Dembele,Oyarzabal,Ferran Torres,Pedri,Vitinha,Raphina
-Aitor,predicciones,,,,,,,,,España,Portugal,Alemania,,,,,,
-Aitor,premios,,,,,,,,,,,,Oyarzabal,Mbappe,Harry Kane,Lamine yamal,Olise,Vitinha
-Cuco,predicciones,,,,,,,,,España,Argentina,Francia,,,,,,
-Cuco,premios,,,,,,,,,,,,Mbbape,lautaro,ferran torres,messi,lamine yamal,mbappe
-Presi,predicciones,,,,,,,,,España,Marruecos,Argentina,,,,,,
-Presi,premios,,,,,,,,,,,,Julian Alvarez,Mbappe,Oyarzabal,Pedri,Raphinha,Vitinha
-_resultados,predicciones,,,,,,,,,,,,,,,,,
-_resultados,premios,,,,,,,,,,,,,,,,,
-Ojeda,R16-1,1,0,México,Canadá,,,,,,,,,,,,,
-Ojeda,R16-4,1,0,Brasil,Japón,,,,,,,,,,,,,
-Ojeda,R16-2,1,0,Alemania,Haití,,,,,,,,,,,,,
-Ojeda,R16-3,1,0,Países Bajos,Marruecos,,,,,,,,,,,,,
-Ojeda,R16-6,1,0,Costa de Marfil,Noruega,,,,,,,,,,,,,
-Ojeda,R16-5,1,0,Francia,Paraguay,,,,,,,,,,,,,
-Ojeda,R16-9,1,0,República Checa,Cabo Verde,,,,,,,,,,,,,
-Ojeda,R16-8,1,0,Inglaterra,Ecuador,,,,,,,,,,,,,
-Ojeda,R16-10,1,0,Bélgica,Austria,,,,,,,,,,,,,
-Ojeda,R16-7,1,0,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
-Ojeda,R16-12,1,0,Uruguay,Argelia,,,,,,,,,,,,,
-Ojeda,R16-11,1,0,Portugal,Croacia,,,,,,,,,,,,,
-Ojeda,R16-13,1,0,Suiza,Irán,,,,,,,,,,,,,
-Ojeda,R16-15,1,0,Estados Unidos,Egipto,,,,,,,,,,,,,
-Ojeda,R16-14,0,1,Argentina,España,,,,,,,,,,,,,
-Ojeda,R16-16,1,0,Colombia,Ghana,,,,,,,,,,,,,
-Ojeda,octavos-2,0,1,México,Países Bajos,,,,,,,,,,,,,
-Ojeda,octavos-1,0,1,Alemania,Francia,,,,,,,,,,,,,
-Ojeda,octavos-3,1,0,Brasil,Costa de Marfil,,,,,,,,,,,,,
-Ojeda,octavos-4,0,1,República Checa,Inglaterra,,,,,,,,,,,,,
-Ojeda,octavos-5,1,0,Portugal,Uruguay,,,,,,,,,,,,,
-Ojeda,octavos-6,0,1,Turquía,Bélgica,,,,,,,,,,,,,
-Ojeda,octavos-7,1,0,España,Estados Unidos,,,,,,,,,,,,,
-Ojeda,octavos-8,0,1,Suiza,Colombia,,,,,,,,,,,,,
-Ojeda,cuartos-1,1,0,Francia,Países Bajos,,,,,,,,,,,,,
-Ojeda,cuartos-3,1,0,Portugal,Bélgica,,,,,,,,,,,,,
-Ojeda,cuartos-2,1,0,Brasil,Inglaterra,,,,,,,,,,,,,
-Ojeda,cuartos-4,1,0,España,Colombia,,,,,,,,,,,,,
-Ojeda,semis-1,1,0,Francia,Portugal,,,,,,,,,,,,,
-Ojeda,semis-2,0,1,Brasil,España,,,,,,,,,,,,,
-Ojeda,tercer-1,1,0,Portugal,Brasil,,,,,,,,,,,,,
-Ojeda,final-1,0,1,Francia,España,,,,,,,,,,,,,
-Juanillo,R16-1,2,1,México,Bosnia y Herzegovina,,,,,,,,,,,,,
-Juanillo,R16-4,3,1,Marruecos,Países Bajos,,,,,,,,,,,,,
-Juanillo,R16-2,2,0,Alemania,Paraguay,,,,,,,,,,,,,
-Juanillo,R16-3,1,2,Japón,Brasil,,,,,,,,,,,,,
-Juanillo,R16-6,3,1,Ecuador,Senegal,,,,,,,,,,,,,
-Juanillo,R16-5,4,0,Francia,Suecia,,,,,,,,,,,,,
-Juanillo,R16-9,2,1,Corea del Sur,Arabia Saudita,,,,,,,,,,,,,
-Juanillo,R16-8,1,2,Inglaterra,Noruega,,,,,,,,,,,,,
-Juanillo,R16-10,2,1,Egipto,República Checa,,,,,,,,,,,,,
-Juanillo,R16-7,3,1,Turquía,Suiza,,,,,,,,,,,,,
-Juanillo,R16-12,3,1,España,Argelia,,,,,,,,,,,,,
-Juanillo,R16-11,2,1,Colombia,Croacia,,,,,,,,,,,,,
-Juanillo,R16-13,2,1,Canadá,Austria,,,,,,,,,,,,,
-Juanillo,R16-15,0,1,Estados Unidos,Bélgica,,,,,,,,,,,,,
-Juanillo,R16-14,2,0,Argentina,Uruguay,,,,,,,,,,,,,
-Juanillo,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
-Juanillo,octavos-2,0,1,México,Brasil,,,,,,,,,,,,,
-Juanillo,octavos-1,1,3,Alemania,Francia,,,,,,,,,,,,,
-Juanillo,octavos-3,1,2,Marruecos,Ecuador,,,,,,,,,,,,,
-Juanillo,octavos-4,1,2,Corea del Sur,Noruega,,,,,,,,,,,,,
-Juanillo,octavos-5,2,3,Colombia,España,,,,,,,,,,,,,
-Juanillo,octavos-6,2,1,Turquía,Egipto,,,,,,,,,,,,,
-Juanillo,octavos-7,1,0,Argentina,Bélgica,,,,,,,,,,,,,
-Juanillo,octavos-8,1,3,Canadá,Portugal,,,,,,,,,,,,,
-Juanillo,cuartos-1,2,1,Francia,Brasil,,,,,,,,,,,,,
-Juanillo,cuartos-3,2,0,España,Turquía,,,,,,,,,,,,,
-Juanillo,cuartos-2,1,0,Ecuador,Noruega,,,,,,,,,,,,,
-Juanillo,cuartos-4,1,3,Argentina,Portugal,,,,,,,,,,,,,
-Juanillo,semis-1,1,2,Francia,España,,,,,,,,,,,,,
-Juanillo,semis-2,1,2,Ecuador,Portugal,,,,,,,,,,,,,
-Juanillo,tercer-1,1,2,Francia,Ecuador,,,,,,,,,,,,,
-Juanillo,final-1,1,0,España,Portugal,,,,,,,,,,,,,
-Fran,R16-1,0,1,Corea del Sur,Canadá,,,,,,,,,,,,,
-Fran,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
-Fran,R16-2,3,0,Alemania,Escocia,,,,,,,,,,,,,
-Fran,R16-3,1,2,Países Bajos,Marruecos,,,,,,,,,,,,,
-Fran,R16-6,1,0,Ecuador,Senegal,,,,,,,,,,,,,
-Fran,R16-5,3,0,Francia,Paraguay,,,,,,,,,,,,,
-Fran,R16-9,1,0,México,Costa de Marfil,,,,,,,,,,,,,
-Fran,R16-8,2,1,Inglaterra,Noruega,,,,,,,,,,,,,
-Fran,R16-10,3,1,Bélgica,República Checa,,,,,,,,,,,,,
-Fran,R16-7,1,0,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
-Fran,R16-12,2,0,España,Austria,,,,,,,,,,,,,
-Fran,R16-11,1,2,Colombia,Ghana,,,,,,,,,,,,,
-Fran,R16-13,1,0,Suiza,Egipto,,,,,,,,,,,,,
-Fran,R16-15,1,0,Estados Unidos,Irán,,,,,,,,,,,,,
-Fran,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-Fran,R16-16,3,1,Portugal,Croacia,,,,,,,,,,,,,
-Fran,octavos-2,1,3,Canadá,Marruecos,,,,,,,,,,,,,
-Fran,octavos-1,1,2,Alemania,Francia,,,,,,,,,,,,,
-Fran,octavos-3,2,0,Brasil,Ecuador,,,,,,,,,,,,,
-Fran,octavos-4,1,2,México,Inglaterra,,,,,,,,,,,,,
-Fran,octavos-5,1,2,Ghana,España,,,,,,,,,,,,,
-Fran,octavos-6,1,2,Turquía,Bélgica,,,,,,,,,,,,,
-Fran,octavos-7,2,0,Argentina,Estados Unidos,,,,,,,,,,,,,
-Fran,octavos-8,1,3,Suiza,Portugal,,,,,,,,,,,,,
-Fran,cuartos-1,2,1,Francia,Marruecos,,,,,,,,,,,,,
-Fran,cuartos-3,2,0,España,Bélgica,,,,,,,,,,,,,
-Fran,cuartos-2,3,2,Brasil,Inglaterra,,,,,,,,,,,,,
-Fran,cuartos-4,1,3,Argentina,Portugal,,,,,,,,,,,,,
-Fran,semis-1,1,3,Francia,España,,,,,,,,,,,,,
-Fran,semis-2,2,2,Brasil,Portugal,,,,,,,,,,,,,
-Fran,tercer-1,3,1,Francia,Brasil,,,,,,,,,,,,,
-Fran,final-1,2,1,España,Portugal,,,,,,,,,,,,,
-Lebo,R16-1,2,1,Corea del Sur,Bosnia y Herzegovina,,,,,,,,,,,,,
-Lebo,R16-4,3,1,Brasil,Países Bajos,,,,,,,,,,,,,
-Lebo,R16-2,3,1,Alemania,Escocia,,,,,,,,,,,,,
-Lebo,R16-3,1,2,Suecia,Marruecos,,,,,,,,,,,,,
-Lebo,R16-6,1,2,Costa de Marfil,Noruega,,,,,,,,,,,,,
-Lebo,R16-5,3,0,Francia,Japón,,,,,,,,,,,,,
-Lebo,R16-9,1,2,México,Senegal,,,,,,,,,,,,,
-Lebo,R16-8,3,1,Inglaterra,RD Congo,,,,,,,,,,,,,
-Lebo,R16-10,3,1,Bélgica,República Checa,,,,,,,,,,,,,
-Lebo,R16-7,2,1,Turquía,Suiza,,,,,,,,,,,,,
-Lebo,R16-12,2,0,España,Argelia,,,,,,,,,,,,,
-Lebo,R16-11,2,0,Colombia,Ghana,,,,,,,,,,,,,
-Lebo,R16-13,2,1,Canadá,Austria,,,,,,,,,,,,,
-Lebo,R16-15,2,1,Estados Unidos,Egipto,,,,,,,,,,,,,
-Lebo,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-Lebo,R16-16,3,1,Portugal,Croacia,,,,,,,,,,,,,
-Lebo,octavos-2,1,2,Corea del Sur,Marruecos,,,,,,,,,,,,,
-Lebo,octavos-1,1,2,Alemania,Francia,,,,,,,,,,,,,
-Lebo,octavos-3,2,0,Brasil,Noruega,,,,,,,,,,,,,
-Lebo,octavos-4,1,2,Senegal,Inglaterra,,,,,,,,,,,,,
-Lebo,octavos-5,0,2,Colombia,España,,,,,,,,,,,,,
-Lebo,octavos-6,1,2,Turquía,Bélgica,,,,,,,,,,,,,
-Lebo,octavos-7,3,1,Argentina,Estados Unidos,,,,,,,,,,,,,
-Lebo,octavos-8,1,3,Canadá,Portugal,,,,,,,,,,,,,
-Lebo,cuartos-1,3,1,Francia,Marruecos,,,,,,,,,,,,,
-Lebo,cuartos-3,1,1,España,Bélgica,,,,,,,,,,,,,
-Lebo,cuartos-2,1,2,Brasil,Inglaterra,,,,,,,,,,,,,
-Lebo,cuartos-4,1,2,Argentina,Portugal,,,,,,,,,,,,,
-Lebo,semis-1,2,1,Francia,Bélgica,,,,,,,,,,,,,
-Lebo,semis-2,1,2,Inglaterra,Portugal,,,,,,,,,,,,,
-Lebo,tercer-1,1,2,Bélgica,Inglaterra,,,,,,,,,,,,,
-Lebo,final-1,1,2,Francia,Portugal,,,,,,,,,,,,,
-Crivi,R16-1,1,2,Sudáfrica,Bosnia y Herzegovina,,,,,,,,,,,,,
-Crivi,R16-4,3,1,Brasil,Suecia,,,,,,,,,,,,,
-Crivi,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
-Crivi,R16-3,2,2,Países Bajos,Marruecos,,,,,,,,,,,,,
-Crivi,R16-6,1,1,Ecuador,Senegal,,,,,,,,,,,,,
-Crivi,R16-5,3,0,Francia,Estados Unidos,,,,,,,,,,,,,
-Crivi,R16-9,1,2,México,Costa de Marfil,,,,,,,,,,,,,
-Crivi,R16-8,3,2,Inglaterra,Noruega,,,,,,,,,,,,,
-Crivi,R16-10,2,1,Bélgica,Arabia Saudita,,,,,,,,,,,,,
-Crivi,R16-7,3,0,Turquía,Catar,,,,,,,,,,,,,
-Crivi,R16-12,3,1,España,Austria,,,,,,,,,,,,,
-Crivi,R16-11,2,0,Colombia,Ghana,,,,,,,,,,,,,
-Crivi,R16-13,1,0,Suiza,Irán,,,,,,,,,,,,,
-Crivi,R16-15,1,1,Paraguay,Egipto,,,,,,,,,,,,,
-Crivi,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-Crivi,R16-16,3,1,Portugal,Croacia,,,,,,,,,,,,,
-Crivi,octavos-2,1,2,Bosnia y Herzegovina,Países Bajos,,,,,,,,,,,,,
-Crivi,octavos-1,1,3,Alemania,Francia,,,,,,,,,,,,,
-Crivi,octavos-3,2,1,Brasil,Senegal,,,,,,,,,,,,,
-Crivi,octavos-4,0,2,Costa de Marfil,Inglaterra,,,,,,,,,,,,,
-Crivi,octavos-5,1,1,Colombia,España,,,,,,,,,,,,,
-Crivi,octavos-6,1,1,Turquía,Bélgica,,,,,,,,,,,,,
-Crivi,octavos-7,2,0,Argentina,Egipto,,,,,,,,,,,,,
-Crivi,octavos-8,1,3,Suiza,Portugal,,,,,,,,,,,,,
-Crivi,cuartos-1,2,0,Francia,Países Bajos,,,,,,,,,,,,,
-Crivi,cuartos-3,3,1,España,Turquía,,,,,,,,,,,,,
-Crivi,cuartos-2,1,1,Brasil,Inglaterra,,,,,,,,,,,,,
-Crivi,cuartos-4,2,0,Argentina,Portugal,,,,,,,,,,,,,
-Crivi,semis-1,2,2,Francia,España,,,,,,,,,,,,,
-Crivi,semis-2,1,2,Brasil,Argentina,,,,,,,,,,,,,
-Crivi,tercer-1,2,0,Francia,Brasil,,,,,,,,,,,,,
-Crivi,final-1,2,3,España,Argentina,,,,,,,,,,,,,
-Pati,R16-1,1,1,Corea del Sur,Suiza,,,,,,,,,,,,,
-Pati,R16-4,2,0,Brasil,Países Bajos,,,,,,,,,,,,,
-Pati,R16-2,4,1,Alemania,Paraguay,,,,,,,,,,,,,
-Pati,R16-3,1,3,Japón,Marruecos,,,,,,,,,,,,,
-Pati,R16-6,1,1,Ecuador,Senegal,,,,,,,,,,,,,
-Pati,R16-5,3,1,Francia,Suecia,,,,,,,,,,,,,
-Pati,R16-9,2,0,México,Escocia,,,,,,,,,,,,,
-Pati,R16-8,2,0,Croacia,Uzbekistán,,,,,,,,,,,,,
-Pati,R16-10,3,1,Bélgica,República Checa,,,,,,,,,,,,,
-Pati,R16-7,2,3,Turquía,Noruega,,,,,,,,,,,,,
-Pati,R16-12,3,0,España,Austria,,,,,,,,,,,,,
-Pati,R16-11,1,3,Colombia,Inglaterra,,,,,,,,,,,,,
-Pati,R16-13,2,0,Canadá,Curazao,,,,,,,,,,,,,
-Pati,R16-15,1,1,Estados Unidos,Egipto,,,,,,,,,,,,,
-Pati,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-Pati,R16-16,3,0,Portugal,Ghana,,,,,,,,,,,,,
-Pati,octavos-2,0,2,Corea del Sur,Marruecos,,,,,,,,,,,,,
-Pati,octavos-1,2,2,Alemania,Francia,,,,,,,,,,,,,
-Pati,octavos-3,2,2,Brasil,Senegal,,,,,,,,,,,,,
-Pati,octavos-4,1,0,México,Croacia,,,,,,,,,,,,,
-Pati,octavos-5,2,3,Inglaterra,España,,,,,,,,,,,,,
-Pati,octavos-6,0,2,Noruega,Bélgica,,,,,,,,,,,,,
-Pati,octavos-7,4,0,Argentina,Estados Unidos,,,,,,,,,,,,,
-Pati,octavos-8,1,3,Canadá,Portugal,,,,,,,,,,,,,
-Pati,cuartos-1,3,1,Alemania,Marruecos,,,,,,,,,,,,,
-Pati,cuartos-3,2,1,España,Bélgica,,,,,,,,,,,,,
-Pati,cuartos-2,1,1,Senegal,México,,,,,,,,,,,,,
-Pati,cuartos-4,2,2,Argentina,Portugal,,,,,,,,,,,,,
-Pati,semis-1,3,1,Alemania,España,,,,,,,,,,,,,
-Pati,semis-2,1,3,México,Argentina,,,,,,,,,,,,,
-Pati,tercer-1,4,0,España,México,,,,,,,,,,,,,
-Pati,final-1,1,1,Alemania,Argentina,,,,,,,,,,,,,
-Castillo,R16-1,2,1,México,Canadá,,,,,,,,,,,,,
-Castillo,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
-Castillo,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
-Castillo,R16-3,1,2,Países Bajos,Marruecos,,,,,,,,,,,,,
-Castillo,R16-6,1,1,Costa de Marfil,Noruega,,,,,,,,,,,,,
-Castillo,R16-5,2,0,Francia,Australia,,,,,,,,,,,,,
-Castillo,R16-9,1,1,República Checa,Arabia Saudita,,,,,,,,,,,,,
-Castillo,R16-8,3,1,Inglaterra,Ecuador,,,,,,,,,,,,,
-Castillo,R16-10,2,1,Bélgica,Corea del Sur,,,,,,,,,,,,,
-Castillo,R16-7,2,0,Estados Unidos,Catar,,,,,,,,,,,,,
-Castillo,R16-12,3,1,España,Argelia,,,,,,,,,,,,,
-Castillo,R16-11,1,2,Colombia,Croacia,,,,,,,,,,,,,
-Castillo,R16-13,1,0,Suiza,Austria,,,,,,,,,,,,,
-Castillo,R16-15,0,2,Turquía,Egipto,,,,,,,,,,,,,
-Castillo,R16-14,1,1,Argentina,Uruguay,,,,,,,,,,,,,
-Castillo,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
-Castillo,octavos-2,0,2,México,Marruecos,,,,,,,,,,,,,
-Castillo,octavos-1,2,1,Alemania,Francia,,,,,,,,,,,,,
-Castillo,octavos-3,2,1,Brasil,Noruega,,,,,,,,,,,,,
-Castillo,octavos-4,1,1,República Checa,Inglaterra,,,,,,,,,,,,,
-Castillo,octavos-5,1,3,Croacia,España,,,,,,,,,,,,,
-Castillo,octavos-6,1,2,Estados Unidos,Bélgica,,,,,,,,,,,,,
-Castillo,octavos-7,2,1,Argentina,Egipto,,,,,,,,,,,,,
-Castillo,octavos-8,1,2,Suiza,Portugal,,,,,,,,,,,,,
-Castillo,cuartos-1,2,2,Alemania,Marruecos,,,,,,,,,,,,,
-Castillo,cuartos-3,2,1,España,Bélgica,,,,,,,,,,,,,
-Castillo,cuartos-2,1,1,Brasil,Inglaterra,,,,,,,,,,,,,
-Castillo,cuartos-4,1,3,Argentina,Portugal,,,,,,,,,,,,,
-Castillo,semis-1,2,1,Alemania,España,,,,,,,,,,,,,
-Castillo,semis-2,1,2,Brasil,Portugal,,,,,,,,,,,,,
-Castillo,tercer-1,2,1,España,Brasil,,,,,,,,,,,,,
-Castillo,final-1,1,1,Alemania,Portugal,,,,,,,,,,,,,
-Isaac,R16-1,1,0,México,Bosnia y Herzegovina,,,,,,,,,,,,,
-Isaac,R16-4,2,2,Brasil,Países Bajos,,,,,,,,,,,,,
-Isaac,R16-2,3,0,Alemania,Escocia,,,,,,,,,,,,,
-Isaac,R16-3,3,1,Japón,Marruecos,,,,,,,,,,,,,
-Isaac,R16-6,1,3,Ecuador,Francia,,,,,,,,,,,,,
-Isaac,R16-5,3,1,Noruega,Suecia,,,,,,,,,,,,,
-Isaac,R16-9,2,1,Corea del Sur,Arabia Saudita,,,,,,,,,,,,,
-Isaac,R16-8,3,1,Inglaterra,RD Congo,,,,,,,,,,,,,
-Isaac,R16-10,3,1,Bélgica,República Checa,,,,,,,,,,,,,
-Isaac,R16-7,1,1,Paraguay,Canadá,,,,,,,,,,,,,
-Isaac,R16-12,3,0,España,Austria,,,,,,,,,,,,,
-Isaac,R16-11,2,1,Colombia,Ghana,,,,,,,,,,,,,
-Isaac,R16-13,2,1,Suiza,Egipto,,,,,,,,,,,,,
-Isaac,R16-15,2,0,Estados Unidos,Irán,,,,,,,,,,,,,
-Isaac,R16-14,1,1,Argentina,Uruguay,,,,,,,,,,,,,
-Isaac,R16-16,3,1,Portugal,Costa de Marfil,,,,,,,,,,,,,
-Isaac,octavos-2,1,1,México,Japón,,,,,,,,,,,,,
-Isaac,octavos-1,1,1,Alemania,Noruega,,,,,,,,,,,,,
-Isaac,octavos-3,2,4,Países Bajos,Francia,,,,,,,,,,,,,
-Isaac,octavos-4,1,4,Corea del Sur,Inglaterra,,,,,,,,,,,,,
-Isaac,octavos-5,1,3,Colombia,España,,,,,,,,,,,,,
-Isaac,octavos-6,1,3,Paraguay,Bélgica,,,,,,,,,,,,,
-Isaac,octavos-7,3,2,Uruguay,Estados Unidos,,,,,,,,,,,,,
-Isaac,octavos-8,1,3,Suiza,Portugal,,,,,,,,,,,,,
-Isaac,cuartos-1,3,1,Alemania,Japón,,,,,,,,,,,,,
-Isaac,cuartos-3,3,2,España,Bélgica,,,,,,,,,,,,,
-Isaac,cuartos-2,2,2,Francia,Inglaterra,,,,,,,,,,,,,
-Isaac,cuartos-4,1,1,Uruguay,Portugal,,,,,,,,,,,,,
-Isaac,semis-1,1,2,Alemania,España,,,,,,,,,,,,,
-Isaac,semis-2,2,1,Inglaterra,Portugal,,,,,,,,,,,,,
-Isaac,tercer-1,2,2,Alemania,Portugal,,,,,,,,,,,,,
-Isaac,final-1,2,2,España,Inglaterra,,,,,,,,,,,,,
-FILTER,R16-1,2,1,República Checa,Canadá,,,,,,,,,,,,,
-FILTER,R16-4,2,0,Brasil,Suecia,,,,,,,,,,,,,
-FILTER,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
-FILTER,R16-3,1,1,Países Bajos,Marruecos,,,,,,,,,,,,,
-FILTER,R16-6,1,1,Ecuador,Noruega,,,,,,,,,,,,,
-FILTER,R16-5,2,1,Francia,Japón,,,,,,,,,,,,,
-FILTER,R16-9,2,1,México,Costa de Marfil,,,,,,,,,,,,,
-FILTER,R16-8,2,1,Inglaterra,Senegal,,,,,,,,,,,,,
-FILTER,R16-10,2,0,Bélgica,Corea del Sur,,,,,,,,,,,,,
-FILTER,R16-7,2,1,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
-FILTER,R16-12,2,0,España,Austria,,,,,,,,,,,,,
-FILTER,R16-11,1,2,Colombia,Croacia,,,,,,,,,,,,,
-FILTER,R16-13,1,0,Suiza,Irán,,,,,,,,,,,,,
-FILTER,R16-15,1,0,Estados Unidos,Egipto,,,,,,,,,,,,,
-FILTER,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-FILTER,R16-16,2,0,Portugal,Ghana,,,,,,,,,,,,,
-FILTER,octavos-2,1,2,República Checa,Marruecos,,,,,,,,,,,,,
-FILTER,octavos-1,1,2,Alemania,Francia,,,,,,,,,,,,,
-FILTER,octavos-3,2,0,Brasil,Noruega,,,,,,,,,,,,,
-FILTER,octavos-4,2,1,México,Inglaterra,,,,,,,,,,,,,
-FILTER,octavos-5,1,2,Croacia,España,,,,,,,,,,,,,
-FILTER,octavos-6,1,1,Turquía,Bélgica,,,,,,,,,,,,,
-FILTER,octavos-7,2,1,Argentina,Estados Unidos,,,,,,,,,,,,,
-FILTER,octavos-8,0,1,Suiza,Portugal,,,,,,,,,,,,,
-FILTER,cuartos-1,2,0,Francia,Marruecos,,,,,,,,,,,,,
-FILTER,cuartos-3,2,1,España,Bélgica,,,,,,,,,,,,,
-FILTER,cuartos-2,2,0,Brasil,México,,,,,,,,,,,,,
-FILTER,cuartos-4,1,1,Argentina,Portugal,,,,,,,,,,,,,
-FILTER,semis-1,1,2,Francia,España,,,,,,,,,,,,,
-FILTER,semis-2,1,1,Brasil,Argentina,,,,,,,,,,,,,
-FILTER,tercer-1,2,1,Francia,Brasil,,,,,,,,,,,,,
-FILTER,final-1,2,2,España,Argentina,,,,,,,,,,,,,
-Fer,R16-1,2,1,República Checa,Bosnia y Herzegovina,,,,,,,,,,,,,
-Fer,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
-Fer,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
-Fer,R16-3,3,1,Países Bajos,Marruecos,,,,,,,,,,,,,
-Fer,R16-6,0,1,Costa de Marfil,Senegal,,,,,,,,,,,,,
-Fer,R16-5,3,0,Francia,Paraguay,,,,,,,,,,,,,
-Fer,R16-9,2,1,México,Arabia Saudita,,,,,,,,,,,,,
-Fer,R16-8,2,0,Inglaterra,Noruega,,,,,,,,,,,,,
-Fer,R16-10,3,1,Bélgica,Corea del Sur,,,,,,,,,,,,,
-Fer,R16-7,3,2,Turquía,Suecia,,,,,,,,,,,,,
-Fer,R16-12,3,0,España,Austria,,,,,,,,,,,,,
-Fer,R16-11,2,1,Colombia,Croacia,,,,,,,,,,,,,
-Fer,R16-13,3,0,Suiza,Ecuador,,,,,,,,,,,,,
-Fer,R16-15,1,0,Estados Unidos,Egipto,,,,,,,,,,,,,
-Fer,R16-14,2,0,Argentina,Uruguay,,,,,,,,,,,,,
-Fer,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
-Fer,octavos-2,1,3,República Checa,Países Bajos,,,,,,,,,,,,,
-Fer,octavos-1,0,3,Alemania,Francia,,,,,,,,,,,,,
-Fer,octavos-3,2,0,Brasil,Senegal,,,,,,,,,,,,,
-Fer,octavos-4,1,1,México,Inglaterra,,,,,,,,,,,,,
-Fer,octavos-5,1,3,Colombia,España,,,,,,,,,,,,,
-Fer,octavos-6,1,1,Turquía,Bélgica,,,,,,,,,,,,,
-Fer,octavos-7,3,1,Argentina,Estados Unidos,,,,,,,,,,,,,
-Fer,octavos-8,1,2,Suiza,Portugal,,,,,,,,,,,,,
-Fer,cuartos-1,3,2,Francia,Países Bajos,,,,,,,,,,,,,
-Fer,cuartos-3,2,1,España,Bélgica,,,,,,,,,,,,,
-Fer,cuartos-2,3,2,Brasil,Inglaterra,,,,,,,,,,,,,
-Fer,cuartos-4,1,3,Argentina,Portugal,,,,,,,,,,,,,
-Fer,semis-1,1,1,Francia,España,,,,,,,,,,,,,
-Fer,semis-2,0,1,Brasil,Portugal,,,,,,,,,,,,,
-Fer,tercer-1,1,1,Francia,Brasil,,,,,,,,,,,,,
-Fer,final-1,2,0,España,Portugal,,,,,,,,,,,,,
-Aitor,R16-1,2,1,República Checa,Bosnia y Herzegovina,,,,,,,,,,,,,
-Aitor,R16-4,1,1,Brasil,Suecia,,,,,,,,,,,,,
-Aitor,R16-2,2,0,Alemania,Paraguay,,,,,,,,,,,,,
-Aitor,R16-3,1,3,Japón,Marruecos,,,,,,,,,,,,,
-Aitor,R16-6,1,3,Costa de Marfil,Senegal,,,,,,,,,,,,,
-Aitor,R16-5,2,1,Francia,Países Bajos,,,,,,,,,,,,,
-Aitor,R16-9,2,2,México,Escocia,,,,,,,,,,,,,
-Aitor,R16-8,0,1,Croacia,Noruega,,,,,,,,,,,,,
-Aitor,R16-10,2,0,Bélgica,Corea del Sur,,,,,,,,,,,,,
-Aitor,R16-7,1,2,Estados Unidos,Canadá,,,,,,,,,,,,,
-Aitor,R16-12,3,1,España,Austria,,,,,,,,,,,,,
-Aitor,R16-11,2,1,Colombia,Ghana,,,,,,,,,,,,,
-Aitor,R16-13,1,1,Suiza,Argelia,,,,,,,,,,,,,
-Aitor,R16-15,1,2,Turquía,Egipto,,,,,,,,,,,,,
-Aitor,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
-Aitor,R16-16,2,1,Portugal,Inglaterra,,,,,,,,,,,,,
-Aitor,octavos-2,0,2,República Checa,Marruecos,,,,,,,,,,,,,
-Aitor,octavos-1,2,1,Alemania,Francia,,,,,,,,,,,,,
-Aitor,octavos-3,1,3,Brasil,Senegal,,,,,,,,,,,,,
-Aitor,octavos-4,1,0,México,Noruega,,,,,,,,,,,,,
-Aitor,octavos-5,0,1,Colombia,España,,,,,,,,,,,,,
-Aitor,octavos-6,1,2,Canadá,Bélgica,,,,,,,,,,,,,
-Aitor,octavos-7,2,1,Argentina,Egipto,,,,,,,,,,,,,
-Aitor,octavos-8,0,1,Suiza,Portugal,,,,,,,,,,,,,
-Aitor,cuartos-1,1,0,Alemania,Marruecos,,,,,,,,,,,,,
-Aitor,cuartos-3,2,0,España,Bélgica,,,,,,,,,,,,,
-Aitor,cuartos-2,2,1,Senegal,México,,,,,,,,,,,,,
-Aitor,cuartos-4,1,2,Argentina,Portugal,,,,,,,,,,,,,
-Aitor,semis-1,1,3,Alemania,España,,,,,,,,,,,,,
-Aitor,semis-2,0,1,Senegal,Portugal,,,,,,,,,,,,,
-Aitor,tercer-1,2,0,Alemania,Senegal,,,,,,,,,,,,,
-Aitor,final-1,2,1,España,Portugal,,,,,,,,,,,,,
-Cuco,R16-1,2,1,Corea del Sur,Canadá,,,,,,,,,,,,,
-Cuco,R16-4,2,1,Marruecos,Japón,,,,,,,,,,,,,
-Cuco,R16-2,2,0,Ecuador,Escocia,,,,,,,,,,,,,
-Cuco,R16-3,0,1,Países Bajos,Brasil,,,,,,,,,,,,,
-Cuco,R16-6,0,2,Alemania,Noruega,,,,,,,,,,,,,
-Cuco,R16-5,3,0,Francia,Estados Unidos,,,,,,,,,,,,,
-Cuco,R16-9,2,0,México,Arabia Saudita,,,,,,,,,,,,,
-Cuco,R16-8,3,1,Inglaterra,Senegal,,,,,,,,,,,,,
-Cuco,R16-10,2,1,Bélgica,República Checa,,,,,,,,,,,,,
-Cuco,R16-7,1,0,Paraguay,Costa de Marfil,,,,,,,,,,,,,
-Cuco,R16-12,3,0,España,Austria,,,,,,,,,,,,,
-Cuco,R16-11,3,2,Colombia,Croacia,,,,,,,,,,,,,
-Cuco,R16-13,2,1,Suiza,Argelia,,,,,,,,,,,,,
-Cuco,R16-15,1,0,Turquía,Egipto,,,,,,,,,,,,,
-Cuco,R16-14,3,1,Argentina,Uruguay,,,,,,,,,,,,,
-Cuco,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
-Cuco,octavos-2,1,2,Corea del Sur,Brasil,,,,,,,,,,,,,
-Cuco,octavos-1,0,1,Ecuador,Francia,,,,,,,,,,,,,
-Cuco,octavos-3,0,2,Marruecos,Noruega,,,,,,,,,,,,,
-Cuco,octavos-4,2,1,México,Inglaterra,,,,,,,,,,,,,
-Cuco,octavos-5,0,1,Colombia,España,,,,,,,,,,,,,
-Cuco,octavos-6,2,1,Paraguay,Bélgica,,,,,,,,,,,,,
-Cuco,octavos-7,3,1,Argentina,Turquía,,,,,,,,,,,,,
-Cuco,octavos-8,1,2,Suiza,Portugal,,,,,,,,,,,,,
-Cuco,cuartos-1,2,1,Francia,Brasil,,,,,,,,,,,,,
-Cuco,cuartos-3,2,0,España,Paraguay,,,,,,,,,,,,,
-Cuco,cuartos-2,3,1,Noruega,México,,,,,,,,,,,,,
-Cuco,cuartos-4,2,0,Argentina,Portugal,,,,,,,,,,,,,
-Cuco,semis-1,0,2,Francia,España,,,,,,,,,,,,,
-Cuco,semis-2,1,2,Noruega,Argentina,,,,,,,,,,,,,
-Cuco,tercer-1,2,1,Francia,Noruega,,,,,,,,,,,,,
-Cuco,final-1,2,0,España,Argentina,,,,,,,,,,,,,
-Presi,R16-1,1,0,República Checa,Suiza,,,,,,,,,,,,,
-Presi,R16-4,3,1,Marruecos,Países Bajos,,,,,,,,,,,,,
-Presi,R16-2,2,2,Costa de Marfil,Escocia,,,,,,,,,,,,,
-Presi,R16-3,0,2,Japón,Brasil,,,,,,,,,,,,,
-Presi,R16-6,1,3,Ecuador,Francia,,,,,,,,,,,,,
-Presi,R16-5,0,1,Senegal,Suecia,,,,,,,,,,,,,
-Presi,R16-9,2,0,México,Arabia Saudita,,,,,,,,,,,,,
-Presi,R16-8,1,2,Inglaterra,Noruega,,,,,,,,,,,,,
-Presi,R16-10,0,1,Egipto,Sudáfrica,,,,,,,,,,,,,
-Presi,R16-7,0,0,Estados Unidos,Bosnia y Herzegovina,,,,,,,,,,,,,
-Presi,R16-12,3,2,España,Austria,,,,,,,,,,,,,
-Presi,R16-11,2,1,Colombia,Croacia,,,,,,,,,,,,,
-Presi,R16-13,2,1,Canadá,Alemania,,,,,,,,,,,,,
-Presi,R16-15,1,1,Turquía,Bélgica,,,,,,,,,,,,,
-Presi,R16-14,3,1,Argentina,Uruguay,,,,,,,,,,,,,
-Presi,R16-16,3,0,Portugal,Ghana,,,,,,,,,,,,,
-Presi,octavos-2,0,1,República Checa,Brasil,,,,,,,,,,,,,
-Presi,octavos-1,0,0,Escocia,Suecia,,,,,,,,,,,,,
-Presi,octavos-3,1,1,Marruecos,Francia,,,,,,,,,,,,,
-Presi,octavos-4,1,1,México,Noruega,,,,,,,,,,,,,
-Presi,octavos-5,1,2,Colombia,España,,,,,,,,,,,,,
-Presi,octavos-6,0,1,Bosnia y Herzegovina,Sudáfrica,,,,,,,,,,,,,
-Presi,octavos-7,4,2,Argentina,Turquía,,,,,,,,,,,,,
-Presi,octavos-8,0,2,Canadá,Portugal,,,,,,,,,,,,,
-Presi,cuartos-1,1,2,Suecia,Brasil,,,,,,,,,,,,,
-Presi,cuartos-3,1,0,España,Sudáfrica,,,,,,,,,,,,,
-Presi,cuartos-2,2,2,Marruecos,Noruega,,,,,,,,,,,,,
-Presi,cuartos-4,2,2,Argentina,Portugal,,,,,,,,,,,,,
-Presi,semis-1,1,3,Brasil,España,,,,,,,,,,,,,
-Presi,semis-2,2,0,Marruecos,Argentina,,,,,,,,,,,,,
-Presi,tercer-1,2,2,Brasil,Argentina,,,,,,,,,,,,,
-Presi,final-1,2,1,España,Marruecos,,,,,,,,,,,,,
-Ojeda,pos-A,,,,,República Checa,México,Sudáfrica,Corea del Sur,,,,,,,,,
-Ojeda,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
-Ojeda,pos-C,,,,,Brasil,Marruecos,Haití,Escocia,,,,,,,,,
-Ojeda,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-Ojeda,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
-Ojeda,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
-Ojeda,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Ojeda,pos-H,,,,,Uruguay,España,Cabo Verde,Arabia Saudita,,,,,,,,,
-Ojeda,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
-Ojeda,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
-Ojeda,pos-K,,,,,Colombia,Portugal,Uzbekistán,RD Congo,,,,,,,,,
-Ojeda,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
-Juanillo,pos-A,,,,,Corea del Sur,México,República Checa,Sudáfrica,,,,,,,,,
-Juanillo,pos-B,,,,,Canadá,Bosnia y Herzegovina,Suiza,Catar,,,,,,,,,
-Juanillo,pos-C,,,,,Marruecos,Brasil,Escocia,Haití,,,,,,,,,
-Juanillo,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-Juanillo,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
-Juanillo,pos-F,,,,,Japón,Países Bajos,Suecia,Túnez,,,,,,,,,
-Juanillo,pos-G,,,,,Egipto,Bélgica,Irán,Nueva Zelanda,,,,,,,,,
-Juanillo,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Juanillo,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
-Juanillo,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
-Juanillo,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Juanillo,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
-Fran,pos-A,,,,,México,Corea del Sur,República Checa,Sudáfrica,,,,,,,,,
-Fran,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
-Fran,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Fran,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-Fran,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
-Fran,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
-Fran,pos-G,,,,,Bélgica,Irán,Egipto,Nueva Zelanda,,,,,,,,,
-Fran,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Fran,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
-Fran,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Fran,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Fran,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
-Lebo,pos-A,,,,,México,Corea del Sur,República Checa,Sudáfrica,,,,,,,,,
-Lebo,pos-B,,,,,Canadá,Bosnia y Herzegovina,Suiza,Catar,,,,,,,,,
-Lebo,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Lebo,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-Lebo,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
-Lebo,pos-F,,,,,Suecia,Países Bajos,Japón,Túnez,,,,,,,,,
-Lebo,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Lebo,pos-H,,,,,España,Uruguay,Cabo Verde,Arabia Saudita,,,,,,,,,
-Lebo,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
-Lebo,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
-Lebo,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Lebo,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
-Crivi,pos-A,,,,,México,Sudáfrica,Corea del Sur,República Checa,,,,,,,,,
-Crivi,pos-B,,,,,Suiza,Bosnia y Herzegovina,Catar,Canadá,,,,,,,,,
-Crivi,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Crivi,pos-D,,,,,Turquía,Paraguay,Estados Unidos,Australia,,,,,,,,,
-Crivi,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
-Crivi,pos-F,,,,,Países Bajos,Suecia,Japón,Túnez,,,,,,,,,
-Crivi,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Crivi,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Crivi,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
-Crivi,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Crivi,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
-Crivi,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
-Pati,pos-A,,,,,México,Corea del Sur,República Checa,Sudáfrica,,,,,,,,,
-Pati,pos-B,,,,,Canadá,Suiza,Bosnia y Herzegovina,Catar,,,,,,,,,
-Pati,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Pati,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-Pati,pos-E,,,,,Alemania,Ecuador,Curazao,Costa de Marfil,,,,,,,,,
-Pati,pos-F,,,,,Japón,Países Bajos,Suecia,Túnez,,,,,,,,,
-Pati,pos-G,,,,,Bélgica,Egipto,Nueva Zelanda,Irán,,,,,,,,,
-Pati,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Pati,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
-Pati,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Pati,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
-Pati,pos-L,,,,,Croacia,Inglaterra,Ghana,Panamá,,,,,,,,,
-Castillo,pos-A,,,,,República Checa,México,Corea del Sur,Sudáfrica,,,,,,,,,
-Castillo,pos-B,,,,,Suiza,Canadá,Catar,Bosnia y Herzegovina,,,,,,,,,
-Castillo,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Castillo,pos-D,,,,,Estados Unidos,Turquía,Australia,Paraguay,,,,,,,,,
-Castillo,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
-Castillo,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
-Castillo,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Castillo,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Castillo,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
-Castillo,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
-Castillo,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
-Castillo,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
-Isaac,pos-A,,,,,Corea del Sur,México,República Checa,Sudáfrica,,,,,,,,,
-Isaac,pos-B,,,,,Suiza,Bosnia y Herzegovina,Canadá,Catar,,,,,,,,,
-Isaac,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Isaac,pos-D,,,,,Paraguay,Estados Unidos,Australia,Turquía,,,,,,,,,
-Isaac,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
-Isaac,pos-F,,,,,Japón,Países Bajos,Suecia,Túnez,,,,,,,,,
-Isaac,pos-G,,,,,Bélgica,Irán,Egipto,Nueva Zelanda,,,,,,,,,
-Isaac,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Isaac,pos-I,,,,,Noruega,Francia,Senegal,Irak,,,,,,,,,
-Isaac,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Isaac,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Isaac,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
-FILTER,pos-A,,,,,México,República Checa,Corea del Sur,Sudáfrica,,,,,,,,,
-FILTER,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
-FILTER,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-FILTER,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
-FILTER,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
-FILTER,pos-F,,,,,Países Bajos,Suecia,Japón,Túnez,,,,,,,,,
-FILTER,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-FILTER,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-FILTER,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
-FILTER,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-FILTER,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
-FILTER,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+Fran,predicciones,,,,,,,,,España,Portugal,Francia,,,,,,
+Fran,premios,,,,,,,,,,,,Mbappe,Oyarzabal,Kane,Lamine Yamal,Mbappe,Pedri
+JLABALOS,predicciones,,,,,,,,,España,Argentina,Francia,,,,,,
+JLABALOS,premios,,,,,,,,,,,,Olise,Kane,Julian Alvarez,Lamine,Olise,Griezman
+Crivi,predicciones,,,,,,,,,Argentina,España,Francia,,,,,,
+Crivi,premios,,,,,,,,,,,,Mbappé,Raphinha,Lamine Yamal,Messi,Lamine Yamal,Pedri
+Castillo,predicciones,,,,,,,,,Portugal,Alemania,España,,,,,,
+Castillo,premios,,,,,,,,,,,,ferran torres,mbappe,haaland,vitinha,musiala,pedri
+Dani,pos-A,,,,,México,República Checa,Sudáfrica,Corea del Sur,,,,,,,,,
+Dani,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
+Dani,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+Dani,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
+Dani,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
+Dani,pos-F,,,,,Países Bajos,Suecia,Japón,Túnez,,,,,,,,,
+Dani,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
+Dani,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+Dani,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
+Dani,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
+Dani,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
+Dani,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+Dani,R16-1,1,0,República Checa,Canadá,,,,,,,,,,,,,
+Dani,R16-2,2,0,Alemania,Paraguay,,,,,,,,,,,,,
+Dani,R16-3,2,2,Países Bajos,Marruecos,,,,,,,,,,,,,
+Dani,R16-4,2,1,Brasil,Suecia,,,,,,,,,,,,,
+Dani,R16-5,2,0,Francia,Japón,,,,,,,,,,,,,
+Dani,R16-6,1,2,Ecuador,Noruega,,,,,,,,,,,,,
+Dani,R16-7,2,1,México,Escocia,,,,,,,,,,,,,
+Dani,R16-8,2,0,Inglaterra,Senegal,,,,,,,,,,,,,
+Dani,R16-9,1,0,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
+Dani,R16-10,3,0,Bélgica,Arabia Saudita,,,,,,,,,,,,,
+Dani,R16-11,1,1,Colombia,Croacia,,,,,,,,,,,,,
+Dani,R16-12,3,0,España,Austria,,,,,,,,,,,,,
+Dani,R16-13,1,1,Suiza,Argelia,,,,,,,,,,,,,
+Dani,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
+Dani,R16-15,2,1,Estados Unidos,Egipto,,,,,,,,,,,,,
+Dani,R16-16,2,0,Portugal,Costa de Marfil,,,,,,,,,,,,,
+ruly,pos-A,,,,,México,República Checa,Sudáfrica,Corea del Sur,,,,,,,,,
+ruly,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
+ruly,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+ruly,pos-D,,,,,Turquía,Estados Unidos,Australia,Paraguay,,,,,,,,,
+ruly,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
+ruly,pos-F,,,,,Países Bajos,Túnez,Japón,Suecia,,,,,,,,,
+ruly,pos-G,,,,,Bélgica,Egipto,Nueva Zelanda,Irán,,,,,,,,,
+ruly,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+ruly,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
+ruly,pos-J,,,,,Austria,Argentina,Argelia,Jordania,,,,,,,,,
+ruly,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
+ruly,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+ruly,R16-1,0,1,República Checa,Canadá,,,,,,,,,,,,,
+ruly,R16-2,5,0,Alemania,Australia,,,,,,,,,,,,,
+ruly,R16-3,2,1,Países Bajos,Marruecos,,,,,,,,,,,,,
+ruly,R16-4,3,1,Brasil,Túnez,,,,,,,,,,,,,
+ruly,R16-5,3,0,Francia,Japón,,,,,,,,,,,,,
+ruly,R16-6,1,1,Costa de Marfil,Senegal,,,,,,,,,,,,,
+ruly,R16-7,2,0,México,Escocia,,,,,,,,,,,,,
+ruly,R16-8,4,1,Inglaterra,Noruega,,,,,,,,,,,,,
+ruly,R16-9,4,1,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
+ruly,R16-10,3,0,Bélgica,Arabia Saudita,,,,,,,,,,,,,
+ruly,R16-11,1,1,Colombia,Croacia,,,,,,,,,,,,,
+ruly,R16-12,5,0,España,Argentina,,,,,,,,,,,,,
+ruly,R16-13,2,0,Suiza,Argelia,,,,,,,,,,,,,
+ruly,R16-14,0,2,Austria,Uruguay,,,,,,,,,,,,,
+ruly,R16-15,1,0,Estados Unidos,Egipto,,,,,,,,,,,,,
+ruly,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
+Arnau Jorba,pos-A,,,,,México,República Checa,Corea del Sur,Sudáfrica,,,,,,,,,
+Arnau Jorba,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
+Arnau Jorba,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+Arnau Jorba,pos-D,,,,,Estados Unidos,Turquía,Paraguay,Australia,,,,,,,,,
+Arnau Jorba,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
+Arnau Jorba,pos-F,,,,,Países Bajos,Suecia,Japón,Túnez,,,,,,,,,
+Arnau Jorba,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
+Arnau Jorba,pos-H,,,,,España,Uruguay,Cabo Verde,Arabia Saudita,,,,,,,,,
+Arnau Jorba,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
+Arnau Jorba,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
+Arnau Jorba,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
+Arnau Jorba,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+Arnau Jorba,R16-1,1,2,República Checa,Canadá,,,,,,,,,,,,,
+Arnau Jorba,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
+Arnau Jorba,R16-3,1,1,Países Bajos,Marruecos,,,,,,,,,,,,,
+Arnau Jorba,R16-4,3,1,Brasil,Suecia,,,,,,,,,,,,,
+Arnau Jorba,R16-5,3,1,Francia,Japón,,,,,,,,,,,,,
+Arnau Jorba,R16-6,0,2,Ecuador,Noruega,,,,,,,,,,,,,
+Arnau Jorba,R16-7,1,0,México,Costa de Marfil,,,,,,,,,,,,,
+Arnau Jorba,R16-8,2,1,Inglaterra,Senegal,,,,,,,,,,,,,
+Arnau Jorba,R16-9,2,1,Estados Unidos,Bosnia y Herzegovina,,,,,,,,,,,,,
+Arnau Jorba,R16-10,1,1,Bélgica,Corea del Sur,,,,,,,,,,,,,
+Arnau Jorba,R16-11,2,1,Colombia,Croacia,,,,,,,,,,,,,
+Arnau Jorba,R16-12,3,0,España,Argelia,,,,,,,,,,,,,
+Arnau Jorba,R16-13,0,0,Suiza,Austria,,,,,,,,,,,,,
+Arnau Jorba,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
+Arnau Jorba,R16-15,0,0,Turquía,Egipto,,,,,,,,,,,,,
+Arnau Jorba,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
 Fer,pos-A,,,,,México,República Checa,Corea del Sur,Sudáfrica,,,,,,,,,
 Fer,pos-B,,,,,Suiza,Bosnia y Herzegovina,Catar,Canadá,,,,,,,,,
 Fer,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
@@ -2838,42 +1882,134 @@ Fer,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
 Fer,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
 Fer,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
 Fer,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
-Aitor,pos-A,,,,,México,República Checa,Corea del Sur,Sudáfrica,,,,,,,,,
-Aitor,pos-B,,,,,Suiza,Bosnia y Herzegovina,Canadá,Catar,,,,,,,,,
-Aitor,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
-Aitor,pos-D,,,,,Estados Unidos,Turquía,Paraguay,Australia,,,,,,,,,
-Aitor,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
-Aitor,pos-F,,,,,Japón,Suecia,Países Bajos,Túnez,,,,,,,,,
-Aitor,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Aitor,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Aitor,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
-Aitor,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Aitor,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Aitor,pos-L,,,,,Croacia,Ghana,Inglaterra,Panamá,,,,,,,,,
-Cuco,pos-A,,,,,México,Corea del Sur,República Checa,Sudáfrica,,,,,,,,,
-Cuco,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
-Cuco,pos-C,,,,,Marruecos,Brasil,Escocia,Haití,,,,,,,,,
-Cuco,pos-D,,,,,Paraguay,Turquía,Estados Unidos,Australia,,,,,,,,,
-Cuco,pos-E,,,,,Ecuador,Alemania,Costa de Marfil,Curazao,,,,,,,,,
-Cuco,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
-Cuco,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
-Cuco,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Cuco,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
-Cuco,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Cuco,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Cuco,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
-Presi,pos-A,,,,,México,República Checa,Sudáfrica,Corea del Sur,,,,,,,,,
-Presi,pos-B,,,,,Canadá,Suiza,Bosnia y Herzegovina,Catar,,,,,,,,,
-Presi,pos-C,,,,,Marruecos,Brasil,Escocia,Haití,,,,,,,,,
-Presi,pos-D,,,,,Estados Unidos,Turquía,Australia,Paraguay,,,,,,,,,
-Presi,pos-E,,,,,Costa de Marfil,Ecuador,Alemania,Curazao,,,,,,,,,
-Presi,pos-F,,,,,Japón,Países Bajos,Suecia,Túnez,,,,,,,,,
-Presi,pos-G,,,,,Egipto,Bélgica,Nueva Zelanda,Irán,,,,,,,,,
-Presi,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
-Presi,pos-I,,,,,Senegal,Francia,Noruega,Irak,,,,,,,,,
-Presi,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
-Presi,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
-Presi,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+Fer,R16-1,2,1,República Checa,Bosnia y Herzegovina,,,,,,,,,,,,,
+Fer,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
+Fer,R16-3,3,1,Países Bajos,Marruecos,,,,,,,,,,,,,
+Fer,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
+Fer,R16-5,3,0,Francia,Paraguay,,,,,,,,,,,,,
+Fer,R16-6,0,1,Costa de Marfil,Senegal,,,,,,,,,,,,,
+Fer,R16-7,2,1,México,Arabia Saudita,,,,,,,,,,,,,
+Fer,R16-8,2,0,Inglaterra,Noruega,,,,,,,,,,,,,
+Fer,R16-9,3,2,Turquía,Suecia,,,,,,,,,,,,,
+Fer,R16-10,3,1,Bélgica,Corea del Sur,,,,,,,,,,,,,
+Fer,R16-11,2,1,Colombia,Croacia,,,,,,,,,,,,,
+Fer,R16-12,3,0,España,Austria,,,,,,,,,,,,,
+Fer,R16-13,3,0,Suiza,Ecuador,,,,,,,,,,,,,
+Fer,R16-14,2,0,Argentina,Uruguay,,,,,,,,,,,,,
+Fer,R16-15,1,0,Estados Unidos,Egipto,,,,,,,,,,,,,
+Fer,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
+Fran,pos-A,,,,,México,Corea del Sur,República Checa,Sudáfrica,,,,,,,,,
+Fran,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
+Fran,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+Fran,pos-D,,,,,Turquía,Estados Unidos,Paraguay,Australia,,,,,,,,,
+Fran,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
+Fran,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
+Fran,pos-G,,,,,Bélgica,Irán,Egipto,Nueva Zelanda,,,,,,,,,
+Fran,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+Fran,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
+Fran,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
+Fran,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
+Fran,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
+Fran,R16-1,0,1,Corea del Sur,Canadá,,,,,,,,,,,,,
+Fran,R16-2,3,0,Alemania,Escocia,,,,,,,,,,,,,
+Fran,R16-3,1,2,Países Bajos,Marruecos,,,,,,,,,,,,,
+Fran,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
+Fran,R16-5,3,0,Francia,Paraguay,,,,,,,,,,,,,
+Fran,R16-6,1,0,Ecuador,Senegal,,,,,,,,,,,,,
+Fran,R16-7,1,0,México,Costa de Marfil,,,,,,,,,,,,,
+Fran,R16-8,2,1,Inglaterra,Noruega,,,,,,,,,,,,,
+Fran,R16-9,1,0,Turquía,Bosnia y Herzegovina,,,,,,,,,,,,,
+Fran,R16-10,3,1,Bélgica,República Checa,,,,,,,,,,,,,
+Fran,R16-11,1,2,Colombia,Ghana,,,,,,,,,,,,,
+Fran,R16-12,2,0,España,Austria,,,,,,,,,,,,,
+Fran,R16-13,1,0,Suiza,Egipto,,,,,,,,,,,,,
+Fran,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
+Fran,R16-15,1,0,Estados Unidos,Irán,,,,,,,,,,,,,
+Fran,R16-16,3,1,Portugal,Croacia,,,,,,,,,,,,,
+JLABALOS,pos-A,,,,,México,República Checa,Corea del Sur,Sudáfrica,,,,,,,,,
+JLABALOS,pos-B,,,,,Suiza,Canadá,Bosnia y Herzegovina,Catar,,,,,,,,,
+JLABALOS,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+JLABALOS,pos-D,,,,,Estados Unidos,Turquía,Paraguay,Australia,,,,,,,,,
+JLABALOS,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
+JLABALOS,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
+JLABALOS,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
+JLABALOS,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+JLABALOS,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
+JLABALOS,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
+JLABALOS,pos-K,,,,,Portugal,Colombia,RD Congo,Uzbekistán,,,,,,,,,
+JLABALOS,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+JLABALOS,R16-1,1,2,República Checa,Canadá,,,,,,,,,,,,,
+JLABALOS,R16-2,2,0,Alemania,Paraguay,,,,,,,,,,,,,
+JLABALOS,R16-3,2,2,Países Bajos,Marruecos,,,,,,,,,,,,,
+JLABALOS,R16-4,3,1,Brasil,Japón,,,,,,,,,,,,,
+JLABALOS,R16-5,3,1,Francia,Suecia,,,,,,,,,,,,,
+JLABALOS,R16-6,1,2,Ecuador,Noruega,,,,,,,,,,,,,
+JLABALOS,R16-7,2,1,México,Escocia,,,,,,,,,,,,,
+JLABALOS,R16-8,1,0,Inglaterra,Senegal,,,,,,,,,,,,,
+JLABALOS,R16-9,2,1,Estados Unidos,Bosnia y Herzegovina,,,,,,,,,,,,,
+JLABALOS,R16-10,2,0,Bélgica,Corea del Sur,,,,,,,,,,,,,
+JLABALOS,R16-11,1,0,Colombia,Croacia,,,,,,,,,,,,,
+JLABALOS,R16-12,3,1,España,Austria,,,,,,,,,,,,,
+JLABALOS,R16-13,0,0,Suiza,Costa de Marfil,,,,,,,,,,,,,
+JLABALOS,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
+JLABALOS,R16-15,2,1,Turquía,Egipto,,,,,,,,,,,,,
+JLABALOS,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
+Crivi,pos-A,,,,,México,Sudáfrica,Corea del Sur,República Checa,,,,,,,,,
+Crivi,pos-B,,,,,Suiza,Bosnia y Herzegovina,Catar,Canadá,,,,,,,,,
+Crivi,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+Crivi,pos-D,,,,,Turquía,Paraguay,Estados Unidos,Australia,,,,,,,,,
+Crivi,pos-E,,,,,Alemania,Ecuador,Costa de Marfil,Curazao,,,,,,,,,
+Crivi,pos-F,,,,,Países Bajos,Suecia,Japón,Túnez,,,,,,,,,
+Crivi,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
+Crivi,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+Crivi,pos-I,,,,,Francia,Senegal,Noruega,Irak,,,,,,,,,
+Crivi,pos-J,,,,,Argentina,Austria,Argelia,Jordania,,,,,,,,,
+Crivi,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
+Crivi,pos-L,,,,,Inglaterra,Ghana,Croacia,Panamá,,,,,,,,,
+Crivi,R16-1,1,2,Sudáfrica,Bosnia y Herzegovina,,,,,,,,,,,,,
+Crivi,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
+Crivi,R16-3,2,2,Países Bajos,Marruecos,,,,,,,,,,,,,
+Crivi,R16-4,3,1,Brasil,Suecia,,,,,,,,,,,,,
+Crivi,R16-5,3,0,Francia,Estados Unidos,,,,,,,,,,,,,
+Crivi,R16-6,1,1,Ecuador,Senegal,,,,,,,,,,,,,
+Crivi,R16-7,1,2,México,Costa de Marfil,,,,,,,,,,,,,
+Crivi,R16-8,3,2,Inglaterra,Noruega,,,,,,,,,,,,,
+Crivi,R16-9,3,0,Turquía,Catar,,,,,,,,,,,,,
+Crivi,R16-10,2,1,Bélgica,Arabia Saudita,,,,,,,,,,,,,
+Crivi,R16-11,2,0,Colombia,Ghana,,,,,,,,,,,,,
+Crivi,R16-12,3,1,España,Austria,,,,,,,,,,,,,
+Crivi,R16-13,1,0,Suiza,Irán,,,,,,,,,,,,,
+Crivi,R16-14,2,1,Argentina,Uruguay,,,,,,,,,,,,,
+Crivi,R16-15,1,1,Paraguay,Egipto,,,,,,,,,,,,,
+Crivi,R16-16,3,1,Portugal,Croacia,,,,,,,,,,,,,
+Castillo,pos-A,,,,,República Checa,México,Corea del Sur,Sudáfrica,,,,,,,,,
+Castillo,pos-B,,,,,Suiza,Canadá,Catar,Bosnia y Herzegovina,,,,,,,,,
+Castillo,pos-C,,,,,Brasil,Marruecos,Escocia,Haití,,,,,,,,,
+Castillo,pos-D,,,,,Estados Unidos,Turquía,Australia,Paraguay,,,,,,,,,
+Castillo,pos-E,,,,,Alemania,Costa de Marfil,Ecuador,Curazao,,,,,,,,,
+Castillo,pos-F,,,,,Países Bajos,Japón,Suecia,Túnez,,,,,,,,,
+Castillo,pos-G,,,,,Bélgica,Egipto,Irán,Nueva Zelanda,,,,,,,,,
+Castillo,pos-H,,,,,España,Uruguay,Arabia Saudita,Cabo Verde,,,,,,,,,
+Castillo,pos-I,,,,,Francia,Noruega,Senegal,Irak,,,,,,,,,
+Castillo,pos-J,,,,,Argentina,Argelia,Austria,Jordania,,,,,,,,,
+Castillo,pos-K,,,,,Portugal,Colombia,Uzbekistán,RD Congo,,,,,,,,,
+Castillo,pos-L,,,,,Inglaterra,Croacia,Ghana,Panamá,,,,,,,,,
+Castillo,R16-1,2,1,México,Canadá,,,,,,,,,,,,,
+Castillo,R16-2,2,0,Alemania,Escocia,,,,,,,,,,,,,
+Castillo,R16-3,1,2,Países Bajos,Marruecos,,,,,,,,,,,,,
+Castillo,R16-4,2,0,Brasil,Japón,,,,,,,,,,,,,
+Castillo,R16-5,2,0,Francia,Australia,,,,,,,,,,,,,
+Castillo,R16-6,1,1,Costa de Marfil,Noruega,,,,,,,,,,,,,
+Castillo,R16-7,1,1,República Checa,Arabia Saudita,,,,,,,,,,,,,
+Castillo,R16-8,3,1,Inglaterra,Ecuador,,,,,,,,,,,,,
+Castillo,R16-9,2,0,Estados Unidos,Catar,,,,,,,,,,,,,
+Castillo,R16-10,2,1,Bélgica,Corea del Sur,,,,,,,,,,,,,
+Castillo,R16-11,1,2,Colombia,Croacia,,,,,,,,,,,,,
+Castillo,R16-12,3,1,España,Argelia,,,,,,,,,,,,,
+Castillo,R16-13,1,0,Suiza,Austria,,,,,,,,,,,,,
+Castillo,R16-14,1,1,Argentina,Uruguay,,,,,,,,,,,,,
+Castillo,R16-15,0,2,Turquía,Egipto,,,,,,,,,,,,,
+Castillo,R16-16,3,1,Portugal,Ghana,,,,,,,,,,,,,
 `;
 const EQUIPO_GRUPO = {"República Checa": "A", "Sudáfrica": "A", "México": "A", "Corea del Sur": "A", "Catar": "B", "Bosnia y Herzegovina": "B", "Suiza": "B", "Canadá": "B", "Haití": "C", "Marruecos": "C", "Escocia": "C", "Brasil": "C", "Estados Unidos": "D", "Paraguay": "D", "Australia": "D", "Turquía": "D", "Alemania": "E", "Curazao": "E", "Ecuador": "E", "Costa de Marfil": "E", "Suecia": "F", "Japón": "F", "Países Bajos": "F", "Túnez": "F", "Irán": "G", "Nueva Zelanda": "G", "Bélgica": "G", "Egipto": "G", "Arabia Saudita": "H", "España": "H", "Cabo Verde": "H", "Uruguay": "H", "Irak": "I", "Senegal": "I", "Francia": "I", "Noruega": "I", "Argelia": "J", "Argentina": "J", "Jordania": "J", "Austria": "J", "RD Congo": "K", "Uzbekistán": "K", "Portugal": "K", "Colombia": "K", "Inglaterra": "L", "Croacia": "L", "Ghana": "L", "Panamá": "L"};
 const EQUIPO_BANDERA = {"República Checa": "🇨🇿", "Sudáfrica": "🇿🇦", "México": "🇲🇽", "Corea del Sur": "🇰🇷", "Catar": "🇶🇦", "Bosnia y Herzegovina": "🇧🇦", "Suiza": "🇨🇭", "Canadá": "🇨🇦", "Haití": "🇭🇹", "Marruecos": "🇲🇦", "Escocia": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Brasil": "🇧🇷", "Estados Unidos": "🇺🇸", "Paraguay": "🇵🇾", "Australia": "🇦🇺", "Turquía": "🇹🇷", "Alemania": "🇩🇪", "Curazao": "🇨🇼", "Ecuador": "🇪🇨", "Costa de Marfil": "🇨🇮", "Suecia": "🇸🇪", "Japón": "🇯🇵", "Países Bajos": "🇳🇱", "Túnez": "🇹🇳", "Irán": "🇮🇷", "Nueva Zelanda": "🇳🇿", "Bélgica": "🇧🇪", "Egipto": "🇪🇬", "Arabia Saudita": "🇸🇦", "España": "🇪🇸", "Cabo Verde": "🇨🇻", "Uruguay": "🇺🇾", "Irak": "🇮🇶", "Senegal": "🇸🇳", "Francia": "🇫🇷", "Noruega": "🇳🇴", "Argelia": "🇩🇿", "Argentina": "🇦🇷", "Jordania": "🇯🇴", "Austria": "🇦🇹", "RD Congo": "🇨🇩", "Uzbekistán": "🇺🇿", "Portugal": "🇵🇹", "Colombia": "🇨🇴", "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Croacia": "🇭🇷", "Ghana": "🇬🇭", "Panamá": "🇵🇦"};
@@ -2964,7 +2100,6 @@ function getSign(l, v) {
 // Los pronósticos van embebidos en el HTML.
 // Los resultados se cargan desde resultados.json (edítalo en GitHub para actualizar).
 async function loadData() {
-  invalidateRankingCache();
   try {
     const partidos = parseCSV(DATOS_PARTIDOS_CSV);
     const pronosticos = parseCSV(DATOS_PRONOSTICOS_CSV);
@@ -3142,30 +2277,6 @@ function calcPlayoffMatchPoints(pronostico, real, faseKey, todosPronosticosRonda
   return mejor.pts > 0 ? mejor : { pts: 0, tipo: 'sin_resultado' };
 }
 
-function findBestMatchingPronostico(real, faseKey, todosPronosticosRonda) {
-  if (!real || !todosPronosticosRonda || !todosPronosticosRonda.length) return null;
-  const realL = normEquipo(real.local), realV = normEquipo(real.visitante);
-  let best = null;
-  let bestPts = -1;
-  todosPronosticosRonda.forEach(cand => {
-    if (!cand || !cand.equipoA || !cand.equipoB) return;
-    const pronA = normEquipo(cand.equipoA), pronB = normEquipo(cand.equipoB);
-    let pronL, pronV, mismoCruce = false;
-    if (pronA === realL && pronB === realV) {
-      pronL = cand.gL; pronV = cand.gV; mismoCruce = true;
-    } else if (pronA === realV && pronB === realL) {
-      pronL = cand.gV; pronV = cand.gL; mismoCruce = true;
-    }
-    if (!mismoCruce || pronL === '' || pronV === '') return;
-    const resultado = calcPoints(pronL, pronV, real.gL, real.gV, faseKey, 1);
-    if (resultado.pts > bestPts) {
-      bestPts = resultado.pts;
-      best = { cand, resultado, invertido: !(pronA === realL && pronB === realV), pronL, pronV };
-    }
-  });
-  return best;
-}
-
 // Equipo que el jugador pronosticó que ganaría un cruce (para puntos de "clasificado")
 function getEquipoClasificadoPronosticado(picks, matchId) {
   const p = picks.find(pp => pp.partido_id === matchId);
@@ -3173,38 +2284,6 @@ function getEquipoClasificadoPronosticado(picks, matchId) {
   const gL = parseInt(p.gL), gV = parseInt(p.gV);
   if (isNaN(gL) || isNaN(gV) || gL === gV) return null;
   return gL > gV ? p.equipoA : p.equipoB;
-}
-
-// Versión que busca el equipo REAL que pasa desde un matchId concreto
-// en el pronóstico del jugador, aunque el jugador lo haya puesto en otro
-// slot de esa misma ronda (caso: Brasil en R16-3 cuando el real es R16-4).
-// matchIdsRonda: todos los IDs de la ronda donde vive matchId.
-function getEquipoClasificadoPronosticadoEnRonda(picks, matchId, matchIdsRonda, faseKey) {
-  // 1) Intento directo en el slot correcto
-  const directo = getEquipoClasificadoPronosticado(picks, matchId);
-  if (directo) return directo;
-  // 2) Buscar en otros slots de la ronda cuál pick tiene los mismos dos
-  //    equipos que el real de matchId
-  const real = getPlayoffPartidoResuelto(matchId);
-  if (!real || real.gL === '' || real.gV === '' || !real.local || !real.visitante) return null;
-  const realL = normEquipo(real.local), realV = normEquipo(real.visitante);
-  if (!matchIdsRonda) return null;
-  for (const otherId of matchIdsRonda) {
-    if (otherId === matchId) continue;
-    const p = picks.find(pp => pp.partido_id === otherId);
-    if (!p || !p.equipoA || !p.equipoB) continue;
-    const pA = normEquipo(p.equipoA), pB = normEquipo(p.equipoB);
-    if ((pA === realL && pB === realV) || (pA === realV && pB === realL)) {
-      // Este pick tiene el mismo cruce — devolver el ganador pronosticado
-      if (p.gL === '' || p.gV === '') return null;
-      const gL = parseInt(p.gL), gV = parseInt(p.gV);
-      if (isNaN(gL) || isNaN(gV) || gL === gV) return null;
-      // Ajustar según si los equipos están en orden normal o invertido
-      if (pA === realL) return gL > gV ? p.equipoA : p.equipoB;
-      else              return gL > gV ? p.equipoB : p.equipoA; // invertido
-    }
-  }
-  return null;
 }
 
 // Equipo que REALMENTE ganó un cruce: prioriza el resultado real fijado en
@@ -3461,58 +2540,41 @@ function calcPosGruposYEquiposClasificados(jugador) {
 function calcEquiposRondaPosterior(jugador, matchIdsRondaAnterior, ptsPorAcierto, lado = 'ganador') {
   const picks = state.pronosticos.filter(p => p.jugador === jugador);
 
-  // ── Lista REAL: equipos que ya avanzaron (partidos jugados de esta ronda) ──
-  const listaRealBolsa = matchIdsRondaAnterior.map(matchId => {
+  const obtenerLado = (matchId) => {
     if (lado === 'ganador') {
       return getEquipoClasificadoRealEstricto(matchId);
     }
+    // 'perdedor': el lado contrario al ganador real de ese cruce
     const partido = getPlayoffPartidoResuelto(matchId);
     const ganador = getEquipoClasificadoRealEstricto(matchId);
     if (!partido || !ganador || partido.gL === '' || partido.gV === '') return null;
     return normEquipo(ganador) === normEquipo(partido.local) ? partido.visitante : partido.local;
-  }).filter(Boolean).map(normEquipo);
-
-  // ── Lista PRONOSTICADA: ganador/perdedor pronosticado en CADA pick de la ronda ──
-  // Se recogen TODOS los picks del jugador en esta ronda (no solo el del slot exacto),
-  // para que si el jugador tiene a Brasil en R16-12 y Brasil ganó R16-1, cuente.
-  const picksDeRonda = picks.filter(p => matchIdsRondaAnterior.includes(p.partido_id));
-  const listaPron = picksDeRonda.map(p => {
-    if (lado === 'ganador') {
-      return getEquipoClasificadoPronosticado(picks, p.partido_id);
-    }
-    // 'perdedor' pronosticado: el que NO gana el cruce según el jugador
-    const ganadorPron = getEquipoClasificadoPronosticado(picks, p.partido_id);
+  };
+  const obtenerLadoPron = (matchId) => {
+    const pronostico = picks.find(p => p.partido_id === matchId);
+    if (!pronostico) return null;
+    if (lado === 'ganador') return getEquipoClasificadoPronosticado(picks, matchId);
+    // 'perdedor' pronosticado: el lado contrario al ganador que predijo el jugador
+    const ganadorPron = getEquipoClasificadoPronosticado(picks, matchId);
     if (!ganadorPron) return null;
-    return normEquipo(ganadorPron) === normEquipo(p.equipoA) ? p.equipoB : p.equipoA;
-  }).filter(Boolean);
+    return normEquipo(ganadorPron) === normEquipo(pronostico.equipoA) ? pronostico.equipoB : pronostico.equipoA;
+  };
 
-  // ── Comparar lista vs bolsa (anti-duplicado: cada equipo real absorbe solo 1 acierto) ──
+  const listaPron = matchIdsRondaAnterior.map(matchId => obtenerLadoPron(matchId)).filter(Boolean);
+  const listaRealNorm = matchIdsRondaAnterior
+    .map(matchId => obtenerLado(matchId))
+    .filter(Boolean)
+    .map(normEquipo);
+
   let aciertos = 0;
-  const bolsaUsada = [...listaRealBolsa];
   listaPron.forEach(eq => {
-    const normEq = normEquipo(eq);
-    const idx = bolsaUsada.indexOf(normEq);
-    if (idx !== -1) {
-      aciertos++;
-      bolsaUsada.splice(idx, 1);
-    }
+    if (listaRealNorm.includes(normEquipo(eq))) aciertos++;
   });
   return { pts: aciertos * ptsPorAcierto, aciertos };
 }
 
 // ── RANKING ──
-// Cache del ranking — se invalida solo cuando llegan datos nuevos (loadData)
-let _rankingCache = null;
-let _rankingCacheKey = '';
-
-function invalidateRankingCache() { _rankingCache = null; _rankingCacheKey = ''; }
-
 function buildRanking() {
-  // Clave rápida de cache: número de partidos con resultado + playoffWinners serializado
-  const cacheKey = (state.partidos || []).filter(p => p.gL !== '').length + '|' + JSON.stringify(playoffWinners);
-  if (_rankingCache && _rankingCacheKey === cacheKey) return _rankingCache;
-  _rankingCacheKey = cacheKey;
-
   return state.players.map(jugador => {
     const picks = state.pronosticos.filter(p => p.jugador === jugador);
     let ptsGrupos = 0, exactos = 0, signos = 0, fallos = 0, jugados = 0;
@@ -3735,12 +2797,10 @@ function showDetalle(jugador, concepto) {
       const pick = picks.find(p => p.partido_id === partido.id);
       if (!pick) return;
       const { pts, tipo, detalle } = calcPoints(pick.gL, pick.gV, partido.gL, partido.gV, partido.fase, partido.bonus);
-      if (tipo === 'pending') return; // resultado real todavía no disponible
-      const pronStr = (pick.gL !== '' && pick.gV !== '') ? `${pick.gL}-${pick.gV}` : '?-?';
+      if (tipo === 'pending') return;
       filas.push({
-        label: `${getFlag(partido.local)} ${partido.local} ${pronStr} ${partido.visitante} ${getFlag(partido.visitante)}`,
-        pts,
-        sub: detalle || (tipo === 'miss' ? `fallo · real ${partido.gL}-${partido.gV}` : tipo === 'sin_pronostico' ? 'sin pronóstico' : '')
+        label: `${getFlag(partido.local)} ${partido.local} ${pick.gL}-${pick.gV} ${partido.visitante} ${getFlag(partido.visitante)}`,
+        pts, sub: detalle || (tipo==='miss' ? 'fallo' : '')
       });
     });
   }
@@ -3877,26 +2937,17 @@ function showDetalle(jugador, concepto) {
       matchIds.forEach(matchId => {
         const pronostico = picks.find(p => p.partido_id === matchId);
         const real = getPlayoffPartidoResuelto(matchId);
-        const best = findBestMatchingPronostico(real, faseKey, pronosRonda);
         const { pts: ptsResultado, tipo } = calcPlayoffMatchPoints(pronostico, real, faseKey, pronosRonda);
-        if (!real || real.gL === '' || real.gV === '') return;
-
-        // Si el mejor pronóstico del cruce está en otro slot, usar ESE en el detalle.
-        const shownPick = best?.cand || pronostico;
-        if (!shownPick || !shownPick.equipoA) return;
-
-        const shownScoreL = shownPick.gL || '?';
-        const shownScoreV = shownPick.gV || '?';
-        const label = `${getFlag(shownPick.equipoA)} ${shownPick.equipoA} ${shownScoreL}-${shownScoreV} ${shownPick.equipoB} ${getFlag(shownPick.equipoB)}`;
-
-        let sub = '';
-        if (best && best.resultado.pts > 0) {
-          sub = shownPick.partido_id === matchId ? 'resultado del cruce' : `cruce acertado en ${shownPick.partido_id}`;
-          filas.push({ label, pts: best.resultado.pts, sub });
-        } else if (pronostico && pronostico.equipoA) {
-          sub = tipo === 'cruce_fallado' ? `cruce distinto al real (${real.local} vs ${real.visitante})` : 'resultado fallado';
-          const fallbackLabel = `${getFlag(pronostico.equipoA)} ${pronostico.equipoA} ${pronostico.gL||'?'}-${pronostico.gV||'?'} ${pronostico.equipoB} ${getFlag(pronostico.equipoB)}`;
-          filas.push({ label: fallbackLabel, pts: 0, sub });
+        if (pronostico && pronostico.equipoA) {
+          const label = `${getFlag(pronostico.equipoA)} ${pronostico.equipoA} ${pronostico.gL||'?'}-${pronostico.gV||'?'} ${pronostico.equipoB} ${getFlag(pronostico.equipoB)}`;
+          if (ptsResultado > 0) {
+            const pronA = normEquipo(pronostico.equipoA), pronB = normEquipo(pronostico.equipoB);
+            const realL = normEquipo(real.local), realV = normEquipo(real.visitante);
+            const esteSlotCoincide = (pronA===realL && pronB===realV) || (pronA===realV && pronB===realL);
+            filas.push({ label, pts: ptsResultado, sub: esteSlotCoincide ? 'resultado del cruce' : 'cruce acertado en otro cajón del cuadro' });
+          } else if (real && real.gL !== '') {
+            filas.push({ label, pts: 0, sub: tipo === 'cruce_fallado' ? 'cruce distinto al real' : 'resultado fallado' });
+          }
         }
       });
     }
@@ -3908,53 +2959,33 @@ function showDetalle(jugador, concepto) {
     if (modo === 'equipo') {
       const RONDA_ANTERIOR = { octavos: 0, cuartos: 1, semifinal: 2 };
       if (concepto2 in RONDA_ANTERIOR) {
-        // Misma lógica que calcEquiposRondaPosterior: lista pronosticada vs
-        // lista real — el acierto cuenta sin importar en qué cruce esté.
+        // Para "Equipos X" sumamos TODOS los equipos que pasen de ronda,
+        // independientemente del slot exacto donde el jugador los puso.
         const matchIdsAnterior = RONDAS_ELIMINATORIA[RONDA_ANTERIOR[concepto2]].matchIds;
         const faseAnterior = RONDAS_ELIMINATORIA[RONDA_ANTERIOR[concepto2]].faseKey;
         const ptsClasif = CONFIG.PTS[faseAnterior]?.clasificado || 0;
 
-        // Lista real: qué equipos avanzaron realmente
         const listaReal = matchIdsAnterior.map(id => getEquipoClasificadoRealEstricto(id)).filter(Boolean);
         const listaRealNorm = listaReal.map(normEquipo);
 
-        // Lista pronosticada: qué equipo predijo el jugador que ganaría cada cruce
-        // (buscando en toda la ronda, no solo en el slot exacto)
-        const listaPron = matchIdsAnterior.map(id => {
-          const p = getEquipoClasificadoPronosticadoEnRonda(picks, id, matchIdsAnterior, faseAnterior);
-          return p ? { equipo: p, matchId: id } : null;
-        }).filter(Boolean);
+        // Todos los picks del jugador en esa ronda, no solo el slot exacto.
+        const picksRonda = picks.filter(p => matchIdsAnterior.includes(p.partido_id));
+        const listaPron = picksRonda.map(p => getEquipoClasificadoPronosticado(picks, p.partido_id)).filter(Boolean);
 
-        // Para cada pronóstico, marcar si coincide con algún equipo real
         const realesUsados = new Set();
-        listaPron.forEach(({ equipo: pron, matchId }) => {
+        listaPron.forEach(pron => {
           const normPron = normEquipo(pron);
           const coincide = listaRealNorm.includes(normPron) && !realesUsados.has(normPron);
-          if (coincide) realesUsados.add(normPron);
-          const realMatchEquipo = getEquipoClasificadoRealEstricto(matchId);
-          filas.push({
-            label: `${getFlag(pron)} ${pron} avanza (pronóstico)`,
-            pts: coincide ? ptsClasif : 0,
-            sub: coincide
-              ? `✓ clasificado a ${concepto2 === 'octavos' ? 'octavos' : concepto2 === 'cuartos' ? 'cuartos' : 'semifinal'}`
-              : realMatchEquipo
-                ? `real en este slot: ${getFlag(realMatchEquipo)} ${realMatchEquipo}`
-                : 'resultado pendiente'
-          });
-        });
-
-        // Equipos reales que avanzaron sin ningún pronóstico del jugador
-        listaReal.forEach(eq => {
-          if (!realesUsados.has(normEquipo(eq))) {
-            const yaEnPron = listaPron.some(p => normEquipo(p.equipo) === normEquipo(eq));
-            if (!yaEnPron) {
-              filas.push({ label: `${getFlag(eq)} ${eq} avanzó (sin pronóstico)`, pts: 0, sub: 'no pronosticado' });
-            }
+          if (coincide) {
+            realesUsados.add(normPron);
+            filas.push({
+              label: `${getFlag(pron)} ${pron} avanza de ronda`,
+              pts: ptsClasif,
+              sub: `✓ clasificado a ${concepto2 === 'octavos' ? 'octavos' : concepto2 === 'cuartos' ? 'cuartos' : 'semifinal'}`
+            });
           }
         });
-
       } else if (concepto2 === 'final') {
-        // Equipos Final: ganadores de semis → lista vs lista
         const semiIds = ['semis-1','semis-2'];
         const ptsF = CONFIG.PTS['Semifinal']?.clasificado_final || 0;
         const listaRealF = semiIds.map(id => getEquipoClasificadoRealEstricto(id)).filter(Boolean);
@@ -3965,17 +2996,16 @@ function showDetalle(jugador, concepto) {
           if (!pron) return;
           const normPron = normEquipo(pron);
           const coincide = listaRealNormF.includes(normPron) && !realesUsadosF.has(normPron);
-          if (coincide) realesUsadosF.add(normPron);
-          const realSlot = getEquipoClasificadoRealEstricto(matchId);
-          filas.push({
-            label: `${getFlag(pron)} ${pron} finalista`,
-            pts: coincide ? ptsF : 0,
-            sub: coincide ? 'clasificado a la final ✓' : realSlot ? `real en slot: ${getFlag(realSlot)} ${realSlot}` : 'resultado pendiente'
-          });
+          if (coincide) {
+            realesUsadosF.add(normPron);
+            filas.push({
+              label: `${getFlag(pron)} ${pron} finalista`,
+              pts: ptsF,
+              sub: 'clasificado a la final ✓'
+            });
+          }
         });
-
       } else if (concepto2 === 'tercerPuesto') {
-        // Equipos 3-4: perdedores de semis → lista vs lista
         const semiIds = ['semis-1','semis-2'];
         const ptsT = CONFIG.PTS['Semifinal']?.clasificado_3y4 || 0;
         const perdedoresReales = semiIds.map(matchId => {
@@ -3989,26 +3019,20 @@ function showDetalle(jugador, concepto) {
         semiIds.forEach(matchId => {
           const ganadorPron = getEquipoClasificadoPronosticadoEnRonda(picks, matchId, semiIds, 'Semifinal');
           if (!ganadorPron) return;
-          const partido = getPlayoffPartidoResuelto(matchId) || {};
-          const pronostico = picks.find(p => p.partido_id === matchId) ||
-            semiIds.map(id => picks.find(p => p.partido_id === id && p.equipoA)).find(p => {
-              if (!p || !p.equipoA) return false;
-              const rL = normEquipo(partido.local||''), rV = normEquipo(partido.visitante||'');
-              const pA = normEquipo(p.equipoA), pB = normEquipo(p.equipoB);
-              return (pA===rL&&pB===rV)||(pA===rV&&pB===rL);
-            });
+          const pronostico = picks.find(p => p.partido_id === matchId);
           if (!pronostico) return;
           const perdedorPron = normEquipo(ganadorPron) === normEquipo(pronostico.equipoA) ? pronostico.equipoB : pronostico.equipoA;
           if (!perdedorPron) return;
           const normPerd = normEquipo(perdedorPron);
           const coincide = perdedoresNorm.includes(normPerd) && !realesUsadosT.has(normPerd);
-          if (coincide) realesUsadosT.add(normPerd);
-          const ganadorReal = getEquipoClasificadoRealEstricto(matchId);
-          filas.push({
-            label: `${getFlag(perdedorPron)} ${perdedorPron} a 3º/4º puesto`,
-            pts: coincide ? ptsT : 0,
-            sub: coincide ? 'clasificado al partido de consolación ✓' : ganadorReal ? `real: pasó ${getFlag(ganadorReal)} ${ganadorReal}` : 'resultado pendiente'
-          });
+          if (coincide) {
+            realesUsadosT.add(normPerd);
+            filas.push({
+              label: `${getFlag(perdedorPron)} ${perdedorPron} a 3º/4º puesto`,
+              pts: ptsT,
+              sub: 'clasificado al partido de consolación ✓'
+            });
+          }
         });
       }
     }
@@ -4051,40 +3075,7 @@ function showDetalle(jugador, concepto) {
     });
   }
 
-  // Usar el total oficial de buildRanking cuando esté disponible
-  // para garantizar que el modal muestra exactamente lo mismo que la celda.
-  let total = filas.reduce((s, f) => s + f.pts, 0);
-  if (concepto === 'grupos') {
-    const rr = buildRanking().find(x => x.nombre === jugador);
-    if (rr) total = rr.ptsGrupos;
-  } else if (concepto === 'total') {
-    const rr = buildRanking().find(x => x.nombre === jugador);
-    if (rr) total = rr.pts;
-  } else {
-    const rr = buildRanking().find(x => x.nombre === jugador);
-    if (rr) {
-      const mapaTotales = {
-        posGrupos: rr.ptsPosGrupos,
-        equipos116: rr.ptsEquipos116,
-        partidos16: rr.dieciseisavos?.resultado,
-        equipos8: rr.octavos?.equipo,
-        partidos8: rr.octavos?.resultado,
-        equipos4: rr.cuartos?.equipo,
-        partidos4: rr.cuartos?.resultado,
-        equipos2: rr.semifinal?.equipo,
-        partidos2: rr.semifinal?.resultado,
-        equipos34: rr.tercerPuesto?.equipo,
-        partido34: rr.tercerPuesto?.resultado,
-        equiposFinal: rr.final?.equipo,
-        partidoFinal: rr.final?.resultado,
-        predicciones: rr.ptsPredicciones,
-        premios: rr.ptsPremios,
-      };
-      if (Object.prototype.hasOwnProperty.call(mapaTotales, concepto) && mapaTotales[concepto] != null) {
-        total = mapaTotales[concepto];
-      }
-    }
-  }
+  const total = filas.reduce((s, f) => s + f.pts, 0);
 
   let bodyHtml = filas.length
     ? filas.map(f => `<div class="detalle-row ${f.pts===0?'detalle-zero':''}">
@@ -4428,17 +3419,6 @@ function getSlotLabel(slot) {
 // Si tiene gL/gV con resultado, el cruce queda FIJADO (no clicable) y el
 // ganador avanza automáticamente. Si no tiene resultado, se muestran los
 // nombres reales pero el partido sigue pendiente.
-//
-// EMPATE RESUELTO POR PENALTIS: en eliminatoria un empate en gL/gV no es
-// un resultado final por sí solo — si el partido se decidió en la tanda
-// de penaltis, añade el campo opcional "penaltis" con el valor "local" o
-// "visitante" indicando quién pasó de ronda:
-//   { "match":"R16-5", "gL":"1", "gV":"1", "penaltis":"visitante", ... }
-// El marcador (gL/gV) sigue siendo el resultado real del partido (90/120
-// min) para puntuar el pronóstico de signo/diferencia/exacto — "penaltis"
-// solo decide quién avanza a la siguiente ronda. Sin este campo, un
-// empate se trata como "todavía sin determinar quién avanza" (ver
-// resolverGanadorPartido).
 function getPlayoffPartidoFijado(matchId) {
   const lista = state.playoffPartidos || [];
   return lista.find(p => p.match === matchId) || null;
@@ -4479,18 +3459,15 @@ function getPlayoffPartidoResuelto(matchId) {
 // para partidos que NO están fijados por un resultado real en resultados.json).
 const PLAYOFF_STORAGE_KEY = 'porra_playoff_winners_' + (CONFIG.NOMBRE || 'default');
 
-let _playoffWinnersMemory = {};
 function loadPlayoffWinners() {
   try {
     const raw = localStorage.getItem(PLAYOFF_STORAGE_KEY);
-    if (raw) _playoffWinnersMemory = JSON.parse(raw);
-  } catch(e) { /* sandbox iframe — ignorar */ }
-  return _playoffWinnersMemory;
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
 }
 
 function savePlayoffWinners(winners) {
-  _playoffWinnersMemory = winners;
-  try { localStorage.setItem(PLAYOFF_STORAGE_KEY, JSON.stringify(winners)); } catch(e) { /* sandbox — ignorar */ }
+  try { localStorage.setItem(PLAYOFF_STORAGE_KEY, JSON.stringify(winners)); } catch(e) {}
 }
 
 let playoffWinners = loadPlayoffWinners();
@@ -5142,9 +4119,6 @@ function renderUpcomingEliminatoria() {
     const real = getPlayoffPartidoResuelto(matchId);
     const tieneResultadoReal = real && real.gL !== '' && real.gV !== '' && real.gL != null;
 
-    // Partidos ya jugados van a la pestaña "Jugados", no aquí
-    if (tieneResultadoReal) return '';
-
     // Nombre real del cruce: si ya hay un partido fijado, usamos esos
     // nombres; si no, los equipos calculados en vivo (1º/2º de grupo o
     // mejor tercero asignado). Si aún no se puede resolver (grupo
@@ -5162,56 +4136,15 @@ function renderUpcomingEliminatoria() {
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0">`;
 
-    // Todos los cruces reales de esta ronda para detectar coincidencia en ronda
-    const rondaDeEsteMatch = RONDAS_ELIMINATORIA.find(r => r.matchIds.includes(matchId));
-    const todosMatchIdsRonda = rondaDeEsteMatch ? rondaDeEsteMatch.matchIds : [];
-    const otrosMatchIdsRonda = todosMatchIdsRonda.filter(id => id !== matchId);
-
     picksDelCruce.forEach(pick => {
+      const rondaDeEsteMatch = RONDAS_ELIMINATORIA.find(r => r.matchIds.includes(matchId));
       const pronosRondaJugador = rondaDeEsteMatch
         ? state.pronosticos.filter(p => p.jugador === pick.jugador && rondaDeEsteMatch.matchIds.includes(p.partido_id))
         : null;
       const { pts, tipo } = calcPlayoffMatchPoints(pick, real, faseKey, pronosRondaJugador);
       const colorResultado = tipo === 'exact' ? 'var(--lime)' : tipo === 'sign' ? '#9fc050' : tieneResultadoReal ? 'var(--red)' : 'var(--white)';
       const ptsTag = tieneResultadoReal ? `<div style="font-size:0.65rem;font-weight:700;color:${pts>0?'var(--lime)':'var(--muted)'};margin-top:0.15rem">${pts>0?'+'+pts:'0'}pts</div>` : '';
-
-      // ── Detección de coincidencia de equipos con el cruce real ──
-      const normA = normEquipo(pick.equipoA), normB = normEquipo(pick.equipoB);
-      const normRA = normEquipo(equipoRealA), normRB = normEquipo(equipoRealB);
-      const esEquipoReal = equipoRealA !== '?' && equipoRealB !== '?';
-
-      // 1) Coincide EXACTO: los mismos dos equipos en este slot
-      const matchExacto = esEquipoReal && ((normA === normRA && normB === normRB) || (normA === normRB && normB === normRA));
-
-      // 2) Coincide en RONDA: los mismos equipos están en otro slot de la ronda
-      let matchRonda = false;
-      if (!matchExacto && esEquipoReal) {
-        matchRonda = otrosMatchIdsRonda.some(otherId => {
-          const otroReal = getPlayoffPartidoResuelto(otherId);
-          const infoOtro = cruceInfoPorMatch[otherId];
-          const oA = normEquipo((otroReal && otroReal.local) || infoOtro?.teamA || '');
-          const oB = normEquipo((otroReal && otroReal.visitante) || infoOtro?.teamB || '');
-          if (!oA || !oB) return false;
-          return (normA === oA && normB === oB) || (normA === oB && normB === oA);
-        });
-      }
-
-      // Estilos de borde según coincidencia
-      let cardBorder = '1px solid var(--border)';
-      let cardBg = 'transparent';
-      let cardBadge = '';
-      if (matchExacto) {
-        cardBorder = '2px solid var(--gold)';
-        cardBg = 'oklch(from var(--gold) l c h / 0.08)';
-        cardBadge = `<div style="font-size:0.55rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">✓ cruce exacto</div>`;
-      } else if (matchRonda) {
-        cardBorder = '2px solid #e07c2a';
-        cardBg = 'oklch(from #e07c2a l c h / 0.08)';
-        cardBadge = `<div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>`;
-      }
-
-      bloque += `<div style="padding:0.6rem 0.6rem;border-right:${cardBorder};border-bottom:${cardBorder};border-top:${matchExacto||matchRonda?cardBorder:'1px solid var(--border)'};border-left:${matchExacto||matchRonda?cardBorder:'1px solid var(--border)'};background:${cardBg};text-align:center;margin:${matchExacto||matchRonda?'2px':'0'};border-radius:${matchExacto||matchRonda?'4px':'0'}">
-        ${cardBadge}
+      bloque += `<div style="padding:0.6rem 0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
         <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pick.jugador}</div>
         <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(pick.equipoA)} ${pick.equipoA}<br>${getFlag(pick.equipoB)} ${pick.equipoB}</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorResultado};margin-top:0.2rem">${pick.gL||'?'}–${pick.gV||'?'}</div>
@@ -5238,125 +4171,6 @@ function renderUpcomingEliminatoria() {
   }
 
   container.innerHTML = html || '<div class="loading">Todavía no hay pronósticos de eliminatoria cargados.</div>';
-}
-
-function renderJugadosEliminatoria() {
-  const container = document.getElementById('jugados-eliminatoria-content');
-  if (!container) return;
-
-  const NOMBRES_RONDA = { dieciseisavos:'Dieciseisavos', octavos:'Octavos', cuartos:'Cuartos', semifinal:'Semifinal', final:'Final' };
-  const rounds = buildPlayoffRounds();
-  const cruceInfoPorMatch = {};
-  rounds.flat().forEach(m => { cruceInfoPorMatch[m.id] = m; });
-
-  let html = '';
-
-  RONDAS_ELIMINATORIA.forEach(ronda => {
-    let seccion = '';
-    ronda.matchIds.forEach(matchId => {
-      const real = getPlayoffPartidoResuelto(matchId);
-      if (!real || real.gL === '' || real.gV === '' || real.gL == null) return;
-
-      const info = cruceInfoPorMatch[matchId];
-      const equipoA = real.local || info?.teamA || '?';
-      const equipoB = real.visitante || info?.teamB || '?';
-      const pronosRonda = state.pronosticos.filter(p =>
-        p.jugador !== '_resultados' && ronda.matchIds.includes(p.partido_id)
-      );
-      const picksDelCruce = state.pronosticos.filter(p =>
-        p.partido_id === matchId && p.jugador !== '_resultados' && p.equipoA
-      );
-
-      seccion += `<div style="margin-bottom:1.2rem">
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-          <div style="padding:0.6rem 1rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--white)">${getFlag(equipoA)} ${equipoA} <span style="color:var(--muted)">vs</span> ${equipoB} ${getFlag(equipoB)}</span>
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--gold)">${real.gL}–${real.gV}${real.penaltis ? ' <span style="font-size:0.7rem;color:var(--muted)">(pen.)</span>' : ''}</span>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0">`;
-
-      state.players.forEach(jugador => {
-        const pronosRondaJugador = pronosRonda.filter(p => p.jugador === jugador);
-        const pick = picksDelCruce.find(p => p.jugador === jugador);
-        if (!pick) {
-          // Buscar si el cruce está pronosticado en otro slot de la ronda
-          const bestOtro = findBestMatchingPronostico(real, ronda.faseKey, pronosRondaJugador);
-          if (!bestOtro) {
-            seccion += `<div style="padding:0.6rem 0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;opacity:0.45">
-              <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem">${jugador}</div>
-              <div style="font-size:0.72rem;color:var(--muted)">sin pronóstico</div>
-            </div>`;
-            return;
-          }
-          // Tiene el cruce en otro slot — mostrar ese pick
-          const sp = bestOtro.cand;
-          const colorRes = bestOtro.resultado.tipo === 'exact' ? 'var(--lime)' : bestOtro.resultado.tipo === 'sign' ? '#9fc050' : 'var(--red)';
-          seccion += `<div style="padding:0.6rem 0.6rem;border:2px solid #e07c2a;background:oklch(from #e07c2a l c h / 0.08);border-radius:4px;margin:2px;text-align:center">
-            <div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>
-            <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${jugador}</div>
-            <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(sp.equipoA)} ${sp.equipoA}<br>${getFlag(sp.equipoB)} ${sp.equipoB}</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorRes};margin-top:0.2rem">${sp.gL||'?'}–${sp.gV||'?'}</div>
-            <div style="font-size:0.65rem;font-weight:700;color:${bestOtro.resultado.pts>0?'var(--lime)':'var(--muted)'};margin-top:0.1rem">${bestOtro.resultado.pts>0?'+'+bestOtro.resultado.pts+'pts':'0pts'}</div>
-          </div>`;
-          return;
-        }
-        const best = findBestMatchingPronostico(real, ronda.faseKey, pronosRondaJugador);
-        const { pts, tipo } = calcPlayoffMatchPoints(pick, real, ronda.faseKey, pronosRondaJugador);
-        const shownPick = best?.cand || pick;
-        const colorRes = tipo === 'exact' ? 'var(--lime)' : tipo === 'sign' ? '#9fc050' : 'var(--red)';
-        // shownPick puede ser del slot correcto (cruce exacto) o del mejor slot de ronda
-        const esSlotCorrecto = shownPick.partido_id === matchId;
-        const cardStyle = esSlotCorrecto
-          ? 'border:2px solid var(--gold);background:oklch(from var(--gold) l c h / 0.08);border-radius:4px;margin:2px'
-          : 'border:2px solid #e07c2a;background:oklch(from #e07c2a l c h / 0.08);border-radius:4px;margin:2px';
-        const cardBadge = esSlotCorrecto
-          ? `<div style="font-size:0.55rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">✓ cruce exacto</div>`
-          : `<div style="font-size:0.55rem;font-weight:700;color:#e07c2a;letter-spacing:0.04em;margin-bottom:0.2rem;text-transform:uppercase">≈ otro slot</div>`;
-        seccion += `<div style="padding:0.6rem 0.6rem;${cardStyle};text-align:center">
-          ${cardBadge}
-          <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${jugador}</div>
-          <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(shownPick.equipoA)} ${shownPick.equipoA}<br>${getFlag(shownPick.equipoB)} ${shownPick.equipoB}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorRes};margin-top:0.2rem">${shownPick.gL||'?'}–${shownPick.gV||'?'}</div>
-          <div style="font-size:0.65rem;font-weight:700;color:${pts>0?'var(--lime)':'var(--muted)'};margin-top:0.1rem">${pts>0?'+'+pts+'pts':'0pts'}</div>
-        </div>`;
-      });
-
-      seccion += `</div></div></div>`;
-    });
-
-    if (seccion) html += `<div class="section-label">${NOMBRES_RONDA[ronda.key]}</div>${seccion}`;
-  });
-
-  // 3.º y 4.º puesto
-  const real3 = getPlayoffPartidoResuelto('tercer-1');
-  if (real3 && real3.gL !== '' && real3.gL != null) {
-    const picks3 = state.pronosticos.filter(p => p.partido_id === 'tercer-1' && p.jugador !== '_resultados' && p.equipoA);
-    let sec3 = `<div style="margin-bottom:1.2rem"><div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-      <div style="padding:0.6rem 1rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:var(--white)">${getFlag(real3.local)} ${real3.local} <span style="color:var(--muted)">vs</span> ${real3.visitante} ${getFlag(real3.visitante)}</span>
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--gold)">${real3.gL}–${real3.gV}</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0">`;
-    state.players.forEach(jugador => {
-      const pick = picks3.find(p => p.jugador === jugador);
-      if (!pick) {
-        sec3 += `<div style="padding:0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;opacity:0.45"><div style="font-size:0.68rem;color:var(--muted);font-weight:600">${jugador}</div><div style="font-size:0.72rem;color:var(--muted)">sin pronóstico</div></div>`;
-        return;
-      }
-      const { pts, tipo } = calcPlayoffMatchPoints(pick, real3, '3er puesto', null);
-      const colorRes = tipo === 'exact' ? 'var(--lime)' : tipo === 'sign' ? '#9fc050' : 'var(--red)';
-      sec3 += `<div style="padding:0.6rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center">
-        <div style="font-size:0.68rem;color:var(--muted);font-weight:600;margin-bottom:0.3rem">${jugador}</div>
-        <div style="font-size:0.66rem;color:var(--white);line-height:1.3">${getFlag(pick.equipoA)} ${pick.equipoA}<br>${getFlag(pick.equipoB)} ${pick.equipoB}</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:${colorRes};margin-top:0.2rem">${pick.gL||'?'}–${pick.gV||'?'}</div>
-        <div style="font-size:0.65rem;font-weight:700;color:${pts>0?'var(--lime)':'var(--muted)'};margin-top:0.1rem">${pts>0?'+'+pts+'pts':'0pts'}</div>
-      </div>`;
-    });
-    sec3 += `</div></div></div>`;
-    html += `<div class="section-label">3.º y 4.º puesto</div>${sec3}`;
-  }
-
-  container.innerHTML = html || '<div class="loading" style="padding:2rem;text-align:center;color:var(--muted)">Todavía no hay partidos eliminatorios disputados.</div>';
 }
 
 // ── PREDICCIONES FINALES ──
@@ -5441,19 +4255,9 @@ function renderAwards() {
 }
 
 // ── TABS ──
-// Variable global para persistir jugador seleccionado entre tabs
-let _lastSelectedPlayer = '';
-
 function switchTab(name, btn) {
-  // Persistir jugador seleccionado antes de cambiar de panel
-  const selEl = document.getElementById('player-selector');
-  if (selEl && selEl.value) _lastSelectedPlayer = selEl.value;
-
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => {
-    t.classList.remove('active');
-    t.setAttribute('aria-selected', 'false');
-  });
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + name).classList.add('active');
   btn.classList.add('active');
 }
@@ -5466,8 +4270,6 @@ function switchSubTab(panelName, subName, btn) {
   panel.querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
   document.getElementById('subpanel-' + panelName + '-' + subName).classList.add('active');
   btn.classList.add('active');
-  if (panelName === 'upcoming' && subName === 'jugados') renderJugadosEliminatoria();
-  if (panelName === 'upcoming' && subName === 'proximos') renderUpcomingEliminatoria();
 }
 
 // ── DEMO DATA (cuando no hay Sheet configurado) ──
