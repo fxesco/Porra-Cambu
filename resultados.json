@@ -489,18 +489,8 @@
       "match": "octavos-3",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
-      "fecha": "4 Jul",
-      "bonus": 1
-    },
-    {
-      "ronda": "Octavos",
-      "match": "octavos-2",
-      "local": "",
-      "visitante": "",
-      "gL": "0",
-      "gV": "3",
+      "gL": "1",
+      "gV": "2",
       "fecha": "4 Jul",
       "bonus": 1
     },
@@ -509,8 +499,8 @@
       "match": "octavos-4",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
+      "gL": "2",
+      "gV": "3",
       "fecha": "4 Jul",
       "bonus": 1
     },
