@@ -519,8 +519,8 @@
       "match": "octavos-6",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
+      "gL": "1",
+      "gV": "4",
       "fecha": "4 Jul",
       "bonus": 1
     },
@@ -529,8 +529,8 @@
       "match": "octavos-7",
       "local": "",
       "visitante": "Egipto",
-      "gL": "",
-      "gV": "",
+      "gL": "3",
+      "gV": "2",
       "fecha": "4 Jul",
       "bonus": 1
     },
