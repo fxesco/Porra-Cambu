@@ -545,7 +545,6 @@
       "fecha": "4 Jul",
       "bonus": 1
     },
-    
     {
       "ronda": "cuartos",
       "match": "cuartos-1",
@@ -555,7 +554,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "cuartos",
       "match": "cuartos-2",
@@ -565,7 +564,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "cuartos",
       "match": "cuartos-3",
@@ -575,7 +574,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "cuartos",
       "match": "cuartos-4",
@@ -585,7 +584,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "semis",
       "match": "semis-1",
@@ -595,7 +594,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "semis",
       "match": "semis-2",
@@ -605,7 +604,7 @@
       "gV": "",
       "fecha": "4 Jul",
       "bonus": 1
-    }
+    },
     {
       "ronda": "final",
       "match": "final-1",
