@@ -558,8 +558,8 @@
     {
       "ronda": "cuartos",
       "match": "cuartos-2",
-      "local": "",
-      "visitante": "",
+      "local": "2",
+      "visitante": "1",
       "gL": "",
       "gV": "",
       "fecha": "4 Jul",
