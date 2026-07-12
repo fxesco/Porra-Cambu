@@ -570,8 +570,8 @@
       "match": "cuartos-3",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
+      "gL": "1",
+      "gV": "2",
       "fecha": "4 Jul",
       "bonus": 1
     },
@@ -580,8 +580,8 @@
       "match": "cuartos-4",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
+      "gL": "3",
+      "gV": "1",
       "fecha": "4 Jul",
       "bonus": 1
     },
