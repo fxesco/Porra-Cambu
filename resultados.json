@@ -288,17 +288,17 @@
     "gV": "1"
   },
   "_predicciones": {
-    "campeon": "",
-    "subcampeon": "",
-    "tercero": ""
+    "campeon": "España",
+    "subcampeon": "Argentina",
+    "tercero": "Inglaterra"
   },
   "_premios": {
-    "bota_oro": "",
-    "bota_plata": "",
-    "bota_bronce": "",
-    "balon_oro": "",
-    "balon_plata": "",
-    "balon_bronce": ""
+    "bota_oro": "Mbappe",
+    "bota_plata": "Messi",
+    "bota_bronce": "Bellingham",
+    "balon_oro": "Rodri",
+    "balon_plata": "Messi",
+    "balon_bronce": "Mbappe"
   },
   "_playoff_partidos": [
     {
@@ -606,13 +606,23 @@
       "bonus": 1
     },
     {
+      "ronda": "tercer_puesto",
+      "match": "tercer-1",
+      "local": "",
+      "visitante": "",
+      "gL": "4",
+      "gV": "6",
+      "fecha": "18 Jul",
+      "bonus": 1
+    },
+    {
       "ronda": "final",
       "match": "final-1",
       "local": "",
       "visitante": "",
-      "gL": "",
-      "gV": "",
-      "fecha": "4 Jul",
+      "gL": "1",
+      "gV": "0",
+      "fecha": "19 Jul",
       "bonus": 1
     }
   ],
